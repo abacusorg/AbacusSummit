@@ -26,6 +26,10 @@ and 3 subsample lightcones.
 | AbacusSummit_base_c000_ph000       | 000  | 000     | 6912 | 2000      | 0.1     | Full         | Planck2018 LCDM |
 | AbacusSummit_base_c000_ph{001-005} | 000  | 001-005 | 6912 | 2000      | 0.1     | Partial+HiZ  | Planck2018 LCDM |
 | AbacusSummit_base_c000_ph{006-024} | 000  | 006-024 | 6912 | 2000      | 0.1     | none         | Planck2018 LCDM |
+| AbacusSummit_high_c000_ph100       | 000  | 100     | 6912 | 1000      | 0.8     | Full to 0.8  | High-res LCDM, no lightcone |
+| AbacusSummit_high_c000_ph100_base  | 000  | 100     | 3456 | 1000      | 0.8     | Full to 0.8  | Base-res LCDM, no lightcone |
+| AbacusSummit_huge_c000_ph100       | 000  | 200     | 10000| 8700      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
+| AbacusSummit_huge_c000_ph{000-024}_base | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
 | AbacusSummit_base_c001_ph000       | 001  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Low omega_c |
 | AbacusSummit_base_c001_ph{001-005} | 001  | 001-005 | 6912 | 2000      | 0.1     | Partial      | Low omega_c |
 | AbacusSummit_base_c002_ph000       | 002  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | wCDM w=-0.8? |
@@ -34,18 +38,17 @@ and 3 subsample lightcones.
 | AbacusSummit_base_c003_ph{001-005} | 003  | 001-005 | 6912 | 2000      | 0.1     | Partial      | TBD |
 | AbacusSummit_base_c004_ph000       | 004  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | TBD |
 | AbacusSummit_base_c004_ph{001-005} | 004  | 001-005 | 6912 | 2000      | 0.1     | Partial      | TBD |
-| AbacusSummit_high_c000_ph100       | 000  | 100     | 6912 | 1000      | 0.8     | Full to 0.8  | High-res LCDM, no lightcone |
-| AbacusSummit_high_c000_ph100_base  | 000  | 100     | 3456 | 1000      | 0.8     | Full to 0.8  | Base-res LCDM, no lightcone |
-| AbacusSummit_huge_c000_ph100       | 000  | 200     | 10000| 8700      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
-| AbacusSummit_huge_c000_ph{000-024}_base | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
+| AbacusSummit_base_c009_ph000       | 009  | 000     | 6912 | 2000      | 0.1     | Partial      | Baseline LCDM with massless neutrinos |
 | AbacusSummit_base_c010_ph000       | 010  | 000     | 6912 | 2000      | 0.1     | 0.1          | AbacusCosmos LCDM, Prototype |
 | AbacusSummit_base_c011_ph000       | 011  | 000     | 6912 | 2000      | 0.1     | none         | High-sigma8, Prototype |
-| AbacusSummit_base_c012_ph000       | 012  | 000     | 6912 | 2000      | 0.1     | none         | Euclid Flagship2 |
-| AbacusSummit_base_c013_ph000       | 013  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
-| AbacusSummit_base_c014_ph000       | 014  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
+| AbacusSummit_base_c012_ph000       | 012  | 000     | 6912 | 2000      | 0.1     | none         | Euclid Flagship1 |
+| AbacusSummit_base_c013_ph000       | 013  | 000     | 6912 | 2000      | 0.1     | none         | Euclid Flagship2 |
+| AbacusSummit_base_c014_ph000       | 014  | 000     | 6912 | 2000      | 0.1     | none         | OuterRim |
 | AbacusSummit_base_c015_ph000       | 015  | 000     | 6912 | 2000      | 0.1     | none         | Dark Sky |
 | AbacusSummit_base_c016_ph000       | 016  | 000     | 6912 | 2000      | 0.1     | none         | Horizon |
 | AbacusSummit_base_c017_ph000       | 017  | 000     | 6912 | 2000      | 0.1     | none         | Illustris |
+| AbacusSummit_base_c018_ph000       | 018  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
+| AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
 | AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
 | AbacusSummit_base_c{100-119}_ph000 | 100-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
 | AbacusSummit_base_c{130-199}_ph000 | 130-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |

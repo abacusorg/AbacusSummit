@@ -34,10 +34,11 @@ neutrinos as a smooth component.
 | abacus_cosm015     | DarkSky LCDM, sigma8=0.835                                           | 0.02215 |  0.1175   | 0.6880 | 2.1852e-9 | 0.9688 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm016     | Horizon Run 4 LCDM, sigma8=0.7937                                    | 0.02281 |  0.1120   | 0.7200 | 2.0996e-9 | 0.9600 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm017     | IllustrisTNG LCDM, sigma8=0.8159                                     | 0.02230 |  0.1194   | 0.6774 | 2.0671e-9 | 0.9667 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
+| abacus_cosm018     | MultiDark Planck LCDM, sigma8=0.8228                                 | 0.02214 |  0.1189   | 0.6777 | 2.1022e-9 | 0.9600 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 
 TODOs:
 
 Need to choose 3 other secondary cosmologies, at least one nonLCDM.  Probably one wCDM, one high Neff, one low S8.
 
-abacus_cosm018 = ANL LCDM
-abacus_cosm019 = ANL wCDM
+abacus_cosm019 = ANL LCDM
+abacus_cosm020 = ANL wCDM

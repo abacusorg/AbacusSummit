@@ -846,7 +846,7 @@ P_k_max_h/Mpc = 50.0
 # 3) value(s) 'z_pk' of redshift(s) for P(k,z) output file(s); can be ordered
 #    arbitrarily, but must be separated by comas (default: set 'z_pk' to 0)
 
-z_pk = 0.0, 1.0, 3.0, 7.0
+z_pk = 0.0, 1.0, 3.0, 7.0, 49.0
 #z_pk = 0., 1.2, 3.5
 
 # 4) if the code is interfaced with routines that need to interpolate P(k,z) at

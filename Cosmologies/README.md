@@ -21,10 +21,13 @@ We use the CDM+Baryon power spectrum at z=1 (z2_pk_cb) and scale back by D(z_ini
 to define our matter-dominated CDM-only simulation IC.  The growth function includes the
 neutrinos as a smooth component.
 
-| root               | notes                                                                | omega_b | omega_cdm | h      | A_s       | n_s    | alpha_s | N_ur   | N_ncdm | omega_ncdm | w0_fld | wa_fld | 
-| ------------------ | -----                                                                | ------- | --------- | ------ | --------- | ------ | ------- | ------ | ------ | ---------- |------- | ------ | 
+| root               | notes                                                                | omega_b | omega_cdm | h      | A_s       | n_s    | alpha_s | N_ur   | N_ncdm | omega_ncdm | w0_fld | wa_fld | sigma8 |
+| ------------------ | -----                                                                | ------- | --------- | ------ | --------- | ------ | ------- | ------ | ------ | ---------- |------- | ------ | ------ |
 | abacus_cosm000     | Baseline LCDM, Planck 2018 base_plikHM_TTTEEE_lowl_lowE_lensing mean | 0.02237 |  0.1200   | 0.6736 | 2.0830e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm001     | WMAP9+ACT+SPT LCDM, Calabrese++ 2017                                 | 0.02242 |  0.1134   | 0.7030 | 2.0376e-9 | 0.9638 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm002     | wCDM with thawing model w0 = -0.7, wa = -0.5                         | 0.02237 |  0.1200   | TBD    | 2.0830e-9 TBD | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm003     | Neff=3.70, from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO        | 0.02260 |  0.1291   | 0.7160 | 2.2438e-9 | 0.9876 | 0.0     | 2.6868 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm004     | Low sigma8_matter = 0.75, otherwise Baseline LCDM                    | 0.02237 |  0.1200   | 0.6736 | 1.7949e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm009     | Baseline LCDM with massless neutrinos matching omega_cb & sigma8_cb  | 0.02237 |  0.1200   | 0.6736 | 2.0417e-9 | 0.9649 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm010     | AbacusCosmos Planck LCDM cosmology                                   | 0.02222 |  0.1199   | 0.6726 | 2.100e-9  | 0.9652 | 0.0     | 3.04   | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm011     | AbacusCosmos Planck LCDM cosmology +10% in sigma8                    | 0.02222 |  0.1199   | 0.6726 | 2.541e-9  | 0.9652 | 0.0     | 3.04   | 0      | 0.0        | -1.0   | 0.0    | 
@@ -36,9 +39,14 @@ neutrinos as a smooth component.
 | abacus_cosm017     | IllustrisTNG LCDM, sigma8=0.8159                                     | 0.02230 |  0.1194   | 0.6774 | 2.0671e-9 | 0.9667 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm018     | MultiDark Planck LCDM, sigma8=0.8228                                 | 0.02214 |  0.1189   | 0.6777 | 2.1022e-9 | 0.9600 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 
-TODOs:
-
 Need to choose 3 other secondary cosmologies, at least one nonLCDM.  Probably one wCDM, one high Neff, one low S8.
 
-abacus_cosm019 = ANL LCDM
-abacus_cosm020 = ANL wCDM
+wCDM: Chose w0=-0.7, wa=-0.5 to be an extreme thawing model.
+
+Neff=3.70 cosmology: Took the chains from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO and averaged those in 3.595<nnu<3.90, chosen so that the weighted mean was 3.70.  Also standardized As to tau=0.0544.
+
+Low sigma8: Opted to drop the amplitude by about 7.7%, to make sigma8(matter)=0.75.  This is a pretty shift, but there's lots of ways to damp power.
+
+TODOs:
+
+Could include the cosmologies of the recent ANL big runs as abacus_cosm019..021.

@@ -25,7 +25,7 @@ neutrinos as a smooth component.
 | ------------------ | -----                                                                | ------- | --------- | ------ | --------- | ------ | ------- | ------ | ------ | ---------- |------- | ------ | ------ |
 | abacus_cosm000     | Baseline LCDM, Planck 2018 base_plikHM_TTTEEE_lowl_lowE_lensing mean | 0.02237 |  0.1200   | 0.6736 | 2.0830e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm001     | WMAP9+ACT+SPT LCDM, Calabrese++ 2017                                 | 0.02242 |  0.1134   | 0.7030 | 2.0376e-9 | 0.9638 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
-| abacus_cosm002     | wCDM with thawing model w0 = -0.7, wa = -0.5                         | 0.02237 |  0.1200   | TBD    | 2.0830e-9 TBD | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm002     | wCDM with thawing model w0 = -0.7, wa = -0.5                         | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm003     | Neff=3.70, from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO        | 0.02260 |  0.1291   | 0.7160 | 2.2438e-9 | 0.9876 | 0.0     | 2.6868 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm004     | Low sigma8_matter = 0.75, otherwise Baseline LCDM                    | 0.02237 |  0.1200   | 0.6736 | 1.7949e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm009     | Baseline LCDM with massless neutrinos matching omega_cb & sigma8_cb  | 0.02237 |  0.1200   | 0.6736 | 2.0417e-9 | 0.9649 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
@@ -38,6 +38,22 @@ neutrinos as a smooth component.
 | abacus_cosm016     | Horizon Run 4 LCDM, sigma8=0.7937                                    | 0.02281 |  0.1120   | 0.7200 | 2.0996e-9 | 0.9600 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm017     | IllustrisTNG LCDM, sigma8=0.8159                                     | 0.02230 |  0.1194   | 0.6774 | 2.0671e-9 | 0.9667 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm018     | MultiDark Planck LCDM, sigma8=0.8228                                 | 0.02214 |  0.1189   | 0.6777 | 2.1022e-9 | 0.9600 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
+| abacus_cosm100     | Baseline +2% ln(omega_b)                                             | 0.02282 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm101     | Baseline -2% ln(omega_b)                                             | 0.02193 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm102     | Baseline +3.3% ln(omega_c)                                           | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm103     | Baseline -3.3% ln(omega_c)                                           | 0.02237 |  0.1161   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm104     | Baseline +0.01 n_s                                                   | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9749 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm105     | Baseline -0.01 n_s                                                   | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9549 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm106     | Baseline +0.02 nrun                                                  | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.02    | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm107     | Baseline -0.02 nrun                                                  | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | -0.02   | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm108     | Baseline +0.1 w0                                                     | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -0.9   | 0.0    | 
+| abacus_cosm109     | Baseline -0.1 w0                                                     | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.1   | 0.0    | 
+| abacus_cosm110     | Baseline +0.4 wa, -0.1 w0                                            | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.1   | 0.4    | 
+| abacus_cosm111     | Baseline -0.4 wa, +0.1 w0                                            | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -0.9   | -0.4   | 
+| abacus_cosm112     | Baseline +2% sigma8                                                  | 0.02237 |  0.1200   | 0.6736 | 2.1672e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm113     | Baseline -2% sigma8                                                  | 0.02237 |  0.1200   | 0.6736 | 2.0021e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm114     | Baseline +0.3 nnu, +3.3% ln(omega_c), +0.01 n_s                      | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9749 | 0.0     | 2.3328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm115     | Baseline -0.3 nnu, -3.3% ln(omega_c), -0.01 n_s                      | 0.02237 |  0.1161   | TBD    | 2.TBD e-9 | 0.9549 | 0.0     | 1.7328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 
 Need to choose 3 other secondary cosmologies, at least one nonLCDM.  Probably one wCDM, one high Neff, one low S8.
 

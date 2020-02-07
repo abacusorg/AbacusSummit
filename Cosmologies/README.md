@@ -64,7 +64,7 @@ Neff=3.70 cosmology: Took the chains from base_nnu_plikHM_TT_lowl_lowE_Riess18_p
 Low sigma8: Opted to drop the amplitude by about 7.7%, to make sigma8(matter)=0.75.  This is a pretty shift, but there's lots of ways to damp power.
 
 For the grid of positive/negative excursions for linear derivatives around the baseline LCDM, we opted for the simplicity of 
-rectalinear derivatives in ln(omega_b), ln(omega_c), ns, nrun, sigma8, w0.  Note that we treat sigma8, not As, as the independent variable,
+rectalinear derivatives in ln(omega_b), ln(omega_c), ns, nrun, sigma8_m, w0.  Note that we treat sigma8_m, not As, as the independent variable,
 in the expectation that this will keep large-scale structure closer to constant.  
 For wa, we opt to hold w(z=0.333)=w0+0.25*wa fixed, close to the mirage model.  
 For Neff, the Planck chains suggested substantial degeneracies with omegac and ns, so we opt to move these two along

@@ -21,8 +21,8 @@ We use the CDM+Baryon power spectrum at z=1 (z2_pk_cb) and scale back by D(z_ini
 to define our matter-dominated CDM-only simulation IC.  The growth function includes the
 neutrinos as a smooth component.
 
-| root               | notes                                                                | omega_b | omega_cdm | h      | A_s       | n_s    | alpha_s | N_ur   | N_ncdm | omega_ncdm | w0_fld | wa_fld | sigma8 |
-| ------------------ | -----                                                                | ------- | --------- | ------ | --------- | ------ | ------- | ------ | ------ | ---------- |------- | ------ | ------ |
+| root               | notes                                                                | omega_b | omega_cdm | h      | A_s       | n_s    | alpha_s | N_ur   | N_ncdm | omega_ncdm | w0_fld | wa_fld | sigma8_m | sigma8_cb |
+| ------------------ | -----                                                                | ------- | --------- | ------ | --------- | ------ | ------- | ------ | ------ | ---------- |------- | ------ | -------- | --------- |
 | abacus_cosm000     | Baseline LCDM, Planck 2018 base_plikHM_TTTEEE_lowl_lowE_lensing mean | 0.02237 |  0.1200   | 0.6736 | 2.0830e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm001     | WMAP9+ACT+SPT LCDM, Calabrese++ 2017                                 | 0.02242 |  0.1134   | 0.7030 | 2.0376e-9 | 0.9638 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm002     | wCDM with thawing model w0 = -0.7, wa = -0.5                         | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 

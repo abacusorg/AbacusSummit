@@ -55,7 +55,9 @@ neutrinos as a smooth component.
 | abacus_cosm114     | Baseline +0.3 nnu, +3.3% ln(omega_c), +0.01 n_s                      | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9749 | 0.0     | 2.3328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm115     | Baseline -0.3 nnu, -3.3% ln(omega_c), -0.01 n_s                      | 0.02237 |  0.1161   | TBD    | 2.TBD e-9 | 0.9549 | 0.0     | 1.7328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 
-Need to choose 3 other secondary cosmologies, at least one nonLCDM.  Probably one wCDM, one high Neff, one low S8.
+----
+
+We choose 3 other secondary cosmologies, at least one nonLCDM.  Probably one wCDM, one high Neff, one low S8.
 
 wCDM: Chose w0=-0.7, wa=-0.5 to be an extreme thawing model.
 
@@ -72,4 +74,12 @@ with Neff to stay close to the CMB degeneracy direction.
 
 TODOs:
 
-Could include the cosmologies of the recent ANL big runs as abacus_cosm019..021.
+Need to decide whether to include another 16-point set of sims for the derivatives around the Neff=3.7 run.  That would allow us to measure the second derivatives vs Neff.
+
+Then we need to fill out the 5-sigma ellipsoid in the ln(omega_b), ln(omega_c), ns, nrun, sigma8_m, w0, wa space, holding the angular acoustic scale constant to fix H and inflating the variance in sigma8.  Probably will cap sigma8 at 0.9, just to avoid concerns about too much clustering given certain simulation choices.
+
+Could run the cosmologies of the recent ANL big runs as abacus_cosm019..021.
+
+We would like to include a BDE model.
+
+We'd like to include one or more runs with neutrinos treated in the LRA.

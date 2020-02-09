@@ -24,15 +24,17 @@ to the next, etc.
 |  ...   |    ...  |   ...   |  ...  |   ...   |
 """
 import numpy as np
-import csv
 import re
 import sys
 import argparse
+import os
 
 stringNames = ['notes','root']
 commentedParam = ['notes']
 rootParam = 'root'
-cosmology_table = '../Cosmologies/README.md'
+cosmo_dir = '../Cosmologies/'
+cosmology_table = cosmo_dir+'README.txt'
+sigma8 = ['sigma8_m','sigma8_cb']
 
 def main(table):
     # parameter names and row where they can be found
@@ -60,6 +62,8 @@ def list_param_names(fn):
     paramNames = re.split('\s*\|\s*',paramLine)
     
     assert rootParam in paramNames, "You are either lacking a column with the root name or it is not called "+rootParam
+    # ignore the sigma8 columns as they cannot be given as input to class
+    for s8 in sigma8: paramNames.remove(s8)
     return paramNames, parRow
 
 def read_table(paramNames,fn,namesRow):
@@ -96,8 +100,9 @@ def write_ini(Params,numCosm):
     for iCosm in range(numCosm):
         # Create file with name root
         paramNames = Params.dtype.names
-        if Params[rootParam][-1:] != '.': Params[rootParam][iCosm] += '.'
-        wfn = Params[rootParam][iCosm]+'ini'
+        if Params[rootParam][iCosm][-1:] != '.': Params[rootParam][iCosm] += '.'
+        dir_fn = cosmo_dir
+        wfn = os.path.join(dir_fn,Params[rootParam][iCosm]+'ini')
         # record all cosmologies as separate files
         with open(wfn, 'w') as f:
             for p,parName in enumerate(paramNames):

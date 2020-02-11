@@ -1,18 +1,20 @@
 """
 This program does a bisection search in the parameter space of the Hubble parameter (h)
 between h = 0.6 and h = 0.8 with a 6-figure precision in an effort to match the value 
-of the parameter 100*theta_s in the target cosmology. The script then writes 2 parameter 
-files: <root>.ini and <root>.parameters.ini where <root> is specified in the input (see
+of the parameter 100*theta_s in the target cosmology. If not using the table option, the 
+script produces:  <root>.ini and <root>.parameters.ini (<root> is specified in input (see
 below). The first file (<root>.ini) contains only the NEW parameters together with h, 
 whereas the <root>.parameters.ini file has the full of set of cosmological parameters,
 i.e. BASE and NEW. The current default BASE is 'abacus_base_fast.pre' which produces a
-fast, though less precise CLASS output.
+fast CLASS output. If one hands the script a table, then it produces a new table called 
+README.md in the 'Cosmologies' directory with the h values overwritten and all others 
+kept as in the original table.
 
 The target cosmology is selected with the option --target TARGET, which expects a
 file of type .ini with full information about all parameters. It is only needed
 in order to select a target value of the 100*theta_s parameter to be matched by
-the BASE + NEW cosmology. The default is 'abacus_cosm000_fast.ini', which assumes
-the case of one massive neutrino species with a mass of 60 meV, and has a corresp.
+the BASE + NEW cosmology. The default is 'abacus_base_full.ini', which assumes
+the case of one massive neutrino species with a mass of 60 meV, and has a corresponding
 value of 100*theta_s of 1.041533. It also uses the faster settings of CLASS.
 
 Usage
@@ -28,22 +30,23 @@ Usage
 >>> python H0_search.py --new comm-line 'omega_cdm 0.12 omega_b 0.02 root test_0'
 
 # table format
->>> python H0_search.py --new table ../Cosmologies/README.md
+>>> python H0_search.py --new table ../Cosmologies/emulator_grid
 
 # In addition, one can change the target file
->>> python H0_search.py --target 'abacus_cosm010.parameters.ini' ini-file abacus_cosm020.ini
+>>> python H0_search.py --target 'abacus_cosm010.parameters.ini' --new ini-file abacus_cosm020.ini
 
 # Or the base file
->>> python H0_search.py --base 'abacus_cosm010.parameters.ini' ini-file abacus_cosm020.ini
+>>> python H0_search.py --base 'abacus_cosm010.parameters.ini' --new ini-file abacus_cosm020.ini
 
 Notes
 =====
 
 There are three different types of input (NEW) one can pass to this program: table, ini-file
 or command-line argument. The recommended settings are the default ones with an input
-of table such as cosmology_table.
+of table such as emulator_table.
 
-* The ini file should follow the same format as the BASE and TARGET files format, e.g.
+* The ini file produces a <root>.parameters.ini and a <root>.ini file in a new directory and
+should follow the same format as the BASE and TARGET files format, e.g.
 
                  ini-file
 -------------------------------------------
@@ -52,21 +55,22 @@ omega_ncdm = 0.00004
 omega_b = 0.02
 ...
 
-* The command line should follow the format of:
+* The command line produces a <root>.parameters.ini and a <root>.ini file in a new directory and
+should follow the format of:
 
                       comm-line 
 -----------------------------------------------------
 'param1 param1val param2 param2val ... root name_set'
 
-* The option of passing a table uses the same format as the program table_to_ini.py and in
-addition also allows the user to run several different cosmologies serially, each of which
-produces its own output files in the same format as for the other output options -- i.e. a 
-<root>.parameters.ini and a <root>.ini file. Here is the table format:
+* The option of passing a table uses the same format as the script table_to_ini.py and
+allows the user to run several different cosmologies serially. It makes a copy of the
+table stored in the 'Cosmologies/' directory with the newly computed H0 values.
+Here is the table format:
 
                        Table
 ------------------------------------------------------
-Comments: The first line after the comments refers to the first set of cosmological params; the second
-to the next, etc.
+Comments: The first row after the comments and parameter names refers to the first set
+of cosmological params; the second to the next, etc.
 | param1 |  param2 |  param3 |  ...  |  notes  |
 | ------ |  ------ |  -----  |  ---  |  ------ | 
 |val1-1  |  val1-2 |  val1-3 |  ...  |LCDM base|
@@ -75,13 +79,16 @@ to the next, etc.
 """
 
 import os
+import fileinput
 import argparse
 import numpy as np
 from classy import Class
 import re
 from table_to_ini import  list_param_names, read_table
 
-cosmology_table = '../Cosmologies/README.md'
+cosmo_dir = '../Cosmologies/'
+emulator_table = cosmo_dir+'emulator_grid'
+cosmology_table = cosmo_dir+'README.txt'
 commentedParam = ['notes']
 rootName = 'root'
 HubbleParam = 'h'
@@ -114,6 +121,22 @@ def read_file(fn):
         pass
     return param_dict
 
+def modify_table(table,root,h_old,h):
+    for line in fileinput.FileInput(table,inplace=1):
+        # look for a line which has the root name in it
+        if root in line:
+            # automize precision TODO: B.H.
+            # find where the old value is recorded
+            h_old = format(h_old,'6.4f')
+            # take the new one in the right format
+            h = format(h,'6.4f')
+            # substitute new for old
+            line = line.replace(h_old,h)
+            # this is to make sure no new lines are inserted
+            print(line,end='')
+        # copy the rest of the lines
+        else: print(line,end='')
+            
 def read_input(arg):
     # Which of three input formats did the user choose
     if arg[0] == 'ini-file':
@@ -185,11 +208,16 @@ def main(target,base,new):
     theta_target = TargetCosmo.theta_s_100()
     print("Target 100*theta_s = ",theta_target)
 
-    # The second cosmology
+    # The second (new) cosmology
     print("The new cosmology is read from "+base+" and "+new[1])
     base_param_dict = read_file(base)
 
+    # Create a new table with the final cosmologies
+    if new[0] == 'table':
+        os.system("cp "+new[1]+" "+cosmology_table)
+    
     new_params, numCosm = read_input(new)
+    # for each new cosmology
     for iCosm in range(numCosm):
         NewCosmo = Class()
         # Load the base parameter values
@@ -197,12 +225,25 @@ def main(target,base,new):
         # Create a dictionary
         new_param_dict = read_line(new_params,iCosm) if new[0] == 'table' else new_params
         if new_param_dict[rootName][-1:] != '.' : new_param_dict[rootName] += '.'
+        # create new directory with the root name unless it exists already
+        dir_par = new_param_dict[rootName][:-1]
+        if os.path.isdir(dir_par) != True: os.mkdir(dir_par)
+        os.chdir(dir_par)
         NewCosmo.set(new_param_dict)
         
         # run class
         NewCosmo.compute()
+        h_old = NewCosmo.h()
         h = search(NewCosmo,theta_target)
         write_dict_to_ini(new_param_dict,h)        
+        os.chdir('..')
+
+        # if running in table regime, modify the README table and delete everything else
+        if new[0] == 'table':
+            # Get rid of the evidence
+            os.system("rm -r "+dir_par)
+            # modify the H column in the final table
+            modify_table(cosmology_table,new_param_dict[rootName][:-1],h_old,h)
 
 def search(NewCosmo,theta_def):
     # array of hubble parameter values to search through
@@ -251,7 +292,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=ArgParseFormatter)
     parser.add_argument('--target', help='file defining the target-theta cosmology', default='abacus_base_full.ini')
     parser.add_argument('--base', help='file defining the base cosmology params', default='abacus_bisection_fast.pre')
-    parser.add_argument('--new', help='format of the new cosmology params (comm-line,table,ini-file) and file name', nargs=2,default=['table',cosmology_table])
+    parser.add_argument('--new', help='format of the new cosmology params (comm-line,table,ini-file) and file name', nargs=2,default=['table',emulator_table])
     
     args = parser.parse_args()
     args = vars(args)

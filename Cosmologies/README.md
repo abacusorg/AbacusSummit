@@ -25,7 +25,7 @@ neutrinos as a smooth component.
 | ------------------ | -----                                                                | ------- | --------- | ------ | --------- | ------ | ------- | ------ | ------ | ---------- |------- | ------ | -------- | --------- |
 | abacus_cosm000     | Baseline LCDM, Planck 2018 base_plikHM_TTTEEE_lowl_lowE_lensing mean | 0.02237 |  0.1200   | 0.6736 | 2.0830e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm001     | WMAP9+ACT+SPT LCDM, Calabrese++ 2017                                 | 0.02242 |  0.1134   | 0.7030 | 2.0376e-9 | 0.9638 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
-| abacus_cosm002     | wCDM with thawing model w0 = -0.7, wa = -0.5                         | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm002     | wCDM with thawing model w0 = -0.7, wa = -0.5                         | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -0.7   | -0.5    | 
 | abacus_cosm003     | Neff=3.70, from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO        | 0.02260 |  0.1291   | 0.7160 | 2.2438e-9 | 0.9876 | 0.0     | 2.6868 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm004     | Low sigma8_matter = 0.75, otherwise Baseline LCDM                    | 0.02237 |  0.1200   | 0.6736 | 1.7949e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm009     | Baseline LCDM with massless neutrinos matching omega_cb & sigma8_cb  | 0.02237 |  0.1200   | 0.6736 | 2.0417e-9 | 0.9649 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 

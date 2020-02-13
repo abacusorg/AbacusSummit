@@ -118,10 +118,10 @@ def read_table(paramNames,fn,namesRow):
             # write_par
             for line in fileinput.FileInput(os.path.join(abacus_dir,newFile),inplace=1):
                 if 'SimName' in line:
-                    line = line.replace(line[:-1],line[:-1]+'"'+parDict['SimName']+'"')
+                    line = line.replace(line[:-1],line[:-1]+'"'+simName+'"')
                 elif 'SimComment' in line:
                     line = line.replace(line[:-1],line[:-1]+'"'+parDict['Notes']+'"')
-                elif 'BoxSize' in line:
+                elif line.startswith('BoxSize'):
                     line = line.replace(line[:-1],line[:-1]+parDict['Box (Mpc)'])
                 elif line.startswith('NP'):
                     line = line.replace(line[:-1],line[:-1]+parDict['PPD']+'**3')
@@ -147,7 +147,7 @@ def read_table(paramNames,fn,namesRow):
                     line = line.replace(line[:-1],line[:-1]+str(omega_ncdm))
                 elif 'N_eff' in line:
                     line = line.replace(line[:-1],line[:-1]+str(N_eff))
-                elif 'TimeSliceRedshifts' in line:
+                elif 'TimeSliceRedshifts ' in line:
                     line = line.replace(line[:-1],line[:-1]+str(redshifts))
                 elif 'LightConeOrigins' in line:
                     line = line.replace(line[:-1],line[:-1]+str(LightConeOrigins))

@@ -35,15 +35,20 @@ rootParam = 'root'
 cosmo_dir = '../Cosmologies/'
 cosmology_table = cosmo_dir+'README.txt'
 sigma8 = ['sigma8_m','sigma8_cb']
+h = 'h'
+As = 'A_s'
+h_def = 0.700001
+As_def = 2.00001e-9
+args = {'table':cosmology_table}
 
-def main(table):
+def main(table=args['table']):
     # parameter names and row where they can be found
     paramNames, namesRow = list_param_names(table)
     # Create a numpy array with all entries in the table and names taken from it
     Params, numCosm = read_table(paramNames,table,namesRow)
     write_ini(Params, numCosm)
     
-def list_param_names(fn):
+def list_param_names(fn,output_s8=False):
     # count total number of commented rows
     parRow = 0
     for line in open(fn):
@@ -63,7 +68,8 @@ def list_param_names(fn):
     
     assert rootParam in paramNames, "You are either lacking a column with the root name or it is not called "+rootParam
     # ignore the sigma8 columns as they cannot be given as input to class
-    for s8 in sigma8: paramNames.remove(s8)
+    if output_s8 == False:
+        for s8 in sigma8: paramNames.remove(s8)
     return paramNames, parRow
 
 def read_table(paramNames,fn,namesRow):
@@ -87,11 +93,14 @@ def read_table(paramNames,fn,namesRow):
     iCosm = 0
     for i,line in enumerate(open(fn)):
         if i < startRow or line[:1] != '|': continue
+        # separating the individual row entries in 'line'
         line = re.sub('^\|\s*', '', line)
         line = re.sub('\s*\|\s*$', '', line)
         line = re.split('\s*\|\s*',line)
         for p,parName in enumerate(Params.dtype.names):
-            Params[parName][iCosm] = (line[p]);
+            if parName == h and 'TBD' in line[p]: Params[parName][iCosm] = h_def;
+            elif parName == As and 'TBD' in line[p]: Params[parName][iCosm] = As_def;
+            else: Params[parName][iCosm] = (line[p]);
         iCosm += 1
     return Params, numCosm
 
@@ -106,8 +115,9 @@ def write_ini(Params,numCosm):
         # record all cosmologies as separate files
         with open(wfn, 'w') as f:
             for p,parName in enumerate(paramNames):
-                # write the notes as a comment at the end of the file
-                if parName in commentedParam: line = '# '+str(Params[parName][iCosm])+'\n'
+                # write the notes as a comment at the end of the file and TBD if TBD
+                TBD_string = 'With A_s calibration, ' if np.abs(As_def-Params[As][iCosm]) < 1.e-16 else ''
+                if parName in commentedParam: line = '# '+TBD_string+str(Params[parName][iCosm])+'\n'
                 # write all the other parameter values
                 else: line = parName+' = '+str(Params[parName][iCosm])+'\n'
                 f.write(line)
@@ -119,4 +129,5 @@ if __name__ == '__main__':
     parser.add_argument('--table', help='table name to read from', default=cosmology_table)
     args = parser.parse_args()
     args = vars(args)
+    #print(args['table'])
     exit(main(**args))

@@ -79,6 +79,7 @@ of cosmological params; the second to the next, etc.
 """
 
 import os
+import shutil
 import fileinput
 import argparse
 import numpy as np
@@ -89,10 +90,23 @@ from table_to_ini import  list_param_names, read_table
 cosmo_dir = '../Cosmologies/'
 emulator_table = cosmo_dir+'emulator_grid'
 cosmology_table = cosmo_dir+'README.txt'
+BASE = 'abacus_bisection_fast.pre'
+TARGET = 'abacus_base_full.ini'
+NEW = ['table',emulator_table]
 commentedParam = ['notes']
 rootName = 'root'
 HubbleParam = 'h'
 OmegaNu = 'omega_ncdm'
+As = 'A_s'
+HubbleDef = 0.700001
+HubbleTBD = 'TBD   '
+AsTBD = ' 2.TBD e-9 '
+h_ini = 0.6
+h_fin = 0.8
+prec = 1.e5
+hFormat = '6.4f'
+AsFormat = '1.5e'
+args = {'target':TARGET,'base':BASE,'new':NEW}
 
 def read_file(fn):
     # Parse parameters from file
@@ -121,17 +135,18 @@ def read_file(fn):
         pass
     return param_dict
 
-def modify_table(table,root,h_old,h):
+def modify_table(table,root,h,A_s):
     for line in fileinput.FileInput(table,inplace=1):
         # look for a line which has the root name in it
         if root in line:
-            # automize precision TODO: B.H.
-            # find where the old value is recorded
-            h_old = format(h_old,'6.4f')
             # take the new one in the right format
-            h = format(h,'6.4f')
+            A_s = format(A_s,AsFormat)
+            line = line.replace(AsTBD,A_s)
+            # automize precision TODO: B.H.
+            # take the new one in the right format
+            h = format(h,hFormat)
             # substitute new for old
-            line = line.replace(h_old,h)
+            line = line.replace(HubbleTBD,h)
             # this is to make sure no new lines are inserted
             print(line,end='')
         # copy the rest of the lines
@@ -192,7 +207,7 @@ def write_dict_to_ini(param_dict,h):
             f.write(line)
             
     
-def main(target,base,new):
+def main(target=args['target'],base=args['base'],new=args['new']):
     # create instance of the class "Class"
     TargetCosmo = Class()
 
@@ -214,11 +229,14 @@ def main(target,base,new):
 
     # Create a new table with the final cosmologies
     if new[0] == 'table':
-        os.system("cp "+new[1]+" "+cosmology_table)
+        shutil.copy(new[1], cosmology_table)
     
     new_params, numCosm = read_input(new)
     # for each new cosmology
     for iCosm in range(numCosm):
+        # Check whether the hubble is set to the TBD value (HubbleDef); if not, don't meddle
+        if np.abs(new_params[HubbleParam][iCosm]-HubbleDef) > 1.e-7 and new[0] == 'table': continue
+        
         NewCosmo = Class()
         # Load the base parameter values
         NewCosmo.set(base_param_dict)
@@ -233,27 +251,27 @@ def main(target,base,new):
         
         # run class
         NewCosmo.compute()
-        h_old = NewCosmo.h()
         h = search(NewCosmo,theta_target)
         write_dict_to_ini(new_param_dict,h)        
         os.chdir('..')
 
         # if running in table regime, modify the README table and delete everything else
         if new[0] == 'table':
+            # modify the H0 and A_s columns in the final table
+            A_s = new_param_dict['A_s']
+            modify_table(cosmology_table,new_param_dict[rootName][:-1],h,A_s)
             # Get rid of the evidence
-            os.system("rm -r "+dir_par)
-            # modify the H column in the final table
-            modify_table(cosmology_table,new_param_dict[rootName][:-1],h_old,h)
-
+            shutil.rmtree(dir_par)
+            
 def search(NewCosmo,theta_def):
     # array of hubble parameter values to search through
-    hs = np.arange(600000,800000)/1000000.
+    hs = np.arange(h_ini*prec,h_fin*prec)/prec
     N_h = len(hs)
     
     # allowed tolerance b/n the new theta and the def
     this_theta = NewCosmo.theta_s_100()
     print("New 100*theta_s = ",this_theta)
-    tol_t = 1.e-6
+    tol_t = 1.e-5
 
 
     iterations = 0
@@ -290,9 +308,9 @@ class ArgParseFormatter(argparse.RawDescriptionHelpFormatter, argparse.ArgumentD
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=ArgParseFormatter)
-    parser.add_argument('--target', help='file defining the target-theta cosmology', default='abacus_base_full.ini')
-    parser.add_argument('--base', help='file defining the base cosmology params', default='abacus_bisection_fast.pre')
-    parser.add_argument('--new', help='format of the new cosmology params (comm-line,table,ini-file) and file name', nargs=2,default=['table',emulator_table])
+    parser.add_argument('--target', help='file defining the target-theta cosmology', default=TARGET)
+    parser.add_argument('--base', help='file defining the base cosmology params', default=BASE)
+    parser.add_argument('--new', help='format of the new cosmology params (comm-line,table,ini-file) and file name', nargs=2,default=NEW)
     
     args = parser.parse_args()
     args = vars(args)

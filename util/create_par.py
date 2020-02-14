@@ -33,6 +33,7 @@ import shutil
 
 sim_dir = '../Simulations/'
 abacus_dir = os.path.join(sim_dir,'abacus_par/')
+abacus_short_dir = os.path.join(sim_dir,'abacus_short_par/')
 cosmo_dir = '../Cosmologies/'
 simulations_table = sim_dir+'README.txt'
 light_dict = {
@@ -48,6 +49,7 @@ z_dict = {
     'none':'[]'
     }
 Seed = 12321
+MANTRA = '#include "../AbacusSummit_base.par2"\n'
 
 def main(table):
     # parameter names and row where they can be found
@@ -83,6 +85,9 @@ def read_table(paramNames,fn,namesRow):
     # number of parameters and cosmologies
     numParams = len(paramNames)
 
+    if not os.path.exists(abacus_dir): os.mkdir(abacus_dir)
+    if not os.path.exists(abacus_short_dir): os.mkdir(abacus_short_dir)
+
     for i,line in enumerate(open(fn)):
         if i < startRow or line[:1] != '|': continue
         # separating the individual row entries in 'line'
@@ -100,7 +105,7 @@ def read_table(paramNames,fn,namesRow):
         # for each copy par2 into a new file with name given by sim
         for simName in simNames:
             newFile = simName+'.par2'
-            shutil.copy(sim_dir+"abacus_example.par2",os.path.join(abacus_dir,newFile))
+            shutil.copy(os.path.join(sim_dir,"abacus_example.par2"),os.path.join(abacus_dir,newFile))
             # fetch the cosmology
             classParams,classFile = fetch_cosm(parDict['Cosm'])
             h = np.float(classParams['h'])
@@ -108,56 +113,72 @@ def read_table(paramNames,fn,namesRow):
             omega_cdm = np.float(classParams['omega_cdm'])
             omega_ncdm = np.float(classParams['omega_ncdm'])
             Omega_M = (omega_b+omega_cdm)/h**2
-            Omega_M = format(Omega_M,'1.5f')
+            Omega_M = format(Omega_M,'7.5f')
             Omega_Smooth = omega_ncdm/h**2
-            Omega_Smooth = format(Omega_Smooth,'1.7f')
+            Omega_Smooth = format(Omega_Smooth,'9.7f')
             N_eff = np.float(classParams['N_ur'])+np.float(classParams['N_ncdm'])
             addSeed = extract_phase(simName)
             thisSeed = Seed+addSeed
             # use file input to add value to edge of things
             # write_par
             for line in fileinput.FileInput(os.path.join(abacus_dir,newFile),inplace=1):
-                if 'SimName' in line:
+                if line.startswith('SimName'):
                     line = line.replace(line[:-1],line[:-1]+'"'+simName+'"')
-                elif 'SimComment' in line:
+                elif line.startswith('SimComment'):
                     line = line.replace(line[:-1],line[:-1]+'"'+parDict['Notes']+'"')
                 elif line.startswith('BoxSize'):
                     line = line.replace(line[:-1],line[:-1]+parDict['Box (Mpc)'])
                 elif line.startswith('NP'):
                     line = line.replace(line[:-1],line[:-1]+parDict['PPD']+'**3')
-                elif 'w0' in line:
+                elif line.startswith('w0'):
                     line = line.replace(line[:-1],line[:-1]+classParams['w0_fld'])
-                elif 'wa' in line:
+                elif line.startswith('wa'):
                     line = line.replace(line[:-1],line[:-1]+classParams['wa_fld'])
-                elif 'H0' in line:
+                elif line.startswith('H0'):
                     line = line.replace(line[:-1],line[:-1]+str(h*100))
                 elif line.startswith('Omega_M'):
                     line = line.replace(line[:-1],line[:-1]+str(Omega_M))
-                elif 'N_eff' in line:
+                elif line.startswith('N_eff'):
                     line = line.replace(line[:-1],line[:-1]+str(N_eff))
                 elif line.startswith('ns'):
                     line = line.replace(line[:-1],line[:-1]+classParams['n_s'])
-                elif 'Omega_Smooth' in line:
+                elif line.startswith('Omega_Smooth'):
                     line = line.replace(line[:-1],line[:-1]+str(Omega_Smooth))
-                elif 'ombh2' in line:
+                elif line.startswith('ombh2'):
                     line = line.replace(line[:-1],line[:-1]+str(omega_b))
-                elif 'omch2' in line:
+                elif line.startswith('omch2'):
                     line = line.replace(line[:-1],line[:-1]+str(omega_cdm))
-                elif 'omnuh2' in line:
+                elif line.startswith('omnuh2'):
                     line = line.replace(line[:-1],line[:-1]+str(omega_ncdm))
-                elif 'N_eff' in line:
-                    line = line.replace(line[:-1],line[:-1]+str(N_eff))
-                elif 'TimeSliceRedshifts ' in line:
+                elif line.startswith('TimeSliceRedshifts '):
                     line = line.replace(line[:-1],line[:-1]+str(redshifts))
-                elif 'LightConeOrigins' in line:
+                elif line.startswith('LightConeOrigins'):
                     line = line.replace(line[:-1],line[:-1]+str(LightConeOrigins))
-                elif 'NLightCones' in line:
+                elif line.startswith('NLightCones'):
                     line = line.replace(line[:-1],line[:-1]+str(NLightCones))
-                elif 'ZD_Pk_filename' in line:
+                elif line.startswith('ZD_Pk_filename'):
                     line = line.replace(line[:-1],line[:-1]+'"'+classFile+'"')
-                elif 'ZD_Seed' in line:
+                elif line.startswith('ZD_Seed'):
                     line = line.replace(line[:-1],line[:-1]+str(thisSeed))
-                print(line,end='')    
+                print(line,end='')
+            # take what's different for each sim and save in new file
+            with open(os.path.join(abacus_dir,newFile)) as f1, open(os.path.join(sim_dir,"abacus_example.par2")) as f2:
+                l1 = list(f1)
+                l2 = list(f2)
+
+            # Differences - individual file for each sim
+            with open(os.path.join(abacus_short_dir,newFile),'w') as f:
+                fout = sorted(set(l1) - set(l2), key = l1.index)
+                for line in fout:
+                    f.write(line)
+                    if line.startswith('SimName'): f.write(MANTRA)
+
+            # Similarities - base file for all sims
+            base = os.path.join(sim_dir,'base.par2')
+            if os.path.isfile(base): continue
+            with open(base,'w') as f:
+                fout = sorted(set(l1) & set(l2), key = l1.index)
+                f.writelines(fout)
     return
 
 def extract_light(notes):

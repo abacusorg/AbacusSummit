@@ -113,7 +113,7 @@ def read_table(paramNames,fn,namesRow):
             omega_b = np.float(classParams['omega_b'])
             omega_cdm = np.float(classParams['omega_cdm'])
             omega_ncdm = np.float(classParams['omega_ncdm'])
-            Omega_M = (omega_b+omega_cdm)/h**2
+            Omega_M = (omega_b+omega_cdm+omega_ncdm)/h**2
             Omega_M = format(Omega_M,'7.5f')
             Omega_Smooth = omega_ncdm/h**2
             Omega_Smooth = format(Omega_Smooth,'9.7f')

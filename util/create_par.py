@@ -1,27 +1,27 @@
 """
 
-This script transforms a table of cosmological parameters into ini files which can be passed
-as input to the Boltzmann code CLASS.
+This script transforms a table of simulation specifications into .par2 files which can be passed
+as input to the N-body simulation code Abacus.
 
 Example
 =======
->>> python table_to_ini.py --help
->>> python table_to_ini.py --table README.md
+>>> python create_par.py --help
+>>> python create_par.py --table ../Simulations/README.md
 
 Notes
 =====
 
-The table with different parameter values should follow the following format:
+The table with different simulation parameters should follow the following format:
 
                        Table
 ------------------------------------------------------
-Comments: The first line after the comments refers to the first set of cosmological params; the second
+Comments: The first line after the comments refers to the specs of the first simulation box; the second
 to the next, etc.
-| param1 |  param2 |  param3 |  ...  |  notes  |
-| ------ |  ------ |  -----  |  ---  |  ------ | 
-|val1-1  |  val1-2 |  val1-3 |  ...  |LCDM base|
-|val2-1  |  val2-2 |  val2-3 |  ...  |neutriono|
-|  ...   |    ...  |   ...   |  ...  |   ...   |
+| SimName |  PPD    |  Box (Mpc) |  ...  |  Notes  |
+| ------  |  -----  |  -----     |  ---  |  ------ | 
+| name1   |  6912   |  2000      |  ...  |LCDM base|
+| name2   |  6912   |  2000      |  ...  |neutrinos|
+|  ...    |  ...    |  ...       |  ...  |   ...   |
 """
 import numpy as np
 import re
@@ -35,7 +35,8 @@ sim_dir = '../Simulations/'
 abacus_dir = os.path.join(sim_dir,'abacus_par/')
 abacus_short_dir = os.path.join(sim_dir,'abacus_short_par/')
 cosmo_dir = '../Cosmologies/'
-simulations_table = sim_dir+'README.txt'
+simulations_table = os.path.join(sim_dir,'README.txt')
+base = os.path.join(sim_dir,'AbacusSummit_base.par2')
 light_dict = {
     'def': [3, '(-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)'],
     'box': [1, '(0.,0.,0.)'],
@@ -49,7 +50,7 @@ z_dict = {
     'none':'[]'
     }
 Seed = 12321
-MANTRA = '#include "../AbacusSummit_base.par2"\n'
+MANTRA = '#include "../AbacusSummit_base.par2"\n\n'
 
 def main(table):
     # parameter names and row where they can be found
@@ -174,7 +175,6 @@ def read_table(paramNames,fn,namesRow):
                     if line.startswith('SimName'): f.write(MANTRA)
 
             # Similarities - base file for all sims
-            base = os.path.join(sim_dir,'base.par2')
             if os.path.isfile(base): continue
             with open(base,'w') as f:
                 fout = sorted(set(l1) & set(l2), key = l1.index)

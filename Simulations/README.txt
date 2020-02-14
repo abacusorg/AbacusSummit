@@ -48,4 +48,3 @@ and 3 subsample lightcones.
 | AbacusSummit_base_c016_ph000       | 016  | 000     | 6912 | 2000      | 0.1     | none         | Horizon |
 | AbacusSummit_base_c017_ph000       | 017  | 000     | 6912 | 2000      | 0.1     | none         | Illustris |
 | AbacusSummit_base_c018_ph000       | 018  | 000     | 6912 | 2000      | 0.1     | none         | Multidark Planck |
-| AbacusSummit_base_c{016-018}_ph000       | 018  | 000     | 6912 | 2000      | 0.1     | none         | Multidark Planck |

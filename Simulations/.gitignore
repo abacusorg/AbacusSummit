@@ -1,6 +1,5 @@
-*/*
-*/
 *~
+abacus_par/*
 
 # But not these files...
 !.gitignore

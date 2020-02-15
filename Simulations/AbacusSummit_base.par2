@@ -1,0 +1,59 @@
+# Set up the simulation name and directory structure
+SimSet = "AbacusSummit"
+#include "$ABACUS$/Abacus/directory.def"
+#include "$ABACUS$/Production/site_files/summit.def"
+
+LogVerbosity = 2
+# Cosmology and basic code parameters
+InitialRedshift = 49.
+Omega_DE = 1-@Omega_M@
+Omega_K = 0.
+SofteningLength = 0.00723 #1/40th of IPS
+SofteningMax = 0.0868 #0.3 * IPS
+ProperSoftening = 1
+CPD = 1701
+# Extra cosmology info, not processed by Abacus
+# Output parameters
+L1OutputRedshifts = [8.0, 5.0, 3.0, 2.75, 2.5, 2.25, 2.0, 1.85, 1.7, 1.625, 1.55, 1.475, 1.4, 1.325, 1.25, 1.175, 1.1, 1.025, 0.95, 0.875, 0.8, 0.725, 0.65, 0.575, 0.5, 0.45, 0.4, 0.35, 0.3, 0.25, 0.2, 0.15, 0.1]
+TimeSliceRedshifts_Subsample = [3.0, 2.5, 2.0, 1.7, 1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2, 0.1]
+ParticleSubsampleA = 0.03
+ParticleSubsampleB = 0.07
+FinalRedshift = 0.1  # Only needed if finishing light cones
+PowerSpectrumN1d = 256
+PowerSpectrumStepInterval = -1
+OutputFormat = "Pack9"
+BackupStepInterval = -1
+# Group finding parameters
+AllowGroupFinding = 1
+FoFLinkingLength = [0.25, 0.25, 0.25]
+MinL1HaloNP = 35
+SODensity = [200, 800]
+L0DensityThreshold = 60
+DensityKernelRad = 0.4
+SO_EvolvingThreshold = 1  # SO_RocheCoeff and SO_NPForMinDensity default to 2.0 and 35, respectively. 
+MicrostepTimeStep = 0
+# Advanced code parameters
+LagrangianPTOrder = 2
+TimeStepAccel = 0.25
+TimeStepDlna = .03
+NumSlabsInsertList = 2
+NumSlabsInsertListIC = 8
+NearFieldRadius = 2
+Order = 8
+hMpc = 1
+GroupRadius = 8
+DerivativeExpansionRadius = 8
+# Zeldovich and IC parameters
+ICVelocity2Displacement = 1.0
+ICPositionRange = @BoxSize@
+ICFormat = "RVZel"
+ZD_Version = 2
+ZD_NumBlock = 384
+ZD_qPLT = 1
+ZD_PLT_filename = "$ABACUS$/zeldovich-PLT/eigmodes128"
+ZD_qPLT_rescale = 1
+ZD_PLT_target_z = 12.0
+ZD_k_cutoff = 1.
+ZD_Pk_scale = 1.0
+ZD_Pk_norm = 8.0
+ZD_Pk_smooth = 0.0

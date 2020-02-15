@@ -1,0 +1,5 @@
+*~
+abacus_cosm*/*
+!abacus_cosm*/CLASS_transfer
+!abacus_cosm*/CLASS_power
+!abacus_cosm*/CLASS.ini

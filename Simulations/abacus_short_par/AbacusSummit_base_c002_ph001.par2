@@ -1,0 +1,21 @@
+SimName = "AbacusSummit_base_c002_ph001"
+#include "../AbacusSummit_base.par2"
+
+SimComment = "wCDM w=-0.8?"
+BoxSize = 2000
+H0 = 62.78
+Omega_M = 0.36286
+Omega_Smooth = 0.0016345
+w0 = -0.7
+wa = -0.5
+NP = 6912**3
+N_eff = 3.0328
+ns = 0.9649
+ombh2 = 0.02237
+omch2 = 0.12
+omnuh2 = 0.0006442
+TimeSliceRedshifts = [2.5, 1.4, 0.8, 0.2]
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+ZD_Pk_filename = "../Cosmologies/abacus_cosm002/CLASS.ini"
+ZD_Seed = 12421

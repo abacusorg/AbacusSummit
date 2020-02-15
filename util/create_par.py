@@ -117,7 +117,7 @@ def read_table(paramNames,fn,namesRow):
             Omega_M = format(Omega_M,'7.5f')
             Omega_Smooth = omega_ncdm/h**2
             Omega_Smooth = format(Omega_Smooth,'9.7f')
-            N_eff = np.float(classParams['N_ur'])+np.float(classParams['N_ncdm'])
+            N_eff = 3.04#np.float(classParams['N_ur'])+np.float(classParams['N_ncdm'])
             addSeed = extract_phase(simName)
             thisSeed = Seed+addSeed
             # use file input to add value to edge of things

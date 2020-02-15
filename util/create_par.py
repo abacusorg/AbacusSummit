@@ -230,7 +230,7 @@ def fetch_cosm(cosm):
         v = re.sub('\n','',v)
         param_dict[n] = v
 
-    return param_dict, fn
+    return param_dict, os.path.realpath(os.path.join(cosmo_dir,cosmName+'CLASS_power'))
     
     
 class ArgParseFormatter(argparse.RawDescriptionHelpFormatter, argparse.ArgumentDefaultsHelpFormatter):

@@ -17,5 +17,5 @@ omnuh2 = 0.0
 TimeSliceRedshifts = []
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
 NLightCones = 3
-ZD_Pk_filename = "../Cosmologies/abacus_cosm011/CLASS.ini"
+ZD_Pk_filename = "/home/boryanah/repos/AbacusSummit/Cosmologies/abacus_cosm011/CLASS_power"
 ZD_Seed = 12321

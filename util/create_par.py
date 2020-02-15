@@ -117,7 +117,6 @@ def read_table(paramNames,fn,namesRow):
             Omega_M = format(Omega_M,'7.5f')
             Omega_Smooth = omega_ncdm/h**2
             Omega_Smooth = format(Omega_Smooth,'9.7f')
-            N_eff = 3.04#np.float(classParams['N_ur'])+np.float(classParams['N_ncdm'])
             addSeed = extract_phase(simName)
             thisSeed = Seed+addSeed
             # use file input to add value to edge of things
@@ -139,17 +138,19 @@ def read_table(paramNames,fn,namesRow):
                     line = line.replace(line[:-1],line[:-1]+str(h*100))
                 elif line.startswith('Omega_M'):
                     line = line.replace(line[:-1],line[:-1]+str(Omega_M))
-                elif line.startswith('N_eff'):
-                    line = line.replace(line[:-1],line[:-1]+str(N_eff))
-                elif line.startswith('ns'):
+                elif line.startswith('N_ur'):
+                    line = line.replace(line[:-1],line[:-1]+classParams['N_ur'])
+                elif line.startswith('N_ncdm'):
+                    line = line.replace(line[:-1],line[:-1]+classParams['N_ncdm'])
+                elif line.startswith('n_s'):
                     line = line.replace(line[:-1],line[:-1]+classParams['n_s'])
                 elif line.startswith('Omega_Smooth'):
                     line = line.replace(line[:-1],line[:-1]+str(Omega_Smooth))
-                elif line.startswith('ombh2'):
+                elif line.startswith('omega_b'):
                     line = line.replace(line[:-1],line[:-1]+str(omega_b))
-                elif line.startswith('omch2'):
+                elif line.startswith('omega_cdm'):
                     line = line.replace(line[:-1],line[:-1]+str(omega_cdm))
-                elif line.startswith('omnuh2'):
+                elif line.startswith('omega_ncdm'):
                     line = line.replace(line[:-1],line[:-1]+str(omega_ncdm))
                 elif line.startswith('TimeSliceRedshifts '):
                     line = line.replace(line[:-1],line[:-1]+str(redshifts))

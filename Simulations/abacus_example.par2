@@ -24,11 +24,12 @@ ProperSoftening = 1
 CPD = 1701
 
 # Extra cosmology info, not processed by Abacus
-N_eff = 
-ns = 
-ombh2 = 
-omch2 = 
-omnuh2 = 
+N_ur = 
+N_ncdm = 
+n_s = 
+omega_b = 
+omega_cdm = 
+omega_ncdm = 
 
 # Output parameters
 TimeSliceRedshifts = 

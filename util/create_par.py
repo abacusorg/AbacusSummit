@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 
 This script transforms a table of simulation specifications into .par2 files which can be passed
@@ -23,20 +25,22 @@ to the next, etc.
 | name2   |  6912   |  2000      |  ...  |neutrinos|
 |  ...    |  ...    |  ...       |  ...  |   ...   |
 """
-import numpy as np
+
 import re
 import sys
 import argparse
 import fileinput
 import os
+import os.path
+from os.path import join as pjoin
 import shutil
 
+import numpy as np
+
 sim_dir = '../Simulations/'
-abacus_dir = os.path.join(sim_dir,'abacus_par/')
-abacus_short_dir = os.path.join(sim_dir,'abacus_short_par/')
 cosmo_dir = '../Cosmologies/'
-simulations_table = os.path.join(sim_dir,'README.txt')
-base = os.path.join(sim_dir,'AbacusSummit_base.par2')
+simulations_table = pjoin(sim_dir,'README.md')
+base = pjoin(sim_dir,'AbacusSummit_base.par2')
 light_dict = {
     'def': [3, '(-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)'],
     'box': [1, '(0.,0.,0.)'],
@@ -50,13 +54,14 @@ z_dict = {
     'none':'[]'
     }
 Seed = 12321
-MANTRA = '#include "../AbacusSummit_base.par2"\n\n'
 
 def main(table):
     # parameter names and row where they can be found
     paramNames, namesRow = list_param_names(table)
     # Create a numpy array with all entries in the table and names taken from it
     read_table(paramNames,table,namesRow)
+
+    return 0
     
 def list_param_names(fn,output_s8=False):
     # count total number of commented rows
@@ -67,14 +72,14 @@ def list_param_names(fn,output_s8=False):
             paramLine = line
             break
         parRow += 1
+    else:
+        print("Error: the table should have a line '| par1 | par2 | par3' at the beginning to extract column names!")
+        exit(1)
+    
     # Assuming that the first line in the table has the parameter names
-    try:
-        paramLine
-    except NameError:
-        print("The table should have a line '| par1 | par2 | par3' at the beginning to extract column names!"); exit()
-    paramLine = re.sub('^\|\s*', '', paramLine)
-    paramLine = re.sub('\s*\|\s*$', '', paramLine)
-    paramNames = re.split('\s*\|\s*',paramLine)
+    paramLine = re.sub(r'^\|\s*', '', paramLine)
+    paramLine = re.sub(r'\s*\|\s*$', '', paramLine)
+    paramNames = re.split(r'\s*\|\s*',paramLine)
     
     return paramNames, parRow
 
@@ -86,15 +91,12 @@ def read_table(paramNames,fn,namesRow):
     # number of parameters and cosmologies
     numParams = len(paramNames)
 
-    if not os.path.exists(abacus_dir): os.mkdir(abacus_dir)
-    if not os.path.exists(abacus_short_dir): os.mkdir(abacus_short_dir)
-
     for i,line in enumerate(open(fn)):
         if i < startRow or line[:1] != '|': continue
         # separating the individual row entries in 'line'
-        line = re.sub('^\|\s*', '', line)
-        line = re.sub('\s*\|\s*$', '', line)
-        line = re.split('\s*\|\s*',line)
+        line = re.sub(r'^\|\s*', '', line)
+        line = re.sub(r'\s*\|\s*$', '', line)
+        line = re.split(r'\s*\|\s*',line)
         parDict = {}
         for p,parName in enumerate(paramNames):
             parDict[parName] = line[p]
@@ -105,8 +107,6 @@ def read_table(paramNames,fn,namesRow):
         redshifts = extract_zs(parDict['Full Outputs'])
         # for each copy par2 into a new file with name given by sim
         for simName in simNames:
-            newFile = simName+'.par2'
-            shutil.copy(os.path.join(sim_dir,"abacus_example.par2"),os.path.join(abacus_dir,newFile))
             # fetch the cosmology
             classParams,classFile = fetch_cosm(parDict['Cosm'])
             h = np.float(classParams['h'])
@@ -121,66 +121,38 @@ def read_table(paramNames,fn,namesRow):
             thisSeed = Seed+addSeed
             # use file input to add value to edge of things
             # write_par
-            for line in fileinput.FileInput(os.path.join(abacus_dir,newFile),inplace=1):
-                if line.startswith('SimName'):
-                    line = line.replace(line[:-1],line[:-1]+'"'+simName+'"')
-                elif line.startswith('SimComment'):
-                    line = line.replace(line[:-1],line[:-1]+'"'+parDict['Notes']+'"')
-                elif line.startswith('BoxSize'):
-                    line = line.replace(line[:-1],line[:-1]+parDict['Box (Mpc)'])
-                elif line.startswith('NP'):
-                    line = line.replace(line[:-1],line[:-1]+parDict['PPD']+'**3')
-                elif line.startswith('w0'):
-                    line = line.replace(line[:-1],line[:-1]+classParams['w0_fld'])
-                elif line.startswith('wa'):
-                    line = line.replace(line[:-1],line[:-1]+classParams['wa_fld'])
-                elif line.startswith('H0'):
-                    line = line.replace(line[:-1],line[:-1]+str(h*100))
-                elif line.startswith('Omega_M'):
-                    line = line.replace(line[:-1],line[:-1]+str(Omega_M))
-                elif line.startswith('N_ur'):
-                    line = line.replace(line[:-1],line[:-1]+classParams['N_ur'])
-                elif line.startswith('N_ncdm'):
-                    line = line.replace(line[:-1],line[:-1]+classParams['N_ncdm'])
-                elif line.startswith('n_s'):
-                    line = line.replace(line[:-1],line[:-1]+classParams['n_s'])
-                elif line.startswith('Omega_Smooth'):
-                    line = line.replace(line[:-1],line[:-1]+str(Omega_Smooth))
-                elif line.startswith('omega_b'):
-                    line = line.replace(line[:-1],line[:-1]+str(omega_b))
-                elif line.startswith('omega_cdm'):
-                    line = line.replace(line[:-1],line[:-1]+str(omega_cdm))
-                elif line.startswith('omega_ncdm'):
-                    line = line.replace(line[:-1],line[:-1]+str(omega_ncdm))
-                elif line.startswith('TimeSliceRedshifts '):
-                    line = line.replace(line[:-1],line[:-1]+str(redshifts))
-                elif line.startswith('LightConeOrigins'):
-                    line = line.replace(line[:-1],line[:-1]+str(LightConeOrigins))
-                elif line.startswith('NLightCones'):
-                    line = line.replace(line[:-1],line[:-1]+str(NLightCones))
-                elif line.startswith('ZD_Pk_filename'):
-                    line = line.replace(line[:-1],line[:-1]+'"'+classFile+'"')
-                elif line.startswith('ZD_Seed'):
-                    line = line.replace(line[:-1],line[:-1]+str(thisSeed))
-                print(line,end='')
-            # take what's different for each sim and save in new file
-            with open(os.path.join(abacus_dir,newFile)) as f1, open(os.path.join(sim_dir,"abacus_example.par2")) as f2:
-                l1 = list(f1)
-                l2 = list(f2)
+
+            newparams = {        'SimComment': '"'+parDict['Notes']+'"\n',
+                                    'BoxSize': parDict['Box (Mpc)'],
+                                         'NP': parDict['PPD']+'**3',
+                                         'w0': classParams['w0_fld'],
+                                         'wa': classParams['wa_fld'],
+                                         'H0': str(h*100),
+                                    'Omega_M': str(Omega_M),
+                                       'N_ur': classParams['N_ur'],
+                                     'N_ncdm': classParams['N_ncdm'],
+                                        'n_s': classParams['n_s'],
+                               'Omega_Smooth': str(Omega_Smooth),
+                                    'omega_b': str(omega_b),
+                                  'omega_cdm': str(omega_cdm),
+                                 'omega_ncdm': str(omega_ncdm) + '\n',
+                         'TimeSliceRedshifts': str(redshifts),
+                           'LightConeOrigins': str(LightConeOrigins),
+                                'NLightCones': str(NLightCones) + '\n',
+                             'ZD_Pk_filename': f'"{classFile}"',
+                                    'ZD_Seed': str(thisSeed)
+                         }
+
+            os.makedirs(pjoin(sim_dir, simName), exist_ok=True)
 
             # Differences - individual file for each sim
-            with open(os.path.join(abacus_short_dir,newFile),'w') as f:
-                fout = sorted(set(l1) - set(l2), key = l1.index)
-                for line in fout:
-                    f.write(line)
-                    if line.startswith('SimName'): f.write(MANTRA)
-
-            # Similarities - base file for all sims
-            if os.path.isfile(base): continue
-            with open(base,'w') as f:
-                fout = sorted(set(l1) & set(l2), key = l1.index)
-                f.writelines(fout)
-    return
+            with open(pjoin(sim_dir, simName, 'abacus.par2'), 'w') as f:
+                # Start the file with the SimName and the #include of the base
+                f.write(f'SimName = {simName}\n')
+                f.write('#include "../AbacusSummit_base.par2"\n\n')
+                # Now write all the sim-specific params
+                for key,value in newparams.items():
+                    f.write(f'{key} = {value}\n')
 
 def extract_light(notes):
     if 'no lightcone' in notes:
@@ -200,7 +172,7 @@ def extract_phase(sim):
     return int((re.findall(r"ph\d\d\d",sim)[0]).split('ph')[-1])*100
     
 def extract_names(sim):
-    match = "\{(.*?)\}"
+    match = r"\{(.*?)\}"
     try:
         rang = re.search(match, sim).groups()[0]
     except:
@@ -211,7 +183,7 @@ def extract_names(sim):
 
 def fetch_cosm(cosm):
     cosmName = 'abacus_cosm'+cosm+'/'
-    fn = os.path.join(cosmo_dir,cosmName+'CLASS.ini')
+    fn = pjoin(cosmo_dir,cosmName+'CLASS.ini')
 
     # Parse parameters from file
     param_dict = {}
@@ -231,11 +203,12 @@ def fetch_cosm(cosm):
         v = re.sub('\n','',v)
         param_dict[n] = v
 
-    return param_dict, os.path.realpath(os.path.join(cosmo_dir,cosmName+'CLASS_power'))
+    return param_dict, os.path.realpath(pjoin(cosmo_dir,cosmName+'CLASS_power'))
     
     
 class ArgParseFormatter(argparse.RawDescriptionHelpFormatter, argparse.ArgumentDefaultsHelpFormatter):
     pass
+    
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=ArgParseFormatter)
     parser.add_argument('--table', help='table name to read from', default=simulations_table)

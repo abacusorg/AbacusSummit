@@ -1,3 +1,5 @@
+# AbacusSummit/Simulations
+
 This directory contains the specification of the simulations in AbacusSummit.
 
 Each simulation has a name, which is both the name of the subdirectory and the 
@@ -48,9 +50,10 @@ and 3 subsample lightcones.
 | AbacusSummit_base_c016_ph000       | 016  | 000     | 6912 | 2000      | 0.1     | none         | Horizon |
 | AbacusSummit_base_c017_ph000       | 017  | 000     | 6912 | 2000      | 0.1     | none         | Illustris |
 | AbacusSummit_base_c018_ph000       | 018  | 000     | 6912 | 2000      | 0.1     | none         | Multidark Planck |
-| AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
-| AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
-| AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
-| AbacusSummit_base_c{100-119}_ph000 | 100-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
-| AbacusSummit_base_c{130-199}_ph000 | 130-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
+
+#| AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
+#| AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
+#| AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
+#| AbacusSummit_base_c{100-119}_ph000 | 100-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
+#| AbacusSummit_base_c{130-199}_ph000 | 130-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
 

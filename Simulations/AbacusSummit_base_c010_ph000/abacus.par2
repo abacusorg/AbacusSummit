@@ -1,0 +1,25 @@
+SimName = AbacusSummit_base_c010_ph000
+#include "../AbacusSummit_base.par2"
+
+SimComment = "AbacusCosmos LCDM, Prototype"
+
+BoxSize = 2000
+NP = 6912**3
+w0 = -1.0
+wa = 0.0
+H0 = 67.25999999999999
+Omega_M = 0.31415
+N_ur = 3.04
+N_ncdm = 0.0
+n_s = 0.9652
+Omega_Smooth = 0.0000000
+omega_b = 0.02222
+omega_cdm = 0.1199
+omega_ncdm = 0.0
+
+TimeSliceRedshifts = [0.1]
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+
+ZD_Pk_filename = "/autofs/nccs-svm1_proj/ast145/lgarrison/abacus/external/AbacusSummit/Cosmologies/abacus_cosm010/CLASS_power"
+ZD_Seed = 12321

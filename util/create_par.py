@@ -54,6 +54,18 @@ z_dict = {
     'Partial+HiZ': '[3.0, 2.0, 2.5, 1.4, 0.8, 0.2]',
     'none':'[]'
     }
+
+CPD_dict = {'6912': '1701',
+            '3456': '825',  # ?
+            '2304': '567',  # ?
+            '10000': '2457',  # ?
+            }
+ZD_NumBlock_dict = {'6912': '384',
+            '3456': '96',  # ?
+            '2304': '48',  # ?
+            '10000' : '1000'  # ?
+            }
+
 Seed = 12321
 
 def main(table):
@@ -126,6 +138,7 @@ def read_table(paramNames,fn,namesRow):
             newparams = {        'SimComment': '"'+parDict['Notes']+'"\n',
                                     'BoxSize': parDict['Box (Mpc)'],
                                          'NP': parDict['PPD']+'**3',
+                                        'CPD': CPD_dict[parDict['PPD']],
                                          'w0': classParams['w0_fld'],
                                          'wa': classParams['wa_fld'],
                                          'H0': str(h*100),
@@ -135,7 +148,8 @@ def read_table(paramNames,fn,namesRow):
                            'LightConeOrigins': str(LightConeOrigins),
                                 'NLightCones': str(NLightCones) + '\n',
                              'ZD_Pk_filename': f'"{classFile}"',
-                                    'ZD_Seed': str(thisSeed) + '\n',
+                                    'ZD_Seed': str(thisSeed),
+                                'ZD_NumBlock': ZD_NumBlock_dict[parDict['PPD']]  + '\n',
                                        'N_ur': classParams['N_ur'],
                                      'N_ncdm': classParams['N_ncdm'],
                                         'n_s': classParams['n_s'],

@@ -5,6 +5,7 @@ SimComment = "Euclid Flagship2"
 
 BoxSize = 2000
 NP = 6912**3
+CPD = 1701
 w0 = -1.0
 wa = 0.0
 H0 = 67.0
@@ -17,6 +18,7 @@ NLightCones = 3
 
 ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm013/CLASS_power"
 ZD_Seed = 12321
+ZD_NumBlock = 384
 
 N_ur = 2.0328
 N_ncdm = 1.0

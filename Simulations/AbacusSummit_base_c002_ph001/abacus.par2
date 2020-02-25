@@ -5,6 +5,7 @@ SimComment = "wCDM w=-0.8?"
 
 BoxSize = 2000
 NP = 6912**3
+CPD = 1701
 w0 = -0.7
 wa = -0.5
 H0 = 62.78
@@ -17,6 +18,7 @@ NLightCones = 3
 
 ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm002/CLASS_power"
 ZD_Seed = 12421
+ZD_NumBlock = 384
 
 N_ur = 2.0328
 N_ncdm = 1.0

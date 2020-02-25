@@ -39,6 +39,7 @@ import numpy as np
 
 sim_dir = '../Simulations/'
 cosmo_dir = '../Cosmologies/'
+cosmo_dir_for_par = '$ABACUS$/external/AbacusSummit/Cosmologies/'
 simulations_table = pjoin(sim_dir,'README.md')
 base = pjoin(sim_dir,'AbacusSummit_base.par2')
 light_dict = {
@@ -114,9 +115,9 @@ def read_table(paramNames,fn,namesRow):
             omega_cdm = np.float(classParams['omega_cdm'])
             omega_ncdm = np.float(classParams['omega_ncdm'])
             Omega_M = (omega_b+omega_cdm+omega_ncdm)/h**2
-            Omega_M = format(Omega_M,'7.5f')
+            Omega_M = f'{Omega_M:f}'  # 7.5f  # any reason to limit sig figs? Probably prefer not to
             Omega_Smooth = omega_ncdm/h**2
-            Omega_Smooth = format(Omega_Smooth,'9.7f')
+            Omega_Smooth = f'{Omega_Smooth:f}'  #9.7f
             addSeed = extract_phase(simName)
             thisSeed = Seed+addSeed
             # use file input to add value to edge of things
@@ -129,18 +130,18 @@ def read_table(paramNames,fn,namesRow):
                                          'wa': classParams['wa_fld'],
                                          'H0': str(h*100),
                                     'Omega_M': str(Omega_M),
-                                       'N_ur': classParams['N_ur'],
-                                     'N_ncdm': classParams['N_ncdm'],
-                                        'n_s': classParams['n_s'],
-                               'Omega_Smooth': str(Omega_Smooth),
-                                    'omega_b': str(omega_b),
-                                  'omega_cdm': str(omega_cdm),
-                                 'omega_ncdm': str(omega_ncdm) + '\n',
+                               'Omega_Smooth': str(Omega_Smooth) + '\n',
                          'TimeSliceRedshifts': str(redshifts),
                            'LightConeOrigins': str(LightConeOrigins),
                                 'NLightCones': str(NLightCones) + '\n',
                              'ZD_Pk_filename': f'"{classFile}"',
-                                    'ZD_Seed': str(thisSeed)
+                                    'ZD_Seed': str(thisSeed) + '\n',
+                                       'N_ur': classParams['N_ur'],
+                                     'N_ncdm': classParams['N_ncdm'],
+                                        'n_s': classParams['n_s'],
+                                    'omega_b': str(omega_b),
+                                  'omega_cdm': str(omega_cdm),
+                                 'omega_ncdm': str(omega_ncdm),
                          }
 
             os.makedirs(pjoin(sim_dir, simName), exist_ok=True)
@@ -148,7 +149,7 @@ def read_table(paramNames,fn,namesRow):
             # Differences - individual file for each sim
             with open(pjoin(sim_dir, simName, 'abacus.par2'), 'w') as f:
                 # Start the file with the SimName and the #include of the base
-                f.write(f'SimName = {simName}\n')
+                f.write(f'SimName = "{simName}"\n')
                 f.write('#include "../AbacusSummit_base.par2"\n\n')
                 # Now write all the sim-specific params
                 for key,value in newparams.items():
@@ -203,7 +204,7 @@ def fetch_cosm(cosm):
         v = re.sub('\n','',v)
         param_dict[n] = v
 
-    return param_dict, os.path.realpath(pjoin(cosmo_dir,cosmName+'CLASS_power'))
+    return param_dict, pjoin(cosmo_dir_for_par,cosmName+'CLASS_power')
     
     
 class ArgParseFormatter(argparse.RawDescriptionHelpFormatter, argparse.ArgumentDefaultsHelpFormatter):

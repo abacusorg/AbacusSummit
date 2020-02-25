@@ -1,4 +1,4 @@
-SimName = AbacusSummit_base_c013_ph000
+SimName = "AbacusSummit_base_c013_ph000"
 #include "../AbacusSummit_base.par2"
 
 SimComment = "Euclid Flagship2"
@@ -8,18 +8,19 @@ NP = 6912**3
 w0 = -1.0
 wa = 0.0
 H0 = 67.0
-Omega_M = 0.31910
-N_ur = 2.0328
-N_ncdm = 1.0
-n_s = 0.96
-Omega_Smooth = 0.0014351
-omega_b = 0.022
-omega_cdm = 0.1206
-omega_ncdm = 0.0006442
+Omega_M = 0.319100
+Omega_Smooth = 0.001435
 
 TimeSliceRedshifts = []
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
 NLightCones = 3
 
-ZD_Pk_filename = "/autofs/nccs-svm1_proj/ast145/lgarrison/abacus/external/AbacusSummit/Cosmologies/abacus_cosm013/CLASS_power"
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm013/CLASS_power"
 ZD_Seed = 12321
+
+N_ur = 2.0328
+N_ncdm = 1.0
+n_s = 0.96
+omega_b = 0.022
+omega_cdm = 0.1206
+omega_ncdm = 0.0006442

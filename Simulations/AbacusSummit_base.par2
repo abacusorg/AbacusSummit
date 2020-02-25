@@ -2,14 +2,14 @@
 # The .par2 files for the individual sims will #include this file
 
 SimSet = "AbacusSummit"
-#include "$ABACUS$/Abacus/directory.def"
+#include "$ABACUS$/Production/directory.def"
 #include "$ABACUS$/Production/site_files/summit.def"
 
 LogVerbosity = 2
 
 # Cosmology and basic code parameters
 InitialRedshift = 49.
-Omega_DE = 1-@Omega_M@  #?
+Omega_DE = 1-@Omega_M@
 Omega_K = 0.
 SofteningLength = @BoxSize@/@NP@**(1/3.)/40
 SofteningMax = 0.3*@BoxSize@/@NP@**(1/3.)
@@ -58,6 +58,7 @@ ZD_Version = 2
 ZD_NumBlock = 384
 ZD_qPLT = 1
 ZD_PLT_filename = @ZeldovichDirectory@ + "/eigmodes128"
+ZD_Pk_file_redshift = 1.
 ZD_qPLT_rescale = 1
 ZD_PLT_target_z = 12.0
 ZD_k_cutoff = 1.

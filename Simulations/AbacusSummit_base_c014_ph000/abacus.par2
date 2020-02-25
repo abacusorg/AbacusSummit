@@ -1,4 +1,4 @@
-SimName = AbacusSummit_base_c014_ph000
+SimName = "AbacusSummit_base_c014_ph000"
 #include "../AbacusSummit_base.par2"
 
 SimComment = "OuterRim"
@@ -8,18 +8,19 @@ NP = 6912**3
 w0 = -1.0
 wa = 0.0
 H0 = 71.0
-Omega_M = 0.26479
-N_ur = 3.046
-N_ncdm = 0.0
-n_s = 0.963
-Omega_Smooth = 0.0000000
-omega_b = 0.02258
-omega_cdm = 0.1109
-omega_ncdm = 0.0
+Omega_M = 0.264789
+Omega_Smooth = 0.000000
 
 TimeSliceRedshifts = []
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
 NLightCones = 3
 
-ZD_Pk_filename = "/autofs/nccs-svm1_proj/ast145/lgarrison/abacus/external/AbacusSummit/Cosmologies/abacus_cosm014/CLASS_power"
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm014/CLASS_power"
 ZD_Seed = 12321
+
+N_ur = 3.046
+N_ncdm = 0.0
+n_s = 0.963
+omega_b = 0.02258
+omega_cdm = 0.1109
+omega_ncdm = 0.0

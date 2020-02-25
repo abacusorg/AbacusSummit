@@ -1,5 +1,6 @@
 *~
 abacus_par/*
+abacus.par
 
 # But not these files...
 !.gitignore

@@ -23,7 +23,7 @@ and 3 subsample lightcones.
 
 -----
 
-| SimName                            | Cosm | Phase   | PPD  | Box (Mpc) | z_Final | Full Outputs | Notes |
+| SimName                            | Cosm | Phase   | PPD  | Box (Mpc/h) | z_Final | Full Outputs | Notes |
 | ----------------------------       | ---- | -----   | ---- | ----      | ------- | -----        | ----- |
 | AbacusSummit_base_c000_ph000       | 000  | 000     | 6912 | 2000      | 0.1     | Full         | Planck2018 LCDM |
 | AbacusSummit_base_c000_ph{001-005} | 000  | 001-005 | 6912 | 2000      | 0.1     | Partial+HiZ  | Planck2018 LCDM |

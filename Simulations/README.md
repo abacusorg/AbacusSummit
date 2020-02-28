@@ -21,6 +21,8 @@ each output slice is another 4 TB above that.
 At present, we're planning for 12 particle subsample redshifts, 24 groups-only redshifts,
 and 3 subsample lightcones.
 
+The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologies/README.md).
+
 -----
 
 | SimName                            | Cosm | Phase   | PPD  | Box (Mpc/h) | z_Final | Full Outputs | Notes |

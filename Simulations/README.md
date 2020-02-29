@@ -31,9 +31,9 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_base_c000_ph{001-005} | 000  | 001-005 | 6912 | 2000      | 0.1     | Partial+HiZ  | Planck2018 LCDM |
 | AbacusSummit_base_c000_ph{006-024} | 000  | 006-024 | 6912 | 2000      | 0.1     | none         | Planck2018 LCDM |
 | AbacusSummit_high_c000_ph100       | 000  | 100     | 6912 | 1000      | 0.8     | Full to 0.8  | High-res LCDM, no lightcone |
-| AbacusSummit_high_c000_ph100_base  | 000  | 100     | 3456 | 1000      | 0.8     | Full to 0.8  | Base-res LCDM, no lightcone |
+| AbacusSummit_highbase_c000_ph100  | 000  | 100     | 3456 | 1000      | 0.8     | Full to 0.8  | Base-res LCDM, no lightcone |
 | AbacusSummit_huge_c000_ph200       | 000  | 200     | 10000| 8700      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
-| AbacusSummit_huge_c000_ph{000-024}_base | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
+| AbacusSummit_hugebase_c000_ph{000-024} | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
 | AbacusSummit_base_c001_ph000       | 001  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Low omega_c |
 | AbacusSummit_base_c001_ph{001-005} | 001  | 001-005 | 6912 | 2000      | 0.1     | Partial      | Low omega_c |
 | AbacusSummit_base_c002_ph000       | 002  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | wCDM w=-0.8? |

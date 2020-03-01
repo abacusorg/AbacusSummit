@@ -4,6 +4,7 @@ SimName = "AbacusSummit_high_c000_ph100"
 SimComment = "High-res LCDM, no lightcone"
 
 BoxSize = 1000
+FinalRedshift = 0.8
 NP = 6912**3
 CPD = 1701
 w0 = -1.0

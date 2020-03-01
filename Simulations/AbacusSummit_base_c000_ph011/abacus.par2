@@ -4,6 +4,7 @@ SimName = "AbacusSummit_base_c000_ph011"
 SimComment = "Planck2018 LCDM"
 
 BoxSize = 2000
+FinalRedshift = 0.1
 NP = 6912**3
 CPD = 1701
 w0 = -1.0

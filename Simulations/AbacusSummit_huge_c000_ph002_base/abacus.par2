@@ -4,6 +4,7 @@ SimName = "AbacusSummit_huge_c000_ph002_base"
 SimComment = "Low-res match to base, no lightcone"
 
 BoxSize = 2000
+FinalRedshift = 0.1
 NP = 2304**3
 CPD = 567
 w0 = -1.0

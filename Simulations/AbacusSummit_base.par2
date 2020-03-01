@@ -8,7 +8,7 @@ SimSet = "AbacusSummit"
 LogVerbosity = 2
 
 # Cosmology and basic code parameters
-InitialRedshift = 49.
+InitialRedshift = 99.
 Omega_DE = 1-@Omega_M@
 Omega_K = 0.
 SofteningLength = @BoxSize@/@NP@**(1/3.)/40

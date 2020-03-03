@@ -35,6 +35,7 @@ SODensity = [200, 800]
 L0DensityThreshold = 60
 DensityKernelRad = 0.4
 SO_EvolvingThreshold = 1  # SO_RocheCoeff and SO_NPForMinDensity default to 2.0 and 35, respectively. 
+SO_alpha_eligible = 0.8
 MicrostepTimeStep = 0
 
 # Advanced code parameters

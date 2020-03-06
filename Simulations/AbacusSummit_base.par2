@@ -7,7 +7,7 @@ SimSet = "AbacusSummit"
 
 # Any non-standard parameters (at top for visiblity)
 LogVerbosity = 2
-mpirun_cmd = "jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs"
+#mpirun_cmd = "jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs"
 
 # Cosmology and basic code parameters
 InitialRedshift = 99.
@@ -47,7 +47,7 @@ NumSlabsInsertListIC = 8
 NearFieldRadius = 2
 Order = 8
 hMpc = 1
-GroupRadius = 8
+GroupRadius = 10
 DerivativeExpansionRadius = 8
 
 

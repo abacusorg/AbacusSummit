@@ -12,9 +12,9 @@ program.
 Here we give a summary of the AbacusSummit simulation suite and
 the data products that will be made available.
 
-The cosmology grid is specified [here](https://github.com/abacusorg/AbacusSummit/blob/master/Cosmologies/README.md)
+The cosmology grid is specified [here](https://github.com/abacusorg/AbacusSummit/blob/master/Cosmologies/README.md).
 
-The simulations themselves are specified [here](https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/README.md)
+The simulations themselves are specified [here](https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/README.md).
 
 ## What is Abacus?
 
@@ -36,10 +36,10 @@ cosmologies (https://lgarrison.github.io/AbacusCosmos/).
 
 Abacus is currently actively developed by Lehman Garrison, Nina
 Maksimova, and Daniel Eisenstein, with contributions from Boryana
-Hadzhiyska and Sownak Bose and consulting from Philip Pinto.  
-Abacus was initially developed by Marc Metchnik and Philip Pinto,
-with contributions from Daniel Eisenstein and later development
-led by Douglas Ferrer.
+Hadzhiyska and Sownak Bose and consulting from Philip Pinto.  Abacus
+was initially developed by Marc Metchnik and Philip Pinto, with
+contributions from Daniel Eisenstein and later development led by
+Douglas Ferrer.
 
 Abacus development has been supported by NSF AST-1313285 and more
 recently by DOE-SC0013718, as well as by Simons Foundation funds
@@ -54,11 +54,11 @@ Use of AbacusSummit should cite Maksimova et al. (2020) for the
 simulation suite and Garrison et al. (2019) and Garrison et al.
 (2018) for the Abacus code, and Metchnik (2009) for the initial
 method.  Other citations may be requested as we publish more of the
-numerical methods.
-Garrison et al. (2016, MNRAS, 461, 4125) describes our initial condition methods.  
-Hadzhiyska et al. (in prep) will describe our SO group finding method.  
-Pinto et al. (in prep) will describe the Abacus far-field method.  
-Joyce et al. (in prep) describes accuracy tests using scale-free simulations.
+numerical methods.  Garrison et al. (2016, MNRAS, 461, 4125) describes
+our initial condition methods.  Hadzhiyska et al. (in prep) will
+describe our SO group finding method.  Pinto et al. (in prep) will
+describe the Abacus far-field method.  Joyce et al. (in prep)
+describes accuracy tests using scale-free simulations.
 
 
 ## What is AbacusSummit?
@@ -67,16 +67,20 @@ Most of the simulations in AbacusSummit will be 6912^3 = 330 billion
 particles in 2 Gpc/h volume, yielding a particle mass of about 2e9 Msun/h.  
 
 We will run about 150 of these simulations, totaling about 50 trillion
-particles.
+particles.  Detailed specifications of the 
+[simulation parameters](https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/README.md)
+and 
+[cosmological parameters](https://github.com/abacusorg/AbacusSummit/blob/master/Cosmologies/README.md) are available on other pages.
+We note that these are only plans and are subject to change.
 
-We plan to run 25 simulations in one LCDM cosmology (Planck2018),
+We will run 25 simulations in one LCDM cosmology (Planck2018),
 6 simulations each in 4 other cosmologies, and then 1 simulation
 in a spread of other cosmologies, suitable for emulator grids and
 blind mock challenges.  We will also likely run some simulations
 at 8x higher and 27x lower mass resolutions to support a wider range
 of applications and numerical/systematic tests.
 
-All of the simulations start at z=49 utilizing second-order Lagrangian
+All of the simulations start at z=99 utilizing second-order Lagrangian
 Perturbation Theory initial conditions following corrections of
 first-order particle linear theory; these are described in Garrison
 et al. (2016) and have a target correction redshift of 5.  The 

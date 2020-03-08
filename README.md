@@ -111,7 +111,7 @@ All group finding in AbacusSummit is done on the fly.  We are using
 a hybrid algorithm, summarized as follows.
 
 First, we compute a kernel density estimate around all particles.
-This uses a weighting (1-r^2^/b^2^), where b is 0.4 of the interparticle
+This uses a weighting (1-r^2/b^2), where b is 0.4 of the interparticle
 spacing.  We note that the effective volume of this kernel is
 equivalent to a top-hat of 0.737b, so 85 kpc/h comoving, and that
 the mean weighted counts at an overdensity delta is about delta/10
@@ -267,37 +267,37 @@ galaxy, then go find that PID in the light cone files.
 
 Here we list the statistics computed for each halo.
 
-uint64_t id: A unique halo number.
+* uint64_t id: A unique halo number.
 
-uint64_t npstartA: Where to start counting in the particle output for subsample A
+* uint64_t npstartA: Where to start counting in the particle output for subsample A
 
-uint64_t npstartB: Where to start counting in the particle output for subsample B
+* uint64_t npstartB: Where to start counting in the particle output for subsample B
 
-uint32_t npoutA: Number of taggable particles pos/vel/aux written out in subsample A
+* uint32_t npoutA: Number of taggable particles pos/vel/aux written out in subsample A
 
-uint32_t npoutB: Number of taggable particles pos/vel/aux written out in subsample B
+* uint32_t npoutB: Number of taggable particles pos/vel/aux written out in subsample B
 
-uint32_t ntaggedA: Number of tagged particle PIDs written out in subsample A. A particle is tagged if it is taggable and is in the largest L2 halo for a given L1 halo. 
+* uint32_t ntaggedA: Number of tagged particle PIDs written out in subsample A. A particle is tagged if it is taggable and is in the largest L2 halo for a given L1 halo. 
 
-uint32_t ntaggedB; 
+* uint32_t ntaggedB; 
 
-uint32_t N: The number of particles in this halo
+* uint32_t N: The number of particles in this halo
 
-uint32_t L2_N[N_LARGEST_SUBHALOS]: The number of particles in the largest L2 subhalos
+* uint32_t L2_N[N_LARGEST_SUBHALOS]: The number of particles in the largest L2 subhalos
 
-uint32_t L0_N: The number of particles in the L0 parent group
+* uint32_t L0_N: The number of particles in the L0 parent group
 
-float SO_central_particle[3]: Coordinates of the SO central particle
+* float SO_central_particle[3]: Coordinates of the SO central particle
 
-float SO_central_density: Density of the SO central particle. 
+* float SO_central_density: Density of the SO central particle. 
 
-float SO_radius: Radius of SO halo (distance to particle furthest from central particle) 
+* float SO_radius: Radius of SO halo (distance to particle furthest from central particle) 
 
-float SO_L2max_central_particle[3]: Coordinates of the SO central particle for the largest L2 subhalo. 
+* float SO_L2max_central_particle[3]: Coordinates of the SO central particle for the largest L2 subhalo. 
 
-float SO_L2max_central_density: Density of the SO central particle of the largest L2 subhalo. 
+* float SO_L2max_central_density: Density of the SO central particle of the largest L2 subhalo. 
 
-float SO_L2max_radius: Radius of SO halo (distance to particle furthest from central particle) for the largest L2 subhalo
+* float SO_L2max_radius: Radius of SO halo (distance to particle furthest from central particle) for the largest L2 subhalo
 
 
 The following quantities are computed using a center defined by 
@@ -308,43 +308,43 @@ by the center of mass position and velocity of the full L1 halo.
 All second moments and mean speeds are computed only using
 particles in the inner 90% of the mass relative to this center.
 
-float x_L2com[3]: Center of mass pos of the largest L2 subhalo
+* float x_L2com[3]: Center of mass pos of the largest L2 subhalo
 
-float v_L2com[3]: Center of mass vel of the largest L2 subhalo
+* float v_L2com[3]: Center of mass vel of the largest L2 subhalo
 
-float sigmav3d_L2com: Sum of eigenvalues
+* float sigmav3d_L2com: Sum of eigenvalues
 
-float meanSpeed_L2com: Mean speed
+* float meanSpeed_L2com: Mean speed
 
-float sigmav3d_r50_L2com: Velocity dispersion of the inner 50% of particles
+* float sigmav3d_r50_L2com: Velocity dispersion of the inner 50% of particles
 
-float meanSpeed_r50_L2com: Mean speed of the inner 50% of particles
+* float meanSpeed_r50_L2com: Mean speed of the inner 50% of particles
 
-float r100_L2com: Radius of 100% of mass, relative to L2 center. 
+* float r100_L2com: Radius of 100% of mass, relative to L2 center. 
 
-float vcirc_max_L2com: max circular velocity, based on the particles in this L1 halo 
+* float vcirc_max_L2com: max circular velocity, based on the particles in this L1 halo 
 
-int16_t sigmavMin_to_sigmav3d_L2com: Min(sigmav_eigenvalue) / sigmav3d, compressed
+* int16_t sigmavMin_to_sigmav3d_L2com: Min(sigmav_eigenvalue) / sigmav3d, compressed
 
-int16_t sigmavMax_to_sigmav3d_L2com: Max(sigmav_eigenvalue) / sigmav3d, compressed
+* int16_t sigmavMax_to_sigmav3d_L2com: Max(sigmav_eigenvalue) / sigmav3d, compressed
 
-uint16_t sigmav_eigenvecs_L2com: Eigenvectors of the velocity dispersion tensor, compressed into 16 bits. 
+* uint16_t sigmav_eigenvecs_L2com: Eigenvectors of the velocity dispersion tensor, compressed into 16 bits. 
 
-int16_t sigmavrad_to_sigmav3d_L2com: sigmav_rad / sigmav3d, compressed
+* int16_t sigmavrad_to_sigmav3d_L2com: sigmav_rad / sigmav3d, compressed
 
-int16_t sigmavtan_to_sigmav3d_L2com: sigmav_tan / sigmav3d, compressed
+* int16_t sigmavtan_to_sigmav3d_L2com: sigmav_tan / sigmav3d, compressed
 
-int16_t r10_L2com, r25_L2com, r33_L2com, r50_L2com, r67_L2com, r75_L2com, r90_L2com, r95_L2com, r98_L2com: Radii of this percentage of mass, relative to L2 center. Expressed as ratios of r100 and compressed to int16. 
+* int16_t r10_L2com, r25_L2com, r33_L2com, r50_L2com, r67_L2com, r75_L2com, r90_L2com, r95_L2com, r98_L2com: Radii of this percentage of mass, relative to L2 center. Expressed as ratios of r100 and compressed to int16. 
 
-int16_t sigmar_L2com[3]: The eigenvalues of the moment of inertia tensor
+* int16_t sigmar_L2com[3]: The eigenvalues of the moment of inertia tensor
 
-int16_t sigman_L2com[3]: The eigenvalues of the weighted moment of inertia tensor, in which we have computed the mean square of the normal vector between the COM and each particle.
+* int16_t sigman_L2com[3]: The eigenvalues of the weighted moment of inertia tensor, in which we have computed the mean square of the normal vector between the COM and each particle.
 
-uint16_t sigmar_eigenvecs_L2com: The eigenvectors of the inertia tensor, compressed
+* uint16_t sigmar_eigenvecs_L2com: The eigenvectors of the inertia tensor, compressed
 
-uint16_t sigman_eigenvecs_L2com: The eigenvectors of the weighted inertia tensor, compressed
+* uint16_t sigman_eigenvecs_L2com: The eigenvectors of the weighted inertia tensor, compressed
 
-int16_t rvcirc_max_L2com: radius of max circular velocity, stored as ratio to r100, relative to L2 center
+* int16_t rvcirc_max_L2com: radius of max circular velocity, stored as ratio to r100, relative to L2 center
 
 In most cases, these quantities are compressed to save space.  Sometimes this is simple: e.g., when we have the chance to store a ratio in the range [0,1], we
 multiply by 32000 and store as an int16.  Others are more complicated, e.g., 

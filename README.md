@@ -111,7 +111,7 @@ All group finding in AbacusSummit is done on the fly.  We are using
 a hybrid algorithm, summarized as follows.
 
 First, we compute a kernel density estimate around all particles.
-This uses a weighting (1-r**2/b**2), where b is 0.4 of the interparticle
+This uses a weighting (1-r^2^/b^2^), where b is 0.4 of the interparticle
 spacing.  We note that the effective volume of this kernel is
 equivalent to a top-hat of 0.737b, so 85 kpc/h comoving, and that
 the mean weighted counts at an overdensity delta is about delta/10
@@ -357,13 +357,13 @@ simple numpy arrays to the user.
 
 ## AbacusSummit Light Cones
 
-The light cone is structured as two periodic copies of the box,
-centered at (0,0,0) and (0,0,2000) in Mpc/h units.  This is observed
+The light cone is structured as three periodic copies of the box,
+centered at (0,0,0), (0,0,2000), and (0,2000,0) in Mpc/h units.  This is observed
 from the location (-950, -950, -950), i.e., 50 Mpc inside a corner.
 This provides an octant to a distance of 1950 Mpc/h (z=0.8), shrinking
-to about 800 square degrees at a distance of 3950 Mpc/h (z=2.4).
+to two patches each about 800 square degrees at a distance of 3950 Mpc/h (z=2.4).
 
-The two boxes are output separately and the positions are referred
+The three boxes are output separately and the positions are referred
 to the center of each periodic copy, so the particles from the higher
 redshift box need to have 2000 Mpc/h added to their z coordinate.
 

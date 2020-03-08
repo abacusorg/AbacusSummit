@@ -4,6 +4,7 @@ SimName = "AbacusSummit_base_c000_ph017"
 SimComment = "Planck2018 LCDM"
 
 BoxSize = 2000
+FinalRedshift = 0.1
 NP = 6912**3
 CPD = 1701
 w0 = -1.0
@@ -12,7 +13,7 @@ H0 = 67.36
 Omega_M = 0.315192
 Omega_Smooth = 0.001420
 
-TimeSliceRedshifts = []
+TimeSliceRedshifts = None
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
 NLightCones = 3
 

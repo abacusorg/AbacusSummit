@@ -4,6 +4,7 @@ SimName = "AbacusSummit_base_c001_ph005"
 SimComment = "Low omega_c"
 
 BoxSize = 2000
+FinalRedshift = 0.1
 NP = 6912**3
 CPD = 1701
 w0 = -1.0

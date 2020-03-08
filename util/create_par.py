@@ -19,7 +19,7 @@ The table with different simulation parameters should follow the following forma
 ------------------------------------------------------
 Comments: The first line after the comments refers to the specs of the first simulation box; the second
 to the next, etc.
-| SimName |  PPD    |  Box (Mpc) |  ...  |  Notes  |
+| SimName |  PPD    |  Box (Mpc/h) |  ...  |  Notes  |
 | ------  |  -----  |  -----     |  ---  |  ------ | 
 | name1   |  6912   |  2000      |  ...  |LCDM base|
 | name2   |  6912   |  2000      |  ...  |neutrinos|
@@ -52,7 +52,7 @@ z_dict = {
     'Full to 0.8': '[3.0, 2.5, 2.0, 1.7, 1.4, 1.1, 0.8]',
     'Partial': '[2.5, 1.4, 0.8, 0.2]',
     'Partial+HiZ': '[3.0, 2.0, 2.5, 1.4, 0.8, 0.2]',
-    'none':'[]'
+    'none':'None'
     }
 
 CPD_dict = {'6912': '1701',
@@ -136,7 +136,8 @@ def read_table(paramNames,fn,namesRow):
             # write_par
 
             newparams = {        'SimComment': '"'+parDict['Notes']+'"\n',
-                                    'BoxSize': parDict['Box (Mpc)'],
+                                    'BoxSize': parDict['Box (Mpc/h)'],
+                              'FinalRedshift': parDict['z_Final'],
                                          'NP': parDict['PPD']+'**3',
                                         'CPD': CPD_dict[parDict['PPD']],
                                          'w0': classParams['w0_fld'],

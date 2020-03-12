@@ -410,12 +410,12 @@ compressed.  We call this trz compression, and provide a utility
 by 12 and 8 bytes respective provides substantially better compression,
 as some bytes in each number have much less variation than others,
 and the x and y coordinates vary more slowly than z due to the fact
-that the particles are output in cell order.  We use [zstd](zstd.net) as the
+that the particles are output in cell order.  We use [zstd](https://www.zstd.net) as the
 compression because it is much faster in decompression than gunzip;
 we expect that even a single thread can keep up with the read rate
 of a disk array.
 
-CRC32 Checksums are provided for all files.  These should match the
+CRC32 checksums are provided for all files.  These should match the
 GNU `cksum` utility, pre-installed in most Linux environments.
 We also offer a fast implementation of `cksum` with a 10x performance
-gain: https://github.com/abacusorg/fast-cksum.
+gain (https://github.com/abacusorg/fast-cksum).

@@ -8,6 +8,7 @@ SimSet = "AbacusSummit"
 # Any non-standard parameters (at top for visiblity)
 LogVerbosity = 2
 #mpirun_cmd = "jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs"
+subprocess_timeout = 15  # minutes
 
 # Cosmology and basic code parameters
 InitialRedshift = 99.

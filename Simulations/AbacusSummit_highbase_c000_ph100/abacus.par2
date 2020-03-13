@@ -4,7 +4,7 @@ SimName = "AbacusSummit_highbase_c000_ph100"
 SimComment = "Base-res LCDM, no lightcone"
 
 BoxSize = 1000
-FinalRedshift = 0.8
+FinalRedshift = 0.1
 NP = 3456**3
 CPD = 825
 w0 = -1.0
@@ -13,7 +13,7 @@ H0 = 67.36
 Omega_M = 0.315192
 Omega_Smooth = 0.001420
 
-TimeSliceRedshifts = [3.0, 2.5, 2.0, 1.7, 1.4, 1.1, 0.8]
+TimeSliceRedshifts = [3.0, 2.5, 2.0, 1.7, 1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2, 0.1]
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
 NLightCones = 0
 

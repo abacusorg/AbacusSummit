@@ -121,7 +121,8 @@ def read_table(paramNames,fn,namesRow):
         # for each copy par2 into a new file with name given by sim
         for simName in simNames:
             # fetch the cosmology
-            classParams,classFile = fetch_cosm(parDict['Cosm'])
+            cosm_num = extract_cosm(simName)
+            classParams,classFile = fetch_cosm(cosm_num)
             h = np.float(classParams['h'])
             omega_b = np.float(classParams['omega_b'])
             omega_cdm = np.float(classParams['omega_cdm'])
@@ -185,20 +186,23 @@ def extract_zs(output):
         return '['+output+']'
     
 def extract_phase(sim):
-    return int((re.findall(r"ph\d\d\d",sim)[0]).split('ph')[-1])*100
+    return int((re.findall(r"ph\d{3}",sim)[0]).split('ph')[-1])*100
+
+def extract_cosm(sim):
+    return int(re.search(r"c(\d{3})",sim).group(1))
     
 def extract_names(sim):
     match = r"\{(.*?)\}"
     try:
-        rang = re.search(match, sim).groups()[0]
+        endpoints = re.search(match, sim).group(1).split('-')
     except:
         return [sim]
-    nums = np.arange(int(rang.split('-')[0]),int(rang.split('-')[-1])+1)
-    names = [re.sub(match,format(nums[i],"03d"),sim) for i in range(len(nums))]
+    nums = range(int(endpoints[0]), int(endpoints[1])+1)
+    names = [re.sub(match,format(i,"03d"),sim) for i in nums]
     return names
 
 def fetch_cosm(cosm):
-    cosmName = 'abacus_cosm'+cosm+'/'
+    cosmName = f'abacus_cosm{cosm:03d}/'
     fn = pjoin(cosmo_dir,cosmName+'CLASS.ini')
 
     # Parse parameters from file

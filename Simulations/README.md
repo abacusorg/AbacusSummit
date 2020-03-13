@@ -31,7 +31,7 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_base_c000_ph{001-005} | 000  | 001-005 | 6912 | 2000      | 0.1     | Partial+HiZ  | Planck2018 LCDM |
 | AbacusSummit_base_c000_ph{006-024} | 000  | 006-024 | 6912 | 2000      | 0.1     | none         | Planck2018 LCDM |
 | AbacusSummit_high_c000_ph100       | 000  | 100     | 6912 | 1000      | 0.8     | Full to 0.8  | High-res LCDM, no lightcone |
-| AbacusSummit_highbase_c000_ph100  | 000  | 100     | 3456 | 1000      | 0.8     | Full to 0.8  | Base-res LCDM, no lightcone |
+| AbacusSummit_highbase_c000_ph100  | 000  | 100     | 3456 | 1000      | 0.1     | Full  | Base-res LCDM, no lightcone |
 | AbacusSummit_huge_c000_ph200       | 000  | 200     | 10000| 8700      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
 | AbacusSummit_hugebase_c000_ph{000-024} | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
 | AbacusSummit_base_c001_ph000       | 001  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Low omega_c |
@@ -52,10 +52,17 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_base_c016_ph000       | 016  | 000     | 6912 | 2000      | 0.1     | none         | Horizon |
 | AbacusSummit_base_c017_ph000       | 017  | 000     | 6912 | 2000      | 0.1     | none         | Illustris |
 | AbacusSummit_base_c018_ph000       | 018  | 000     | 6912 | 2000      | 0.1     | none         | Multidark Planck |
+| AbacusSummit_base_c{100-115}_ph000 | 100-115  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
 
-#| AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
-#| AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
-#| AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
-#| AbacusSummit_base_c{100-119}_ph000 | 100-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
-#| AbacusSummit_base_c{130-199}_ph000 | 130-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
+
+### TODO: these cosmologies do not yet exist
+# | AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
+
+# | AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
+
+# | AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
+
+# | AbacusSummit_base_c{116-119}_ph000 | 116-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
+
+# | AbacusSummit_base_c{130-199}_ph000 | 130-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
 

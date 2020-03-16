@@ -56,13 +56,13 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 
 
 ### TODO: these cosmologies do not yet exist
-# | AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
+\# | AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | ANL LCDM |
 
-# | AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
+\# | AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
 
-# | AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
+\# | AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
 
-# | AbacusSummit_base_c{116-119}_ph000 | 116-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
+\# | AbacusSummit_base_c{116-119}_ph000 | 116-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
 
-# | AbacusSummit_base_c{130-199}_ph000 | 130-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
+\# | AbacusSummit_base_c{130-199}_ph000 | 130-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
 

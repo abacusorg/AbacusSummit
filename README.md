@@ -417,5 +417,5 @@ of a disk array.
 
 CRC32 checksums are provided for all files.  These should match the
 GNU `cksum` utility, pre-installed in most Linux environments.
-We also offer a fast implementation of `cksum` with a 10x performance
-gain (https://github.com/abacusorg/fast-cksum).
+We also offer a fast implementation of `cksum` with about 10x better performance:
+https://github.com/abacusorg/fast-cksum.

@@ -19,7 +19,7 @@ $ pip install .  # << note the dot
 $ pip install python-blosc  # another dependency
 ```
 
-In Python, we load the ASDF files into[Astropy tables](http://docs.astropy.org/en/stable/table/),
+In Python, we load the ASDF files into [Astropy tables](http://docs.astropy.org/en/stable/table/),
 so Astropy is another dependency.
 
 ## `abacus_halo_catalog.py`
@@ -27,10 +27,10 @@ Use `abacus_halo_catalog.py` to read Abacus halo catalogs.  Place this file in t
 from which you are running Python, or place the directory in your `PYTHONPATH` environment variable.
 This is a temporary solution for installing this module until we move to a package manager.
 
-Please see the file itself for documentation.  A brief example is included below, but more
-extensive documentation and examples will eventually be available online.
+Here is a brief example of how to use this module; the file itself contains more documentation.
+More detailed documentation and examples will eventually be available online.
 
-```console
+```pycon
 >>> from abacus_halo_catalog import AbacusHaloCatalog
 >>> # Load the RVs and PIDs for particle subsample A
 >>> cat = AbacusHaloCatalog('/storage/AbacusSummit/AbacusSummit_000/halos/z0.100', load_subsamples='A_all')

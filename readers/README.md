@@ -32,7 +32,7 @@ More detailed documentation and examples will eventually be available online.
 
 ```pycon
 >>> from abacus_halo_catalog import AbacusHaloCatalog
->>> # Load the RVs and PIDs for particle subsample A
+>>> # Load the halo catalog and particle subsample A for redshift 0.1
 >>> cat = AbacusHaloCatalog('/storage/AbacusSummit/AbacusSummit_000/halos/z0.100', load_subsamples='A_all')
 >>> print(cat.halos[:5])  # cat.halos is an Astropy Table, print the first 5 rows
    id    npstartA npstartB ... sigmavrad_L2com sigmavtan_L2com rvcirc_max_L2com

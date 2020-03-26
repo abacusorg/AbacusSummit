@@ -22,6 +22,8 @@ $ pip install blosc  # another dependency
 In Python, we load the ASDF files into [Astropy tables](http://docs.astropy.org/en/stable/table/),
 so Astropy is another dependency.
 
+*Note:* Please update Astropy if you receive an error message like `AttributeError: 'numpy.ndarray' object has no attribute 'info'`
+
 ## `abacus_halo_catalog.py`
 Use `abacus_halo_catalog.py` to read Abacus halo catalogs.  Place this file in the directory
 from which you are running Python, or place the directory in your `PYTHONPATH` environment variable.

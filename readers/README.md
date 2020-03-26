@@ -12,11 +12,11 @@ we require users to run our fork of ASDF that supports blosc.  This is a tempora
 ASDF supports blosc upstream, or we package the decompressor in a pluggable manner.
 
 Our fork of ASDF can be installed with:
-```console
-~$ git clone --recursive https://github.com/lgarrison/asdf.git
-~$ cd asdf
-~/asdf$ pip install .  # << note the dot
-~/asdf$ pip install blosc  # another dependency
+```bash
+$ git clone --recursive https://github.com/lgarrison/asdf.git
+$ cd asdf
+$ pip install .  # << note the dot
+$ pip install blosc  # another dependency
 ```
 
 In Python, we load the ASDF files into [Astropy tables](http://docs.astropy.org/en/stable/table/),

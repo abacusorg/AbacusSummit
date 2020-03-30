@@ -12,15 +12,17 @@ we require users to run our fork of ASDF that supports blosc.  This is a tempora
 ASDF supports blosc upstream, or we package the decompressor in a pluggable manner.
 
 Our fork of ASDF can be installed with:
-```console
+```bash
 $ git clone --recursive https://github.com/lgarrison/asdf.git
 $ cd asdf
 $ pip install .  # << note the dot
-$ pip install python-blosc  # another dependency
+$ pip install blosc  # another dependency
 ```
 
 In Python, we load the ASDF files into [Astropy tables](http://docs.astropy.org/en/stable/table/),
 so Astropy is another dependency.
+
+*Note:* Please update Astropy if you receive an error message like `AttributeError: 'numpy.ndarray' object has no attribute 'info'`
 
 ## `abacus_halo_catalog.py`
 Use `abacus_halo_catalog.py` to read Abacus halo catalogs.  Place this file in the directory
@@ -32,7 +34,7 @@ More detailed documentation and examples will eventually be available online.
 
 ```pycon
 >>> from abacus_halo_catalog import AbacusHaloCatalog
->>> # Load the RVs and PIDs for particle subsample A
+>>> # Load the halo catalog and particle subsample A for redshift 0.1
 >>> cat = AbacusHaloCatalog('/storage/AbacusSummit/AbacusSummit_000/halos/z0.100', load_subsamples='A_all')
 >>> print(cat.halos[:5])  # cat.halos is an Astropy Table, print the first 5 rows
    id    npstartA npstartB ... sigmavrad_L2com sigmavtan_L2com rvcirc_max_L2com

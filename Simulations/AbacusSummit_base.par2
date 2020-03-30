@@ -7,8 +7,9 @@ SimSet = "AbacusSummit"
 
 # Any non-standard parameters (at top for visiblity)
 LogVerbosity = 2
-#mpirun_cmd = "jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs"
-subprocess_timeout = 15  # minutes
+mpirun_cmd = "jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b none"
+checkpoint_timeout = 5  # minutes
+step_timeout = 15  # minutes
 DeleteICsAfterFirstBackup = 1
 
 # Cosmology and basic code parameters

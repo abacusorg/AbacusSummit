@@ -36,12 +36,12 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_hugebase_c000_ph{000-024} | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
 | AbacusSummit_base_c001_ph000       | 001  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Low omega_c |
 | AbacusSummit_base_c001_ph{001-005} | 001  | 001-005 | 6912 | 2000      | 0.1     | Partial      | Low omega_c |
-| AbacusSummit_base_c002_ph000       | 002  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | wCDM w=-0.8? |
-| AbacusSummit_base_c002_ph{001-005} | 002  | 001-005 | 6912 | 2000      | 0.1     | Partial      | wCDM w=-0.8? |
-| AbacusSummit_base_c003_ph000       | 003  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | TBD |
-| AbacusSummit_base_c003_ph{001-005} | 003  | 001-005 | 6912 | 2000      | 0.1     | Partial      | TBD |
-| AbacusSummit_base_c004_ph000       | 004  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | TBD |
-| AbacusSummit_base_c004_ph{001-005} | 004  | 001-005 | 6912 | 2000      | 0.1     | Partial      | TBD |
+| AbacusSummit_base_c002_ph000       | 002  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | wCDM with thawing model w0 = -0.7, wa = -0.5 |
+| AbacusSummit_base_c002_ph{001-005} | 002  | 001-005 | 6912 | 2000      | 0.1     | Partial      | wCDM with thawing model w0 = -0.7, wa = -0.5 |
+| AbacusSummit_base_c003_ph000       | 003  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Neff=3.70, from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO |
+| AbacusSummit_base_c003_ph{001-005} | 003  | 001-005 | 6912 | 2000      | 0.1     | Partial      | Neff=3.70, from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO |
+| AbacusSummit_base_c004_ph000       | 004  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Low sigma8_matter = 0.75, otherwise Baseline LCDM |
+| AbacusSummit_base_c004_ph{001-005} | 004  | 001-005 | 6912 | 2000      | 0.1     | Partial      | Low sigma8_matter = 0.75, otherwise Baseline LCDM |
 | AbacusSummit_base_c009_ph000       | 009  | 000     | 6912 | 2000      | 0.1     | Partial      | Baseline LCDM with massless neutrinos |
 | AbacusSummit_base_c010_ph000       | 010  | 000     | 6912 | 2000      | 0.1     | 0.1          | AbacusCosmos LCDM, Prototype |
 | AbacusSummit_base_c011_ph000       | 011  | 000     | 6912 | 2000      | 0.1     | none         | High-sigma8, Prototype |

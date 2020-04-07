@@ -6,6 +6,7 @@ point that we upload them to a package manager.
 
 ## Dependencies
 The Python dependencies are:
+- numpy
 - asdf (our fork, see below)
 - astropy
 - numba

@@ -1,7 +1,7 @@
 SimName = "AbacusSummit_base_c004_ph004"
 #include "../AbacusSummit_base.par2"
 
-SimComment = "TBD"
+SimComment = "Low sigma8_matter = 0.75, otherwise Baseline LCDM"
 
 BoxSize = 2000
 FinalRedshift = 0.1

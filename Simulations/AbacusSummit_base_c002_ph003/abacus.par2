@@ -1,7 +1,7 @@
 SimName = "AbacusSummit_base_c002_ph003"
 #include "../AbacusSummit_base.par2"
 
-SimComment = "wCDM w=-0.8?"
+SimComment = "wCDM with thawing model w0 = -0.7, wa = -0.5"
 
 BoxSize = 2000
 FinalRedshift = 0.1

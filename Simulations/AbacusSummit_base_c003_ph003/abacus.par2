@@ -1,7 +1,7 @@
 SimName = "AbacusSummit_base_c003_ph003"
 #include "../AbacusSummit_base.par2"
 
-SimComment = "TBD"
+SimComment = "Neff=3.70, from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO"
 
 BoxSize = 2000
 FinalRedshift = 0.1

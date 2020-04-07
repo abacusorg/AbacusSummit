@@ -172,6 +172,7 @@ from astropy.utils import iers
 iers.conf.auto_download = False
 
 import numpy as np
+import numba as nb
 import astropy.table
 from astropy.table import Table
 import asdf
@@ -248,6 +249,7 @@ class AbacusHaloCatalog:
             # TODO: implement field subset loading
             # TODO: need npstart/out fields when requesting subsamples
             # TODO: delete npstart/out fields when not requesting halo subsamples?
+            # TODO: define pre-set subsets of common fields
             raise NotImplementedError('field subset loading not yet implemented')
 
         if type(path) is str:
@@ -280,7 +282,7 @@ class AbacusHaloCatalog:
             self.header = af['header']
 
         # Read and unpack the catalog into self.halos
-        N_halo_per_file = self.read_halo_info(halo_fns, fields)
+        N_halo_per_file = self._read_halo_info(halo_fns, fields)
         
         # If user has not requested to load subsamples, we might as well exit here
         if load_subsamples == False:
@@ -312,12 +314,12 @@ class AbacusHaloCatalog:
         
         # Loading the particle information
         if "pid" in self.load_pidrv:
-            self.load_pids(unpack_bits, N_halo_per_file)
+            self._load_pids(unpack_bits, N_halo_per_file)
         if "rv" in self.load_pidrv:
-            self.load_RVs(N_halo_per_file)
+            self._load_RVs(N_halo_per_file)
 
 
-    def read_halo_info(self, halo_fns, fields):
+    def _read_halo_info(self, halo_fns, fields):
         # Open all the files, validate them, and count the halos
         # Lazy load, but don't use mmap
         afs = [asdf.open(hfn, lazy_load=True, copy_arrays=True) for hfn in halo_fns]
@@ -360,6 +362,7 @@ class AbacusHaloCatalog:
 
             # We must use the halos['field'][:] syntax in order to do an in-place update
             # We will enable column replacement warnings to make sure we don't make a mistake
+            _oldwarn = astropy.table.conf.replace_warnings
             astropy.table.conf.replace_warnings = ['always']
 
             # TODO: attach units to all these?
@@ -415,14 +418,14 @@ class AbacusHaloCatalog:
             halos['L2_N'][:] = rawhalos['L2_N']
             halos['L0_N'][:] = rawhalos['L0_N']
 
-            astropy.table.conf.replace_warnings = []
+            astropy.table.conf.replace_warnings = _oldwarn
 
             del rawhalos
 
         return N_halo_per_file
 
 
-    def reindex_subsamples(self, RVorPID, N_halo_per_file):
+    def _reindex_subsamples(self, RVorPID, N_halo_per_file):
         if RVorPID == 'pid':
             asdf_col_name = 'packedpid'
         elif RVorPID == 'rv':
@@ -460,7 +463,7 @@ class AbacusHaloCatalog:
                 # Halos only index halo particles; no need to do this if we're just loading field particles!
                 # Offset npstartB in case the user is loading both subsample A and B.  Also accounts for field particles.
                 self.halos['npstart'+AB] += np_total
-                reindex_subsamples_from_asdf_size(self.halos['npstart'+AB],
+                _reindex_subsamples_from_asdf_size(self.halos['npstart'+AB],
                                                   [af[self.data_key][asdf_col_name] for af in halo_particle_afs],
                                                   N_halo_per_file)
                 self._reindexed[AB] = True
@@ -475,10 +478,10 @@ class AbacusHaloCatalog:
         return particle_AB_afs, np_per_file
 
 
-    def load_pids(self, unpack_bits, N_halo_per_file, check_pids=False):
+    def _load_pids(self, unpack_bits, N_halo_per_file, check_pids=False):
         # Even if unpack_bits is False, return the PID-masked value, not the raw value.
 
-        pid_AB_afs, np_per_file = self.reindex_subsamples('pid', N_halo_per_file)
+        pid_AB_afs, np_per_file = self._reindex_subsamples('pid', N_halo_per_file)
 
         start = 0
         np_total = np.sum(np_per_file)
@@ -508,9 +511,9 @@ class AbacusHaloCatalog:
             self.subsamples.add_column(pids_AB, name='pid', copy=False)
         
             
-    def load_RVs(self, N_halo_per_file):
+    def _load_RVs(self, N_halo_per_file):
         
-        particle_AB_afs, np_per_file = self.reindex_subsamples('rv', N_halo_per_file)
+        particle_AB_afs, np_per_file = self._reindex_subsamples('rv', N_halo_per_file)
 
         start = 0
         np_total = np.sum(np_per_file)
@@ -526,47 +529,7 @@ class AbacusHaloCatalog:
         self.subsamples.add_column(pvel_AB, name='vel', copy=False)
 
 
-def reindex_contiguous_subsamples(subsamp_start, subsamp_len):
-    """
-    If we concatenate halos and particles into big files/arrays, the "subsample start"
-    indices in the halos table no longer correspond to the concatenated particle array.
-    But we can easily reconstruct the correct indices as the cumulative sum of the
-    subsample sizes.
-
-    This only works if there are no un-indexed particles in the subsample files, such
-    as L0 particles that are not indexed as part of any L1 halo.  The indexed particles
-    must be contiguous, hence the name of this function.
-    
-    Parameters
-    ----------
-    subsamp_start: ndarray
-        The concatenated subsample start array. Must be in its original order (i.e. the order
-        on disk, because the subsamples on disk are in the same order).  Will be updated
-        in-place.
-
-    subsamp_len: ndarray
-        The concatenated subsample lengths corresponding to `subsamp_start`.  Will not
-        be modified.
-        
-    Returns
-    -------
-    njump: int
-        The number of discontinuities that were fixed in the subsample indexing.
-        Should be equal to the number of file splits.
-    """
-    
-    # The number of "discontinuities" in particle indexing should equal the number of files
-    # This helps us make sure the halos were not reordered
-    njump = (subsamp_start[:-1] + subsamp_len[:-1] != subsamp_start[1:]).sum()
-    
-    # Now reindex the halo records
-    subsamp_start[0] = 0
-    subsamp_start[1:] = subsamp_len.cumsum()[:-1]
-    
-    return njump
-
-
-def reindex_subsamples_from_asdf_size(subsamp_start, particle_arrays, N_halo_per_file):
+def _reindex_subsamples_from_asdf_size(subsamp_start, particle_arrays, N_halo_per_file):
     '''
     For subsample redshifts where we have L1s followed by L0s in the halo_pids files,
     we need to reindex using the total number of PIDs in the file, not the npout fields,
@@ -600,44 +563,46 @@ AUXTAGGED = 48 # tagged bit is 48
 INT16SCALE = 32000.
 
 # function to unpack the RVint format
+@nb.njit
 def unpack_rvint(intdata, boxsize, float_dtype=np.float32):
-    assert intdata.dtype == np.int32
-    velscale = float_dtype(6000./2048)
-    posscale = float_dtype(boxsize*(2.**-12.)/1e6)
+    intdata = intdata.reshape(-1)
+    N = len(intdata)
+    posscale = boxsize*(2.**-12.)/1e6
+    velscale = 6000./2048
+    pmask = np.int32(0xfffff000)
+    vmask = np.int32(0xfff)
 
-    # TODO: this uses two passes; check speed. Easy to write one-pass version in Numba.
-    iv = intdata&0xfff
-    intdata &= 0xfffff000  # in-place for efficiency
-    ix = intdata;  del intdata  # name swap
-    assert(ix.dtype == np.int32 and iv.dtype == np.int32)  # just for sanity
-
-    pos = posscale*ix
-    vel = velscale*(iv - 2048)
-  
-    return pos, vel
+    pout = np.empty(N, dtype=float_dtype)
+    vout = np.empty(N, dtype=float_dtype)
+    for i in range(N):
+        pout[i] = (intdata[i]&pmask)*posscale
+        vout[i] = ((intdata[i]&vmask) - 2048)*velscale
+        
+    return pout.reshape(N//3,3), vout.reshape(N//3,3)
 
 
 # extract the Lagrangian position, tagged info and density from the ids of the particles
-# TODO: this is many passes over the PIDs, check speed, could rewrite in Numba
-def unpack_pids(pid_this, box, ppd, float_dtype=np.float32):
-    lagr_pos = np.empty((len(pid_this),3), dtype=float_dtype)
+@nb.njit
+def unpack_pids(packed, box, ppd, float_dtype=np.float32):
+    N = len(packed)
+    
+    justpid = np.empty(N, dtype=np.int64)
+    lagr_pos = np.empty((N,3), dtype=float_dtype)
+    tagged = np.empty(N, dtype=np.bool8)
+    density = np.empty(N, dtype=float_dtype)
 
-    box = float_dtype(box)
-    ppd = float_dtype(ppd)
-    lagr_pos[:,0] = ((pid_this & AUXXPID)/ppd - 0.5)*box
-    lagr_pos[:,1] = (((pid_this & AUXYPID) >> 16)/ppd - 0.5)*box
-    lagr_pos[:,2] = (((pid_this & AUXZPID) >> 32)/ppd - 0.5)*box
+    for i in range(N):
+        lagr_pos[i,0] = ((packed[i] & AUXXPID)/ppd - 0.5)*box
+        lagr_pos[i,1] = (((packed[i] & AUXYPID) >> 16)/ppd - 0.5)*box
+        lagr_pos[i,2] = (((packed[i] & AUXZPID) >> 32)/ppd - 0.5)*box
 
-    tagged = ((pid_this >> AUXTAGGED) & 1).astype(bool)
+        tagged[i] = ((packed[i] >> AUXTAGGED) & 1)
 
-    density = ((pid_this & AUXDENS) >> ZERODEN).astype(np.uint32)  # max is 2**10, squaring gets to 2**20
-    density **= 2
-    density = density.astype(float_dtype)  # TODO: don't need cast to int32 and float, let's pick one
+        density[i] = ((packed[i] & AUXDENS) >> ZERODEN)**2  # max is 2**10, squaring gets to 2**20
 
-    justpid = pid_this & AUXPID
+        justpid[i] = packed[i] & AUXPID
     
     return justpid, lagr_pos, tagged, density
-
 
 # unpack the eigenvectors
 def unpack_euler16(bin_this):

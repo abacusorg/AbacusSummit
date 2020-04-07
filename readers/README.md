@@ -5,6 +5,12 @@ This is a temporary way to distribute these utilities until they've matured to t
 point that we upload them to a package manager.
 
 ## Dependencies
+The Python dependencies are:
+- asdf (our fork, see below)
+- astropy
+- numba
+
+*Note:* Please update Astropy if you receive an error message like `AttributeError: 'numpy.ndarray' object has no attribute 'info'`
 
 Essentially all AbacusSummit data products are packaged in [ASDF](https://asdf.readthedocs.io/)
 files with blosc compression.  The compression should be transparent to the user, but for now
@@ -20,9 +26,8 @@ $ pip install blosc  # another dependency
 ```
 
 In Python, we load the ASDF files into [Astropy tables](http://docs.astropy.org/en/stable/table/),
-so Astropy is another dependency.
-
-*Note:* Please update Astropy if you receive an error message like `AttributeError: 'numpy.ndarray' object has no attribute 'info'`
+so Astropy is another dependency.  We use Numba for some of the unpacking routines for our bit-packed
+formats.
 
 ## `abacus_halo_catalog.py`
 Use `abacus_halo_catalog.py` to read Abacus halo catalogs.  Place this file in the directory

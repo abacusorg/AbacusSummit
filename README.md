@@ -215,7 +215,7 @@ should focus.
 At each primary redshift, we output the properties computed for the
 L1 halos in `halo_info` files.  The list of properties is below.
 
-We also output a subsample of the particle, split into 7% and 3%
+We also output a subsample of the particle, split into 3% and 7%
 sets (so 10% total), called A and B, so that users can minimize
 their data access depending on application.  These subsamples are
 consistent across redshift and are selected based on a hash of the

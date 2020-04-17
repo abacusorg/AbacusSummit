@@ -1,0 +1,267 @@
+set_reload emulator_glass.sm
+
+
+macro setfixed 2 {
+    # Set a fixed vector $1 into slot $2
+    do n=0,$dim1 { 
+        set v_$n[$2] = $1[$n]
+        set mask_$n[$2] = 0
+    }
+}
+
+macro setzero 3 {
+    # For dimension $3, set entries [$1,$1+$2) to zero
+    set sel = (enum>=$1&&enum<$1+$2)?0:1
+    set v_$3 = v_$3*sel
+    set mask_$3 = mask_$3*sel
+}
+
+macro mirror {
+    do n=0,$dim1 { 
+        set v_$n[second] = -v_$n[first]
+    }
+}
+
+macro mirror_mask {
+    do n=0,$dim1 { 
+        set mask_$n[second] = mask_$n[first]
+    }
+}
+
+macro setup 1 {
+    # The dimensions of the space are enumerated from 0 to $dim1
+    define seed $1
+    set random $seed
+    define ndim 8
+    define dim1 ($ndim-1)
+
+    # And then the points in the space are in the vectors v_[0..$dim1].
+    # The mask should be 0 or 1; 0 elements will not be moved
+    define np 98
+    define npuse ($np/2+3)
+    set first = 0,$($np/2-0.5)
+    set second = first+$np/2
+    set enum = 0,$($np-0.5)
+    do n=0,$dim1 { 
+        set v_$n = random($np)*2-1 
+        set v_$n = v_$n/sqrt(sum(v_$n*v_$n))
+        set mask_$n = v_$n*0+1
+    }
+    # Initialize a bunch to random, but some will be special
+    set v = < 1 0 0 0 0 0 0 0 > setfixed v 0
+        #set v = -v                  setfixed v 1
+    set v = < 0 1 0 0 0 0 0 0 > setfixed v 1
+        #set v = -v                  setfixed v 3
+    set v = < 0 0 1 0 0 0 0 0 > setfixed v 2
+        #set v = -v                  setfixed v 5
+        #set v = < 0 0 0 1 0 0 0 0 > setfixed v 6
+        #set v = -v                  setfixed v 7
+    # Now set some components to zero
+    # We'll use 3+9=14 points for the first 4*5/2=10 components.
+    # Note that we're also providing 4 other paired sims, and we have
+    # the WMAP sim.  
+    setzero 3 11 4
+    setzero 3 11 5
+    setzero 3 11 6
+    setzero 3 11 7
+    # Then we have 14 points for the next 6*7/2-10 = 11 components
+    setzero 14 14 6
+    setzero 14 14 7
+    # Then we have 14 points for the next 6*7/2-10 = 11 components
+    setzero 28 14 4
+    setzero 28 14 5
+    # This leaves 7 points for the last 8*9/2-32 = 4 components
+    # So the total is 28+14+7 = 49 sims
+    # Tried to keep 4 or 3 extra in all cases for cross-validation.
+    mirror
+    mirror_mask
+}
+
+macro printv {
+    mindist
+    print { enum _min v_0 v_1 v_2 v_3 v_4 v_5 v_6 v_7 }
+}
+
+macro mindist {
+    set dimen(_min) = $np
+    set _min = _min+10 if (enum<$npuse)
+    set _E = 0
+    do m=0,$($npuse-0.5) {
+        set sq = v_0*0 if (enum<$npuse)
+        do n=0,$dim1 {
+            set r = v_$n[$m]-v_$n if (enum<$npuse)
+            set sq = sq+r*r
+        }
+        set sq = (sq<1e-6)?1e10:sq
+        set sq = sqrt(sq)
+        set _E = _E + sum(1/sq)
+        set sq[$m] = _min[$m]    # Put the previous minimum in the unused slot
+        set sq = sq 
+        sort < sq >
+        set _min[$m] = sq[0]
+    }
+    vecminmax _min min max
+    echo Min $min  Max $max  Pot $(_E)   Seed $seed
+}
+
+macro onestep 1 {
+    define 1 ($1)
+    do n=0,$dim1 { set f_$n = v_0*0 }
+    
+    do m=0,$($np-1) {   # Loop over points
+        set sq = v_0*0
+        do n=0,$dim1 {
+            set r_$n = v_$n[$m]-v_$n    # The residual vectors
+            set sq = sq+r_$n*r_$n
+        }
+        set sq = sq**1.5+1e-10
+        do n=0,$dim1 {
+            set r_$n = r_$n/sq     # The force from these residuals
+            set f_$n[$m] = sum(r_$n)
+        }
+    }
+
+    set sq = v_0*0
+    define ellip 2
+    do n=0,$dim1 {
+        set v_$n = v_$n + ($1)*f_$n*mask_$n   # Update the positions
+        #set sq = sq + v_$n*v_$n
+        set sq = sq + abs(v_$n)**$ellip
+    }
+    set sq = sq**(1.0/$ellip)+1e-10
+    do n=0,$dim1 {
+        set v_$n = v_$n/sq     # Keep the vectors normalized
+    }
+    mirror
+}
+
+macro steps 1 {
+    mindist
+    do b=0,10 {
+        do a=0,100 { onestep $1 } 
+        mindist
+    }
+}
+
+macro make_base {
+    set dimen(base_nrun)=22
+    set base__enum = base_nrun-1
+    set base_sigma8m = base_nrun + 0.807952
+    set base_ochh   = base_nrun + ln(0.1200)
+    set base_ns     = base_nrun + 0.9649
+    set base_obhh   = base_nrun + ln(0.02237)
+    set base_w0     = base_nrun - 1.0
+    set base_wa     = base_nrun + 0.0
+    set base_Nur    = base_nrun + 2.0328
+    set base_nrun   = base_nrun + 0.0
+    set base_num = 95,116
+    set base_num[0] = 0
+    
+    set base_num[1]    = 1
+    set base_sigma8m[1] = 0.776779
+    set base_ochh[1]   = ln(0.1134)
+    set base_ns[1]     = 0.9638
+    set base_obhh[1]   = ln(0.02242)
+    
+    set base_num[2]    = 2
+    set base_sigma8m[2] = 0.808189
+    set base_w0[2]     = -0.7
+    set base_wa[2]     = -0.5
+    
+    set base_num[3]    = 3
+    set base_sigma8m[3] = 0.855190
+    set base_ochh[3]   = ln(0.1291)
+    set base_ns[3]     = 0.9876
+    set base_obhh[3]   = ln(0.02260)
+    set base_Nur[3]    = 2.6868
+    
+    set base_num[4]    = 4
+    set base_sigma8m[4] = 0.749999
+
+    set base_obhh[5] = base_obhh[5]+0.02
+    set base_obhh[6] = base_obhh[6]-0.02
+    set base_ochh[7] = base_ochh[7]+0.033
+    set base_ochh[8] = base_ochh[8]-0.033
+    set base_ns[9] = base_ns[9]+0.01
+    set base_ns[10] = base_ns[10]-0.01
+    set base_nrun[11] = base_nrun[11]+0.02
+    set base_nrun[12] = base_nrun[12]-0.02
+    set base_w0[13] = base_w0[13]+0.1
+    set base_w0[14] = base_w0[14]-0.1
+    set base_wa[15] = base_wa[15]+0.4
+    set base_wa[16] = base_wa[16]-0.4
+    set base_w0[15] = base_w0[15]-0.1
+    set base_w0[16] = base_w0[16]+0.1
+    #set base_sigma8m[17] = base_sigma8m[17]*1.02
+    #set base_sigma8m[18] = base_sigma8m[18]*0.98
+    set base_sigma8m[17] = 0.824120
+    set base_sigma8m[18] = 0.792107
+    set base_sigma8m[21] = base_sigma8m[21]+(0.807952-0.749999)
+    set base_Nur[19] = base_Nur[19]+0.3
+    set base_Nur[20] = base_Nur[20]+0.3
+    set base_ochh[19] = base_ochh[19]+0.033
+    set base_ochh[20] = base_ochh[20]+0.033
+    set base_ns[19] = base_ns[19]+0.01
+    set base_ns[20] = base_ns[20]-0.01
+    foreach var varlist { 
+        set $var = base_$var concat $var
+    }
+}
+
+macro map_to_param {
+    set unif = random($np)*2-1
+    do n=0,2 { 
+        set unif[$n] = 0 
+        set unif[$np/2+$n] = 0
+    }
+    # We don't want to break the matched pairs
+
+    set sigma8m = 0.807952*(1  + 0.12 *v_0 + 0.06*unif - 0.5/4*v_4)
+    set ochh    = ln(0.1200)   + 0.165*v_6 + 0.100*v_1
+    set ns      = 0.9649       + 0.05 *v_6 + 0.06 *v_2
+    set obhh    = ln(0.02237)  + 0.10 *v_3
+    set w0      = -1           - 0.2 *v_5 + 0.5  *v_4
+    set wa      = 0            + 0.8  *v_5
+    set Nur     = 2.0328       + 1.2  *v_6
+    set nrun    = 0            + 0.05 *v_7
+    set num = enum+133  #if (enum<$npuse)
+    set num[$np/2] = 130
+    set num[$np/2+1] = 131
+    set num[$np/2+2] = 132
+    set _enum = enum
+
+    set varlist = < sigma8m ochh ns obhh w0 wa Nur nrun num _enum >
+    make_base
+
+    set ochh = exp(ochh)
+    set obhh = exp(obhh)
+
+    set ocbhh = ochh+obhh
+    set winf = w0+wa
+
+    set varlist = < winf ocbhh > concat varlist
+    foreach var varlist {
+        set _$var = $var 
+        set $var = $var if (_enum<$npuse)
+    }
+
+    print emulator_glass.dat '%3.0f  %8.6f  %6.4f  %6.4f  %7.5f  %6.3f  %6.3f  %6.4f  %6.3f\n' \
+        < num sigma8m ochh ns obhh w0 wa Nur nrun >
+    foreach var varlist {
+        vecminmax $var min max
+        echo
+        echo $var  Min: $min   Max: $max
+        st $var
+        write +emulator_glass.dat \#  
+        write +emulator_glass.dat \# $var  Min: $min  Max: $max   
+        write +emulator_glass.dat \#       Mean: $mean +- $sig   Median: $med +- $siqr_sig
+        set $var = _$var 
+    }
+}
+
+macro doit {
+    setup 3
+    steps 0.05
+    steps 0.03
+    map_to_param
+}

@@ -47,6 +47,7 @@ macro setup 1 {
         set v_$n = v_$n/sqrt(sum(v_$n*v_$n))
         set mask_$n = v_$n*0+1
     }
+    set unif = random($np)*2-1
     # Initialize a bunch to random, but some will be special
     set v = < 1 0 0 0 0 0 0 0 > setfixed v 0
         #set v = -v                  setfixed v 1
@@ -57,19 +58,29 @@ macro setup 1 {
         #set v = < 0 0 0 1 0 0 0 0 > setfixed v 6
         #set v = -v                  setfixed v 7
     # Now set some components to zero
-    # We'll use 3+9=14 points for the first 4*5/2=10 components.
+    # We'll use 3+11=14 points for the first 4*5/2=10 components.
     # Note that we're also providing 4 other paired sims, and we have
     # the WMAP sim.  
     setzero 3 11 4
     setzero 3 11 5
     setzero 3 11 6
     setzero 3 11 7
+    # Since we had pairings in the first 3 dimensions, at least balance the 4th.
+    do n=3,13 { set v_3[$n] = abs(v_3[$n])*(-1)**$n }
     # Then we have 14 points for the next 6*7/2-10 = 11 components
     setzero 14 14 6
     setzero 14 14 7
+    # Balance in w0, wa
+    do n=14,27 { set v_4[$n] = abs(v_4[$n])*(-1)**$n }
+    do n=14,27,2 { set v_5[$n] = abs(v_5[$n])*(-1)**($n/2) }
+    do n=15,27,2 { set v_5[$n] = abs(v_5[$n])*(-1)**(($n+1)/2) }
     # Then we have 14 points for the next 6*7/2-10 = 11 components
     setzero 28 14 4
     setzero 28 14 5
+    # Balance in Neff, nrun
+    do n=28,41 { set v_6[$n] = abs(v_6[$n])*(-1)**$n }
+    do n=28,41,2 { set v_7[$n] = abs(v_7[$n])*(-1)**($n/2) }
+    do n=29,41,2 { set v_7[$n] = abs(v_7[$n])*(-1)**(($n+1)/2) }
     # This leaves 7 points for the last 8*9/2-32 = 4 components
     # So the total is 28+14+7 = 49 sims
     # Tried to keep 4 or 3 extra in all cases for cross-validation.
@@ -209,7 +220,6 @@ macro make_base {
 }
 
 macro map_to_param {
-    set unif = random($np)*2-1
     do n=0,2 { 
         set unif[$n] = 0 
         set unif[$np/2+$n] = 0

@@ -8,6 +8,7 @@ point that we upload them to a package manager.
 The Python dependencies are:
 - numpy
 - asdf (our fork, see below)
+- blosc
 - astropy
 - numba
 

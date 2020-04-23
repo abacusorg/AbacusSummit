@@ -15,8 +15,8 @@ inputs = sorted(glob.glob("*.ini"))
 
 # This is where my class directory is
 class_dir = "/home/boryanah/repos/class_public/class "
-# For now use fast option -- otherwise fast = ''
-fast = "_fast"
+# For fast option final class call should be '_fast' -- otherwise fast = ''
+from_emulator = 1#0#1
 
 print("All inputs: ",inputs)
 
@@ -34,7 +34,7 @@ for ini in inputs:
     if 'With A_s calibration' in open(ini).read():
         os.system(class_dir+ini+" ../abacus_base_fast.pre > "+root+".out")
         os.chdir("../../util/")
-        os.system("python calibrate_A_s.py "+root)
+        os.system("python calibrate_A_s.py "+root+" "+str(from_emulator))
         table_to_ini.main()
         os.chdir("../Cosmologies/"+root)
         shutil.copy("../"+ini, ini)

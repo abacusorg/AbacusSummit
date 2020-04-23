@@ -53,7 +53,76 @@ neutrinos as a smooth component.
 | abacus_cosm112     | Baseline +2% sigma8                                                  | 0.02237 |  0.1200   | 0.6736 | 2.1672e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm113     | Baseline -2% sigma8                                                  | 0.02237 |  0.1200   | 0.6736 | 2.0021e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm114     | Baseline +0.3 nnu, +3.3% ln(omega_c), +0.01 n_s                      | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9749 | 0.0     | 2.3328 | 1      | 0.00064420 | -1.0   | 0.0    | 
-| abacus_cosm115     | Baseline -0.3 nnu, -3.3% ln(omega_c), -0.01 n_s                      | 0.02237 |  0.1161   | TBD    | 2.TBD e-9 | 0.9549 | 0.0     | 1.7328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm115     | Baseline -0.3 nnu, -3.3% ln(omega_c), -0.01 n_s                      | 0.02237 |  0.1161   | TBD    | 2.TBD e-9 | 0.9549 | 0.000   | 1.7328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm100     | Emulator grid around baseline cosmology                              | 0.02282 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm101     | Emulator grid around baseline cosmology                              | 0.02193 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm102     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm103     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1161   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm104     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9749 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm105     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9549 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm106     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.020   | 2.0328 | 1      | 0.02064420 | -1.000 | 0.000  | 
+| abacus_cosm107     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | -0.020   | 2.0328 | 1      | -0.02064420 | -1.000 | 0.000  | 
+| abacus_cosm108     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.900 | 0.000  | 
+| abacus_cosm109     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.100 | 0.000  | 
+| abacus_cosm110     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.100 | 0.400  | 
+| abacus_cosm111     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.900 | -0.400  | 
+| abacus_cosm112     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm113     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm114     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9749 | 0.000   | 2.3328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm115     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9549 | 0.000   | 2.3328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm116     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm130     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm131     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1086   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm132     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9049 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm133     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm134     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1326   | TBD    | 2.TBD e-9 | 0.9649 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm135     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 1.0249 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm136     | Emulator grid around baseline cosmology                              | 0.02073 |  0.1192   | TBD    | 2.TBD e-9 | 0.9303 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm137     | Emulator grid around baseline cosmology                              | 0.02212 |  0.1271   | TBD    | 2.TBD e-9 | 0.9252 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm138     | Emulator grid around baseline cosmology                              | 0.02108 |  0.1138   | TBD    | 2.TBD e-9 | 0.9723 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm139     | Emulator grid around baseline cosmology                              | 0.02416 |  0.1128   | TBD    | 2.TBD e-9 | 0.9732 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm140     | Emulator grid around baseline cosmology                              | 0.02096 |  0.1221   | TBD    | 2.TBD e-9 | 0.9893 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm141     | Emulator grid around baseline cosmology                              | 0.02381 |  0.1272   | TBD    | 2.TBD e-9 | 0.9384 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm142     | Emulator grid around baseline cosmology                              | 0.02287 |  0.1130   | TBD    | 2.TBD e-9 | 0.9927 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm143     | Emulator grid around baseline cosmology                              | 0.02206 |  0.1278   | TBD    | 2.TBD e-9 | 0.9952 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm144     | Emulator grid around baseline cosmology                              | 0.02210 |  0.1130   | TBD    | 2.TBD e-9 | 0.9279 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm145     | Emulator grid around baseline cosmology                              | 0.02428 |  0.1186   | TBD    | 2.TBD e-9 | 0.9347 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm146     | Emulator grid around baseline cosmology                              | 0.02097 |  0.1180   | TBD    | 2.TBD e-9 | 0.9351 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm147     | Emulator grid around baseline cosmology                              | 0.02113 |  0.1215   | TBD    | 2.TBD e-9 | 0.9587 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.786 | -0.628  | 
+| abacus_cosm148     | Emulator grid around baseline cosmology                              | 0.02289 |  0.1201   | TBD    | 2.TBD e-9 | 0.9380 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.809 | 0.393  | 
+| abacus_cosm149     | Emulator grid around baseline cosmology                              | 0.02188 |  0.1200   | TBD    | 2.TBD e-9 | 0.9913 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.189 | 0.613  | 
+| abacus_cosm150     | Emulator grid around baseline cosmology                              | 0.02248 |  0.1216   | TBD    | 2.TBD e-9 | 0.9355 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.213 | -0.373  | 
+| abacus_cosm151     | Emulator grid around baseline cosmology                              | 0.02315 |  0.1254   | TBD    | 2.TBD e-9 | 0.9757 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.812 | -0.615  | 
+| abacus_cosm152     | Emulator grid around baseline cosmology                              | 0.02165 |  0.1148   | TBD    | 2.TBD e-9 | 0.9541 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.585 | -0.187  | 
+| abacus_cosm153     | Emulator grid around baseline cosmology                              | 0.02192 |  0.1199   | TBD    | 2.TBD e-9 | 0.9917 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.587 | -0.172  | 
+| abacus_cosm154     | Emulator grid around baseline cosmology                              | 0.02158 |  0.1148   | TBD    | 2.TBD e-9 | 0.9538 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.192 | -0.395  | 
+| abacus_cosm155     | Emulator grid around baseline cosmology                              | 0.02369 |  0.1184   | TBD    | 2.TBD e-9 | 0.9713 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.575 | -0.184  | 
+| abacus_cosm156     | Emulator grid around baseline cosmology                              | 0.02202 |  0.1261   | TBD    | 2.TBD e-9 | 0.9678 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.189 | 0.621  | 
+| abacus_cosm157     | Emulator grid around baseline cosmology                              | 0.02247 |  0.1214   | TBD    | 2.TBD e-9 | 0.9356 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.175 | 0.616  | 
+| abacus_cosm158     | Emulator grid around baseline cosmology                              | 0.02201 |  0.1262   | TBD    | 2.TBD e-9 | 0.9667 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.202 | -0.392  | 
+| abacus_cosm159     | Emulator grid around baseline cosmology                              | 0.02206 |  0.1261   | TBD    | 2.TBD e-9 | 0.9673 | 0.000   | 2.0328 | 1      | 0.00064420 | -0.580 | -0.220  | 
+| abacus_cosm160     | Emulator grid around baseline cosmology                              | 0.02223 |  0.1185   | TBD    | 2.TBD e-9 | 0.9942 | 0.000   | 2.0328 | 1      | 0.00064420 | -1.416 | 0.217  | 
+| abacus_cosm161     | Emulator grid around baseline cosmology                              | 0.02282 |  0.1274   | TBD    | 2.TBD e-9 | 0.9649 | 0.026   | 2.7283 | 1      | 0.02664420 | -1.000 | 0.000  | 
+| abacus_cosm162     | Emulator grid around baseline cosmology                              | 0.02136 |  0.1048   | TBD    | 2.TBD e-9 | 0.9297 | -0.026   | 1.3521 | 1      | -0.02664420 | -1.000 | 0.000  | 
+| abacus_cosm163     | Emulator grid around baseline cosmology                              | 0.02135 |  0.1290   | TBD    | 2.TBD e-9 | 0.9922 | -0.018   | 2.8575 | 1      | -0.01864420 | -1.000 | 0.000  | 
+| abacus_cosm164     | Emulator grid around baseline cosmology                              | 0.02173 |  0.1091   | TBD    | 2.TBD e-9 | 0.9211 | 0.016   | 1.1769 | 1      | 0.01664420 | -1.000 | 0.000  | 
+| abacus_cosm165     | Emulator grid around baseline cosmology                              | 0.02225 |  0.1278   | TBD    | 2.TBD e-9 | 1.0241 | 0.026   | 2.7558 | 1      | 0.02664420 | -1.000 | 0.000  | 
+| abacus_cosm166     | Emulator grid around baseline cosmology                              | 0.02306 |  0.1151   | TBD    | 2.TBD e-9 | 0.9691 | 0.038   | 1.9089 | 1      | 0.03864420 | -1.000 | 0.000  | 
+| abacus_cosm167     | Emulator grid around baseline cosmology                              | 0.02248 |  0.1400   | TBD    | 2.TBD e-9 | 0.9715 | -0.017   | 2.8889 | 1      | -0.01764420 | -1.000 | 0.000  | 
+| abacus_cosm168     | Emulator grid around baseline cosmology                              | 0.02157 |  0.1084   | TBD    | 2.TBD e-9 | 0.9275 | 0.016   | 1.1911 | 1      | 0.01664420 | -1.000 | 0.000  | 
+| abacus_cosm169     | Emulator grid around baseline cosmology                              | 0.02189 |  0.1222   | TBD    | 2.TBD e-9 | 0.9898 | 0.038   | 1.9109 | 1      | 0.03864420 | -1.000 | 0.000  | 
+| abacus_cosm170     | Emulator grid around baseline cosmology                              | 0.02319 |  0.1076   | TBD    | 2.TBD e-9 | 0.9387 | -0.026   | 1.3411 | 1      | -0.02664420 | -1.000 | 0.000  | 
+| abacus_cosm171     | Emulator grid around baseline cosmology                              | 0.02348 |  0.1272   | TBD    | 2.TBD e-9 | 0.9762 | -0.038   | 2.1543 | 1      | -0.03864420 | -1.000 | 0.000  | 
+| abacus_cosm172     | Emulator grid around baseline cosmology                              | 0.02282 |  0.1032   | TBD    | 2.TBD e-9 | 0.9012 | 0.017   | 1.1954 | 1      | 0.01764420 | -1.000 | 0.000  | 
+| abacus_cosm173     | Emulator grid around baseline cosmology                              | 0.02322 |  0.1161   | TBD    | 2.TBD e-9 | 0.9628 | 0.038   | 1.9049 | 1      | 0.03864420 | -1.000 | 0.000  | 
+| abacus_cosm174     | Emulator grid around baseline cosmology                              | 0.02302 |  0.1064   | TBD    | 2.TBD e-9 | 0.9437 | -0.026   | 1.3242 | 1      | -0.02664420 | -1.000 | 0.000  | 
+| abacus_cosm175     | Emulator grid around baseline cosmology                              | 0.02173 |  0.1336   | TBD    | 2.TBD e-9 | 0.9898 | -0.003   | 2.7456 | 1      | -0.00364420 | -0.793 | 0.350  | 
+| abacus_cosm176     | Emulator grid around baseline cosmology                              | 0.02238 |  0.1199   | TBD    | 2.TBD e-9 | 0.9459 | 0.036   | 1.9043 | 1      | 0.03664420 | -1.313 | 0.339  | 
+| abacus_cosm177     | Emulator grid around baseline cosmology                              | 0.02239 |  0.1344   | TBD    | 2.TBD e-9 | 1.0002 | 0.007   | 2.8643 | 1      | 0.00764420 | -0.669 | -0.443  | 
+| abacus_cosm178     | Emulator grid around baseline cosmology                              | 0.02234 |  0.1204   | TBD    | 2.TBD e-9 | 0.9424 | 0.037   | 1.8987 | 1      | 0.03764420 | -0.865 | -0.455  | 
+| abacus_cosm179     | Emulator grid around baseline cosmology                              | 0.02240 |  0.1067   | TBD    | 2.TBD e-9 | 0.9308 | -0.003   | 1.1884 | 1      | -0.00364420 | -0.665 | -0.435  | 
+| abacus_cosm180     | Emulator grid around baseline cosmology                              | 0.02258 |  0.1209   | TBD    | 2.TBD e-9 | 0.9796 | -0.034   | 2.1722 | 1      | -0.03464420 | -1.226 | -0.274  | 
+| abacus_cosm181     | Emulator grid around baseline cosmology                              | 0.02169 |  0.1112   | TBD    | 2.TBD e-9 | 0.9336 | -0.013   | 1.4059 | 1      | -0.01364420 | -0.791 | 0.350  | 
 
 ----
 

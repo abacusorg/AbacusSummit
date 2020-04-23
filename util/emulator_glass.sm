@@ -97,6 +97,7 @@ macro mindist {
     set dimen(_min) = $np
     set _min = _min+10 if (enum<$npuse)
     set _E = 0
+    #set v_0 = v_0 + unif*0.5
     do m=0,$($npuse-0.5) {
         set sq = v_0*0 if (enum<$npuse)
         do n=0,$dim1 {
@@ -111,6 +112,7 @@ macro mindist {
         sort < sq >
         set _min[$m] = sq[0]
     }
+    #set v_0 = v_0 - unif*0.5
     vecminmax _min min max
     echo Min $min  Max $max  Pot $(_E)   Seed $seed
 }
@@ -157,7 +159,7 @@ macro steps 1 {
 macro make_base {
     set dimen(base_nrun)=22
     set base__enum = base_nrun-1
-    set base_sigma8m = base_nrun + 0.807952
+    set base_sigma8cb = base_nrun + 0.811355   # 0.807952
     set base_ochh   = base_nrun + ln(0.1200)
     set base_ns     = base_nrun + 0.9649
     set base_obhh   = base_nrun + ln(0.02237)
@@ -169,25 +171,25 @@ macro make_base {
     set base_num[0] = 0
     
     set base_num[1]    = 1
-    set base_sigma8m[1] = 0.776779
+    set base_sigma8cb[1] = 0.780222   #  0.776779
     set base_ochh[1]   = ln(0.1134)
     set base_ns[1]     = 0.9638
     set base_obhh[1]   = ln(0.02242)
     
     set base_num[2]    = 2
-    set base_sigma8m[2] = 0.808189
+    set base_sigma8cb[2] = 0.811577     # 0.808189
     set base_w0[2]     = -0.7
     set base_wa[2]     = -0.5
     
     set base_num[3]    = 3
-    set base_sigma8m[3] = 0.855190
+    set base_sigma8cb[3] = 0.858583    #  0.855190
     set base_ochh[3]   = ln(0.1291)
     set base_ns[3]     = 0.9876
     set base_obhh[3]   = ln(0.02260)
     set base_Nur[3]    = 2.6868
     
     set base_num[4]    = 4
-    set base_sigma8m[4] = 0.749999
+    set base_sigma8cb[4] = 0.753159   #   0.749999
 
     set base_obhh[5] = base_obhh[5]+0.02
     set base_obhh[6] = base_obhh[6]-0.02
@@ -203,11 +205,11 @@ macro make_base {
     set base_wa[16] = base_wa[16]-0.4
     set base_w0[15] = base_w0[15]-0.1
     set base_w0[16] = base_w0[16]+0.1
-    #set base_sigma8m[17] = base_sigma8m[17]*1.02
-    #set base_sigma8m[18] = base_sigma8m[18]*0.98
-    set base_sigma8m[17] = 0.824120
-    set base_sigma8m[18] = 0.792107
-    set base_sigma8m[21] = base_sigma8m[21]+(0.807952-0.749999)
+    #set base_sigma8cb[17] = base_sigma8cb[17]*1.02
+    #set base_sigma8cb[18] = base_sigma8cb[18]*0.98
+    set base_sigma8cb[17] = 0.827591  # 0.824120
+    set base_sigma8cb[18] = 0.795443  # 0.792107
+    set base_sigma8cb[21] = base_sigma8cb[21]+(0.811355-0.753159)    # (0.807952-0.749999)
     set base_Nur[19] = base_Nur[19]+0.3
     set base_Nur[20] = base_Nur[20]+0.3
     set base_ochh[19] = base_ochh[19]+0.033
@@ -226,7 +228,8 @@ macro map_to_param {
     }
     # We don't want to break the matched pairs
 
-    set sigma8m = 0.807952*(1  + 0.12 *v_0 + 0.06*unif - 0.5/4*v_4)
+    #set sigma8m = 0.807952*(1  + 0.12 *v_0 + 0.06*unif - 0.5/4*v_4)
+    set sigma8cb = 0.811355*(1  + 0.12 *v_0 + 0.06*unif - 0.5/4*v_4)
     set ochh    = ln(0.1200)   + 0.165*v_6 + 0.100*v_1
     set ns      = 0.9649       + 0.05 *v_6 + 0.06 *v_2
     set obhh    = ln(0.02237)  + 0.10 *v_3
@@ -240,7 +243,7 @@ macro map_to_param {
     set num[$np/2+2] = 132
     set _enum = enum
 
-    set varlist = < sigma8m ochh ns obhh w0 wa Nur nrun num _enum >
+    set varlist = < sigma8cb ochh ns obhh w0 wa Nur nrun num _enum >
     make_base
 
     set ochh = exp(ochh)
@@ -256,7 +259,7 @@ macro map_to_param {
     }
 
     print emulator_glass.dat '%3.0f  %8.6f  %6.4f  %6.4f  %7.5f  %6.3f  %6.3f  %6.4f  %6.3f\n' \
-        < num sigma8m ochh ns obhh w0 wa Nur nrun >
+        < num sigma8cb ochh ns obhh w0 wa Nur nrun >
     foreach var varlist {
         vecminmax $var min max
         echo

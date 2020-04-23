@@ -6,7 +6,7 @@ import fileinput
 array = np.loadtxt("emulator_glass.dat")
 
 cosmo = array[:,0].astype(int)
-select = cosmo >= 16
+select = cosmo > 115
 cosmo = cosmo[select]
 n_cosmos = np.sum(select)
 
@@ -26,7 +26,7 @@ omcFormat = '1.4f'
 HubbleTBD = 'TBD   '
 AsTBD = ' 2.TBD e-9 '
 nsFormat = '1.4f'
-alphasFormat = '2.3f'
+alphasFormat = '3.3f'
 NurFormat = '1.4f'
 w0Format = '2.3f'
 waFormat = '2.3f'
@@ -55,7 +55,7 @@ for line in fileinput.FileInput(table,inplace=1):
             ns = format(n_s[i],nsFormat)
             line = line.replace('0.9549',ns)
             alpha_s = format(n_run[i],alphasFormat)
-            line = line.replace('0.000',alpha_s)
+            line = line.replace('0.000 ',alpha_s)
             w_0 = format(w0[i],w0Format)
             line = line.replace('-1.0  ',w_0)
             w_a = format(wa[i],waFormat)

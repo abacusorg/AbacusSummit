@@ -1,0 +1,29 @@
+SimName = "AbacusSummit_base_c137_ph000"
+#include "../AbacusSummit_base.par2"
+
+SimComment = "Broader Emulator Grid"
+
+BoxSize = 2000
+FinalRedshift = 0.1
+NP = 6912**3
+CPD = 1701
+w0 = -1.0
+wa = 0.0
+H0 = 64.72
+Omega_M = 0.357784
+Omega_Smooth = 0.001538
+
+TimeSliceRedshifts = None
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm137/CLASS_power"
+ZD_Seed = 12321
+ZD_NumBlock = 384
+
+N_ur = 2.0328
+N_ncdm = 1.0
+n_s = 0.9252
+omega_b = 0.02212
+omega_cdm = 0.1271
+omega_ncdm = 0.0006442

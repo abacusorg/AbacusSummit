@@ -233,7 +233,7 @@ macro map_to_param {
     set ochh    = ln(0.1200)   + 0.165*v_6 + 0.100*v_1
     set ns      = 0.9649       + 0.05 *v_6 + 0.06 *v_2
     set obhh    = ln(0.02237)  + 0.10 *v_3
-    set w0      = -1           - 0.2 *v_5 + 0.5  *v_4
+    set w0      = -1           - 0.2 *v_5 + 0.3  *v_4
     set wa      = 0            + 0.8  *v_5
     set Nur     = 2.0328       + 1.2  *v_6
     set nrun    = 0            + 0.05 *v_7

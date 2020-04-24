@@ -19,7 +19,7 @@ NLightCones = 1
 
 ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm000/CLASS_power"
 ZD_Seed = 32321
-ZD_NumBlock = 1000
+ZD_NumBlock = 1250
 
 N_ur = 2.0328
 N_ncdm = 1.0

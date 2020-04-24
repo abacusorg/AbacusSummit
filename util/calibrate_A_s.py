@@ -22,8 +22,20 @@ for_cb = 'baryons+cdm'
 table = 'README.txt'
 
 # root name is given as input
-root = sys.argv[1] # give it abacus_cosm001
-root_base = 'abacus_cosm000'
+root = sys.argv[1] # give it abacus_cosm001 for testing
+
+from_emulator = int(sys.argv[2])
+if from_emulator:
+    array = np.loadtxt("emulator_glass.dat")
+    cosmo = array[:,0].astype(int)
+    select = cosmo == int(root.split('abacus_cosm')[-1])
+    assert np.sum(select) == 1, "Problem with your selection"
+    cosmo = cosmo[select]
+    assert cosmo > 115, print("Emulator grid is only used for abacus_cosm116 and above")
+    sigma8_cb = array[select,1][0]
+else:
+    root_base = 'abacus_cosm000'
+
 os.chdir('../Cosmologies/')
 output = os.path.join(root,root+'.out')
 
@@ -65,7 +77,8 @@ for line in open(output):
         s8_cb = np.float(line[0]) 
         s8_cb = format(s8_cb,'9.6f')
 
-param_dict_base = construct_dict(root_base,table,output_s8=True)
+if not from_emulator:
+    param_dict_base = construct_dict(root_base,table,output_s8=True)
 param_dict = construct_dict(root,table)
 
 # add the two numbers to the end of the table
@@ -73,7 +86,10 @@ for line in fileinput.FileInput(table,inplace=1):
     if root in line:
         # if A_s is not specified, steal s8_base from the baseline, find real A_s
         A_s_ini = np.float(param_dict[As])
-        s8_base = np.float(param_dict_base[s8_cal])
+        if from_emulator:
+            s8_base = sigma8_cb
+        else:
+            s8_base = np.float(param_dict_base[s8_cal])
         A_s = get_A_s(A_s_ini,np.float(s8_cb),s8_base)
         # plug into table
         A_s = format(A_s,'11.4e')

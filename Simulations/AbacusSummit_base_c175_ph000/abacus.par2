@@ -1,0 +1,29 @@
+SimName = "AbacusSummit_base_c175_ph000"
+#include "../AbacusSummit_base.par2"
+
+SimComment = "Broader Emulator Grid"
+
+BoxSize = 2000
+FinalRedshift = 0.1
+NP = 6912**3
+CPD = 1701
+w0 = -0.911
+wa = 0.35
+H0 = 64.32
+Omega_M = 0.377017
+Omega_Smooth = 0.001557
+
+TimeSliceRedshifts = None
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm175/CLASS_power"
+ZD_Seed = 12321
+ZD_NumBlock = 384
+
+N_ur = 2.7456
+N_ncdm = 1.0
+n_s = 0.9898
+omega_b = 0.02173
+omega_cdm = 0.1336
+omega_ncdm = 0.0006442

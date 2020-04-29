@@ -4,8 +4,8 @@ SimName = "AbacusSummit_high_c000_ph100"
 SimComment = "High-res LCDM, no lightcone"
 
 BoxSize = 1000
-FinalRedshift = 0.8
-NP = 6912**3
+FinalRedshift = 0.1
+NP = 6300**3
 CPD = 1701
 w0 = -1.0
 wa = 0.0
@@ -13,13 +13,13 @@ H0 = 67.36
 Omega_M = 0.315192
 Omega_Smooth = 0.001420
 
-TimeSliceRedshifts = [3.0, 2.5, 2.0, 1.7, 1.4, 1.1, 0.8]
+TimeSliceRedshifts = [3.0, 2.5, 2.0, 1.7, 1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2, 0.1]
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
 NLightCones = 0
 
 ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm000/CLASS_power"
 ZD_Seed = 22321
-ZD_NumBlock = 384
+ZD_NumBlock = 350
 
 N_ur = 2.0328
 N_ncdm = 1.0
@@ -27,3 +27,4 @@ n_s = 0.9649
 omega_b = 0.02237
 omega_cdm = 0.12
 omega_ncdm = 0.0006442
+GroupRadius = 15

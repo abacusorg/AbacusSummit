@@ -27,3 +27,4 @@ n_s = 0.9638
 omega_b = 0.02242
 omega_cdm = 0.1134
 omega_ncdm = 0.0006442
+GroupRadius = 10

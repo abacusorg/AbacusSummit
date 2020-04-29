@@ -56,14 +56,23 @@ z_dict = {
     }
 
 CPD_dict = {'6912': '1701',
-            '3456': '825',  # ?
+            '3456': '825',
+            '6300': '1701',
             '2304': '455',
             '10000': '1911',
             }
 ZD_NumBlock_dict = {'6912': '384',
-            '3456': '96',  # ?
+            '3456': '72',
+            '6300': '350',
             '2304': '48', 
             '10000' : '1250'
+            }
+GroupRadius_dict = {
+            '6912': '10',
+            '2304': '10',
+            '3456': '8',
+            '6300': '15',
+            '10000': '3',
             }
 
 Seed = 12321
@@ -158,6 +167,7 @@ def read_table(paramNames,fn,namesRow):
                                     'omega_b': str(omega_b),
                                   'omega_cdm': str(omega_cdm),
                                  'omega_ncdm': str(omega_ncdm),
+                                'GroupRadius': GroupRadius_dict[parDict['PPD']],
                          }
 
             os.makedirs(pjoin(sim_dir, simName), exist_ok=True)

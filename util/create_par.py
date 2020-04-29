@@ -75,6 +75,9 @@ GroupRadius_dict = {
             '10000': '3',
             }
 
+mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
+                    }
+
 Seed = 12321
 
 def main(table):
@@ -150,6 +153,7 @@ def read_table(paramNames,fn,namesRow):
                               'FinalRedshift': parDict['z_Final'],
                                          'NP': parDict['PPD']+'**3',
                                         'CPD': CPD_dict[parDict['PPD']],
+                                'GroupRadius': GroupRadius_dict[parDict['PPD']],
                                          'w0': classParams['w0_fld'],
                                          'wa': classParams['wa_fld'],
                                          'H0': str(h*100),
@@ -166,9 +170,11 @@ def read_table(paramNames,fn,namesRow):
                                         'n_s': classParams['n_s'],
                                     'omega_b': str(omega_b),
                                   'omega_cdm': str(omega_cdm),
-                                 'omega_ncdm': str(omega_ncdm),
-                                'GroupRadius': GroupRadius_dict[parDict['PPD']],
+                                 'omega_ncdm': str(omega_ncdm) + '\n',
                          }
+
+            if parDict['PPD'] in mpirun_cmd_dict:
+                newparams['mpirun_cmd'] = mpirun_cmd_dict[parDict['PPD']]
 
             os.makedirs(pjoin(sim_dir, simName), exist_ok=True)
 

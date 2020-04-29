@@ -7,6 +7,7 @@ BoxSize = 1000
 FinalRedshift = 0.1
 NP = 3456**3
 CPD = 825
+GroupRadius = 8
 w0 = -1.0
 wa = 0.0
 H0 = 67.36
@@ -27,4 +28,5 @@ n_s = 0.9649
 omega_b = 0.02237
 omega_cdm = 0.12
 omega_ncdm = 0.0006442
-GroupRadius = 8
+
+mpirun_cmd = jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs

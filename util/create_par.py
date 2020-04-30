@@ -56,15 +56,27 @@ z_dict = {
     }
 
 CPD_dict = {'6912': '1701',
-            '3456': '825',  # ?
+            '3456': '825',
+            '6300': '1701',
             '2304': '455',
             '10000': '1911',
             }
 ZD_NumBlock_dict = {'6912': '384',
-            '3456': '96',  # ?
+            '3456': '72',
+            '6300': '350',
             '2304': '48', 
-            '10000' : '1000'  # 1250 also an option
+            '10000' : '1250'
             }
+GroupRadius_dict = {
+            '6912': '10',
+            '2304': '10',
+            '3456': '8',
+            '6300': '15',
+            '10000': '3',
+            }
+
+mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
+                    }
 
 Seed = 12321
 
@@ -141,6 +153,7 @@ def read_table(paramNames,fn,namesRow):
                               'FinalRedshift': parDict['z_Final'],
                                          'NP': parDict['PPD']+'**3',
                                         'CPD': CPD_dict[parDict['PPD']],
+                                'GroupRadius': GroupRadius_dict[parDict['PPD']],
                                          'w0': classParams['w0_fld'],
                                          'wa': classParams['wa_fld'],
                                          'H0': str(h*100),
@@ -157,8 +170,11 @@ def read_table(paramNames,fn,namesRow):
                                         'n_s': classParams['n_s'],
                                     'omega_b': str(omega_b),
                                   'omega_cdm': str(omega_cdm),
-                                 'omega_ncdm': str(omega_ncdm),
+                                 'omega_ncdm': str(omega_ncdm) + '\n',
                          }
+
+            if parDict['PPD'] in mpirun_cmd_dict:
+                newparams['mpirun_cmd'] = mpirun_cmd_dict[parDict['PPD']]
 
             os.makedirs(pjoin(sim_dir, simName), exist_ok=True)
 

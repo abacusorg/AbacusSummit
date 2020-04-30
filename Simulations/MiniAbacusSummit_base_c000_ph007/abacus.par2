@@ -1,0 +1,29 @@
+SimName = "MiniAbacusSummit_base_c000_ph007"
+#include "../AbacusSummit_base.par2"
+
+SimComment = "Mini Planck2018 LCDM"
+
+BoxSize = 200
+FinalRedshift = 0.1
+NP = 512**3
+CPD = 125
+w0 = -1.0
+wa = 0.0
+H0 = 67.36
+Omega_M = 0.315192
+Omega_Smooth = 0.001420
+
+TimeSliceRedshifts = None
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm000/CLASS_power"
+ZD_Seed = 13021
+ZD_NumBlock = 4
+
+N_ur = 2.0328
+N_ncdm = 1.0
+n_s = 0.9649
+omega_b = 0.02237
+omega_cdm = 0.12
+omega_ncdm = 0.0006442

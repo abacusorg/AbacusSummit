@@ -7,6 +7,7 @@ BoxSize = 1000
 FinalRedshift = 0.1
 NP = 3456**3
 CPD = 825
+GroupRadius = 8
 w0 = -1.0
 wa = 0.0
 H0 = 67.36
@@ -19,7 +20,7 @@ NLightCones = 0
 
 ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm000/CLASS_power"
 ZD_Seed = 22321
-ZD_NumBlock = 96
+ZD_NumBlock = 72
 
 N_ur = 2.0328
 N_ncdm = 1.0
@@ -27,3 +28,5 @@ n_s = 0.9649
 omega_b = 0.02237
 omega_cdm = 0.12
 omega_ncdm = 0.0006442
+
+mpirun_cmd = jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs

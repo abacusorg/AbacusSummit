@@ -348,7 +348,8 @@ particles in the inner 90% of the mass relative to this center.
 
 * `int16_t rvcirc_max_L2com`: radius of max circular velocity, stored as ratio to r100, relative to L2 center
 
-In most cases, these quantities are compressed to save space.  Sometimes this is simple: e.g., when we have the chance to store a ratio in the range [0,1], we
+In most cases, these quantities are compressed or bit truncated to save space.  
+Sometimes this is simple: e.g., when we have the chance to store a ratio in the range [0,1], we
 multiply by 32000 and store as an int16.  Others are more complicated, e.g., 
 the Euler angles of the eigenvectors are stored to about 4 degree precision and
 all packed into an uint16.
@@ -383,11 +384,23 @@ the usual (x,y,z) coordinate system.
 
 Here we describe the data model of the AbacusSummit data products.
 
-The halo statistics are in `halo_info` files.  These are stored as
-ASDF files, where each column is in a contiguous binary portion.
+Nearly all files are stored as ASDF files, which is a successor to
+FITS.  Inside each binary block of ASDF, we have applied BLOSC
+compression using the ZSTD algorithm, typically with a byte or bit
+shuffle.  BLOSC+ZSTD provides fast decompression and good compression
+ratios.  We provide a custom fork of the ASDF python library that 
+will apply the BLOSC decompression on the fly.  [GIVE URL]
+If one doesn't have the custom fork, then one will need to read 
+the ASDF binary blocks and pipe through the BLOSC decompression.
+
 The ASDF header is human-readable, meaning one can use a Linux
 command line tool like `less` to examine the simulation metadata
 stored in every ASDF file.
+
+The halo statistics are in `halo_info` files.  These are stored as
+ASDF files, where each column is in a contiguous binary portion.
+Importantly, ASDF allows one to load only a subset of columns, 
+which can be important to save both memory and time.  
 
 The particles position and velocities are stored in RV files in a
 bit-truncated and compressed format.  What is revealed to the user
@@ -406,16 +419,12 @@ particle has ever been inside the largest L2 halo of a L1 halo with
 more than 35 particles; this is available to aid in merger tree
 construction.
 
-The RV and PID files are then piecewise byte-transposed and zstd
-compressed.  We call this trz compression, and provide a utility
-(https://github.com/abacusorg/trz).  We have found that transposing
-by 12 and 8 bytes respective provides substantially better compression,
-as some bytes in each number have much less variation than others,
-and the x and y coordinates vary more slowly than z due to the fact
-that the particles are output in cell order.  We use [zstd](https://www.zstd.net) as the
-compression because it is much faster in decompression than gunzip;
-we expect that even a single thread can keep up with the read rate
-of a disk array.
+The timeslice positions are stored at mildly higher bit resolution using
+a format we call pack9.  Here, particles are stored contiguously in
+their cells.  Each cell starts with a 9-byte header that indicates
+the cell index and velocity scaling, and then each particle is
+stored as 9-bytes with 12 bits for each position and each velocity.
+We provide a C code to undo this compression.
 
 CRC32 checksums are provided for all files.  These should match the
 GNU `cksum` utility, pre-installed in most Linux environments.

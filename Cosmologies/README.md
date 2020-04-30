@@ -14,6 +14,8 @@ All cosmologies use tau=0.0544.  Most use 60 meV neutrinos, omega_nu = 0.0006442
 We use HyRec, rather than RecFast.
 
 CLASS is run with the pk_ref.pre precision choices, unless the name ends with \_fast, in which case we use the defaults.
+There was one case where CLASS underflowed an integration tolerance with the pk_ref precisions; we reverted to pk_permille.pre
+for this.
 
 Remember that Omega_m = (omega_b+omega_cdm+oemga_ncdm)/h^2.
 
@@ -59,13 +61,18 @@ neutrinos as a smooth component.
 
 ----
 
-We choose 3 other secondary cosmologies, at least one nonLCDM.  Probably one wCDM, one high Neff, one low S8.
+Beyond the Planck2018 LCDM primary cosmology, we chose 4 other secondary cosmologies.
+One was WMAP7, to have a large change in omega_m, H0, and sigma8.
+Others were one wCDM, one high Neff, and one low S8.
 
 wCDM: Chose w0=-0.7, wa=-0.5 to be an extreme thawing model.
 
 Neff=3.70 cosmology: Took the chains from base_nnu_plikHM_TT_lowl_lowE_Riess18_post_BAO and averaged those in 3.595 < nnu < 3.90, chosen so that the weighted mean was 3.70.  Also standardized As to tau=0.0544.
 
-Low sigma8: Opted to drop the amplitude by about 7.7%, to make sigma8(matter)=0.75.  This is a pretty shift, but there's lots of ways to damp power.
+Low sigma8: Opted to drop the amplitude by about 7.7%, to make sigma8(matter)=0.75.  This is a sizeable shift, but there's lots of ways to damp power.
+
+Then we are doing a large grid of cosmologies to provide control of first and second
+derivatives around the primary LCDM model.
 
 For the grid of positive/negative excursions for linear derivatives around the baseline LCDM, we opted for the simplicity of 
 rectalinear derivatives in ln(omega_b), ln(omega_c), ns, nrun, sigma8_m, w0.  Note that we treat sigma8_m, not As, as the independent variable,
@@ -73,6 +80,8 @@ in the expectation that this will keep large-scale structure closer to constant.
 For wa, we opt to hold w(z=0.333)=w0+0.25\*wa fixed, close to the mirage model.  
 For Neff, the Planck chains suggested substantial degeneracies with omegac and ns, so we opt to move these two along
 with Neff to stay close to the CMB degeneracy direction.
+
+We added one extra simulation to be the paired opposite to the low-sigma8 secondary cosmology.
 
 TODOs:
 

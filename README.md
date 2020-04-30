@@ -79,7 +79,7 @@ We will run 25 simulations in one LCDM cosmology (Planck2018),
 6 simulations each in 4 other cosmologies, and then 1 simulation
 in a spread of other cosmologies, suitable for emulator grids and
 blind mock challenges.  We will also likely run some simulations
-at 8x higher and 27x lower mass resolutions to support a wider range
+at 6x higher and 27x lower mass resolutions to support a wider range
 of applications and numerical/systematic tests.
 
 All of the simulations start at z=99 utilizing second-order Lagrangian

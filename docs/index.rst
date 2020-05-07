@@ -26,17 +26,33 @@ This documentation and code is hosted in the `abacusorg/AbacusSummit <https://gi
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
+   :caption: Overview
 
    abacus
    abacussummit
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Specifications
+
    data-products
    simulations
    cosmologies
-   disk-space
    data-access
-   citation
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Other Topics
+
+   disk-space
    visualizations
+
+.. toctree::
+   :maxdepth: 2
+   :caption: About
+   
+   citation
 
 
 Indices and tables

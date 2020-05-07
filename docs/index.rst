@@ -38,13 +38,13 @@ This documentation and code is hosted in the `abacusorg/AbacusSummit <https://gi
    data-products
    simulations
    cosmologies
-   data-access
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Other Topics
 
+   data-access
    disk-space
    visualizations
 

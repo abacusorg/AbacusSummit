@@ -7,6 +7,7 @@ BoxSize = 2000
 FinalRedshift = 0.1
 NP = 6912**3
 CPD = 1701
+GroupRadius = 10
 w0 = -0.732
 wa = -0.187
 H0 = 62.03999999999999
@@ -27,3 +28,4 @@ n_s = 0.9541
 omega_b = 0.02165
 omega_cdm = 0.1148
 omega_ncdm = 0.0006442
+

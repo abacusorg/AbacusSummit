@@ -76,6 +76,7 @@ GroupRadius_dict = {
             }
 
 mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
+                   '6300':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
                     }
 
 Seed = 12321

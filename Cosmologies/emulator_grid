@@ -38,6 +38,8 @@ neutrinos as a smooth component.
 | abacus_cosm016     | Horizon Run 4 LCDM, sigma8=0.7937                                    | 0.02281 |  0.1120   | 0.7200 | 2.0996e-9 | 0.9600 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm017     | IllustrisTNG LCDM, sigma8=0.8159                                     | 0.02230 |  0.1194   | 0.6774 | 2.0671e-9 | 0.9667 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
 | abacus_cosm018     | MultiDark Planck LCDM, sigma8=0.8228                                 | 0.02214 |  0.1189   | 0.6777 | 2.1022e-9 | 0.9600 | 0.0     | 3.046  | 0      | 0.0        | -1.0   | 0.0    | 
+| abacus_cosm019     | Baseline LCDM, Planck 2018 base_plikHM_TTTEEE_lowl_lowE_lensing mean | 0.02237 |  0.1200   | TBD    | 2.0830e-9 | 0.9649 | 0.0     | 1.0196 | 2      | 0.00128840 | -1.0   | 0.0    |
+| abacus_cosm020     | Baseline LCDM, Planck 2018 base_plikHM_TTTEEE_lowl_lowE_lensing mean | 0.02237 |  0.1200   | TBD    | 2.0830e-9 | 0.9649 | 0.0     | 0.0000 | 3      | 0.0019326  | -1.0   | 0.0    | 
 | abacus_cosm100     | Baseline +2% ln(omega_b)                                             | 0.02282 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm101     | Baseline -2% ln(omega_b)                                             | 0.02193 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm102     | Baseline +3.3% ln(omega_c)                                           | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 

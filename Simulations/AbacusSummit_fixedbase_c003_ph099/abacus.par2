@@ -1,0 +1,33 @@
+SimName = "AbacusSummit_fixedbase_c003_ph099"
+#include "../AbacusSummit_base.par2"
+
+SimComment = "Base-res LCDM, fixed amplitudes"
+
+BoxSize = 1185
+FinalRedshift = 0.1
+NP = 4096**3
+CPD = 945
+GroupRadius = 5
+w0 = -1.0
+wa = 0.0
+H0 = 71.6
+Omega_M = 0.297167
+Omega_Smooth = 0.001257
+
+TimeSliceRedshifts = [2.5, 1.4, 0.8, 0.2]
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm003/CLASS_power"
+ZD_Seed = 22221
+ZD_NumBlock = 128
+
+N_ur = 2.6868
+N_ncdm = 1.0
+n_s = 0.9876
+omega_b = 0.0226
+omega_cdm = 0.1291
+omega_ncdm = 0.0006442
+
+mpirun_cmd = jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs
+ZD_qPk_fix_to_mean = 1

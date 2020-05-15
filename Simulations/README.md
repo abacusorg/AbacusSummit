@@ -31,7 +31,8 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_base_c000_ph{001-005} | 000  | 001-005 | 6912 | 2000      | 0.1     | Partial+HiZ  | Planck2018 LCDM |
 | AbacusSummit_base_c000_ph{006-024} | 000  | 006-024 | 6912 | 2000      | 0.1     | none         | Planck2018 LCDM |
 | AbacusSummit_fixedbase_c000_ph099  | 000  | 099     | 4096 | 1185      | 0.1     | Full         | Base-res LCDM, fixed amplitudes |
-| AbacusSummit_fixedbase_c{001-005}_ph099 | 001-005  | 099 | 4096 | 1185 | 0.1     | Partial      | Base-res LCDM, fixed amplitudes |
+| AbacusSummit_fixedbase_c{001-004}_ph099 | 001-005  | 099 | 4096 | 1185 | 0.1     | Partial      | Base-res LCDM, fixed amplitudes |
+| AbacusSummit_fixedbase_c000_ph098  | 000  | 098     | 4096 | 1185      | 0.1     | Full         | Base-res LCDM, fixed amplitudes, inversion of phase 99 |
 | AbacusSummit_high_c000_ph100       | 000  | 100     | 6300 | 1000      | 0.1     | Full         | High-res LCDM, no lightcone |
 | AbacusSummit_highbase_c000_ph100   | 000  | 100     | 3456 | 1000      | 0.1     | Full         | Base-res LCDM, no lightcone |
 | AbacusSummit_huge_c000_ph200       | 000  | 200     | 10000| 8700      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |

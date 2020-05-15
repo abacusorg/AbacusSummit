@@ -59,12 +59,14 @@ CPD_dict = {'6912': '1701',
             '3456': '825',
             '6300': '1701',
             '2304': '455',
+            '4096': '945',
             '10000': '1911',
             }
 ZD_NumBlock_dict = {'6912': '384',
             '3456': '72',
             '6300': '350',
-            '2304': '48', 
+            '2304': '48',
+            '4096': '128',
             '10000' : '1250'
             }
 GroupRadius_dict = {
@@ -72,11 +74,13 @@ GroupRadius_dict = {
             '2304': '10',
             '3456': '8',
             '6300': '15',
+            '4096': '5',
             '10000': '3',
             }
 
 mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
                    '6300':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
+                   '4096':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
                     }
 
 Seed = 12321
@@ -139,13 +143,15 @@ def read_table(paramNames,fn,namesRow):
             h = np.float(classParams['h'])
             omega_b = np.float(classParams['omega_b'])
             omega_cdm = np.float(classParams['omega_cdm'])
-            omega_ncdm = np.float(classParams['omega_ncdm'])
-            Omega_M = (omega_b+omega_cdm+omega_ncdm)/h**2
+            omega_ncdm = np.atleast_1d(classParams['omega_ncdm']).astype(float)
+            Omega_M = (omega_b+omega_cdm+omega_ncdm.sum())/h**2
             Omega_M = f'{Omega_M:f}'  # 7.5f  # any reason to limit sig figs? Probably prefer not to
-            Omega_Smooth = omega_ncdm/h**2
+            Omega_Smooth = omega_ncdm.sum()/h**2
+            if len(omega_ncdm) == 1:
+                omega_ncdm = omega_ncdm[0]
             Omega_Smooth = f'{Omega_Smooth:f}'  #9.7f
-            addSeed = extract_phase(simName)
-            thisSeed = Seed+addSeed
+            phase_info = extract_phase(simName)
+            thisSeed = Seed + phase_info.pop('add_seed')
             # use file input to add value to edge of things
             # write_par
 
@@ -177,6 +183,8 @@ def read_table(paramNames,fn,namesRow):
             if parDict['PPD'] in mpirun_cmd_dict:
                 newparams['mpirun_cmd'] = mpirun_cmd_dict[parDict['PPD']]
 
+            newparams.update(phase_info)
+
             os.makedirs(pjoin(sim_dir, simName), exist_ok=True)
 
             # Differences - individual file for each sim
@@ -203,7 +211,18 @@ def extract_zs(output):
         return '['+output+']'
     
 def extract_phase(sim):
-    return int((re.findall(r"ph\d{3}",sim)[0]).split('ph')[-1])*100
+    ret = {}
+    ret['add_seed'] = int((re.findall(r"ph\d{3}",sim)[0]).split('ph')[-1])*100
+
+    # Set param for fixed amplitude sims
+    if 'fixed' in sim:
+        ret['ZD_qPk_fix_to_mean'] = '1'
+
+    # Special case: phase 98 is phase 99, inverted
+    if ret['add_seed'] == 98*100:
+        ret['add_seed'] = 99*100
+        ret['FlipZelDisp'] = '1'
+    return ret
 
 def extract_cosm(sim):
     return int(re.search(r"c(\d{3})",sim).group(1))
@@ -238,6 +257,10 @@ def fetch_cosm(cosm):
             v = v[:v.find('#')]
         if v == '': continue # remove empty value lines
         v = re.sub('\n','',v)
+
+        if ',' in v:
+            v = v.split(',')  # split comma separated lists
+
         param_dict[n] = v
 
     return param_dict, pjoin(cosmo_dir_for_par,cosmName+'CLASS_power')

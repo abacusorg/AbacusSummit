@@ -29,7 +29,7 @@ import sys
 import argparse
 import os
 
-stringNames = ['notes','root']
+stringNames = ['notes','root','omega_ncdm']
 commentedParam = ['notes']
 rootParam = 'root'
 cosmo_dir = '../Cosmologies/'

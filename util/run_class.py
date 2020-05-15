@@ -16,7 +16,9 @@ inputs = sorted(glob.glob("*.ini"))
 # This is where my class directory is
 class_dir = "/home/boryanah/repos/class_public/class "
 # For fast option final class call should be '_fast' -- otherwise fast = ''
-from_emulator = 1#0#1
+# Do we want the sigma8 values from the emulator glass or from cosm000
+# relevant for the emulator glass (i.e. abacus_cosm116 and above), otherwise 0
+from_emulator = 0#1
 
 print("All inputs: ",inputs)
 

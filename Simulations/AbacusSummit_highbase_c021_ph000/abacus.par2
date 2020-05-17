@@ -1,0 +1,32 @@
+SimName = "AbacusSummit_highbase_c021_ph000"
+#include "../AbacusSummit_base.par2"
+
+SimComment = "MassiveNUs with massless neutrinos"
+
+BoxSize = 1000
+FinalRedshift = 0.1
+NP = 3456**3
+CPD = 825
+GroupRadius = 8
+w0 = -1.0
+wa = 0.0
+H0 = 70.0
+Omega_M = 0.300000
+Omega_Smooth = 0.000000
+
+TimeSliceRedshifts = [2.5, 1.4, 0.8, 0.2]
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm021/CLASS_power"
+ZD_Seed = 12321
+ZD_NumBlock = 72
+
+N_ur = 3.046
+N_ncdm = 0.0
+n_s = 0.97
+omega_b = 0.02254
+omega_cdm = 0.12446
+omega_ncdm = 0.0
+
+mpirun_cmd = jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs

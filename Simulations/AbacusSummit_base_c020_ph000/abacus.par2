@@ -1,7 +1,7 @@
 SimName = "AbacusSummit_base_c020_ph000"
 #include "../AbacusSummit_base.par2"
 
-SimComment = "Baseline LCDM w/3 massive neutrino species"
+SimComment = "Baseline LCDM with massless neutrinos"
 
 BoxSize = 2000
 FinalRedshift = 0.1
@@ -10,9 +10,9 @@ CPD = 1701
 GroupRadius = 10
 w0 = -1.0
 wa = 0.0
-H0 = 66.23
-Omega_M = 0.328976
-Omega_Smooth = 0.004406
+H0 = 67.9
+Omega_M = 0.308801
+Omega_Smooth = 0.000000
 
 TimeSliceRedshifts = None
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
@@ -22,10 +22,10 @@ ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm020/CLAS
 ZD_Seed = 12321
 ZD_NumBlock = 384
 
-N_ur = 0.0
-N_ncdm = 3.0
+N_ur = 3.046
+N_ncdm = 0.0
 n_s = 0.9649
 omega_b = 0.02237
 omega_cdm = 0.12
-omega_ncdm = [0.0006442 0.0006442 0.0006442]
+omega_ncdm = 0.0
 

@@ -56,7 +56,7 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_base_c017_ph000       | 017  | 000     | 6912 | 2000      | 0.1     | none         | Illustris |
 | AbacusSummit_base_c018_ph000       | 018  | 000     | 6912 | 2000      | 0.1     | none         | Multidark Planck |
 | AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | Baseline LCDM w/2 massive neutrino species |
-| AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | Partial      | Baseline LCDM with massless neutrinos |
+| AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | Baseline LCDM with massless neutrinos |
 | AbacusSummit_highbase_c021_ph000   | 021  | 000     | 3456 | 1000      | 0.1     | Partial      | MassiveNUs with massless neutrinos |
 | AbacusSummit_highbase_c022_ph000   | 022  | 000     | 3456 | 1000      | 0.1     | Partial      | MassiveNUs w/1 massive 0.1 eV neutrino species |
 | AbacusSummit_base_c{100-115}_ph000 | 100-115  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |

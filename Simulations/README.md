@@ -56,9 +56,12 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_base_c017_ph000       | 017  | 000     | 6912 | 2000      | 0.1     | none         | Illustris |
 | AbacusSummit_base_c018_ph000       | 018  | 000     | 6912 | 2000      | 0.1     | none         | Multidark Planck |
 | AbacusSummit_base_c019_ph000       | 019  | 000     | 6912 | 2000      | 0.1     | none         | Baseline LCDM w/2 massive neutrino species |
-| AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | Baseline LCDM w/3 massive neutrino species |
+| AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | Partial      | Baseline LCDM with massless neutrinos |
+| AbacusSummit_highbase_c021_ph000   | 021  | 000     | 3456 | 1000      | 0.1     | Partial      | MassiveNUs with massless neutrinos |
+| AbacusSummit_highbase_c022_ph000   | 022  | 000     | 3456 | 1000      | 0.1     | Partial      | MassiveNUs w/1 massive 0.1 eV neutrino species |
 | AbacusSummit_base_c{100-115}_ph000 | 100-115  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
 | AbacusSummit_base_c116_ph000       | 116  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
+| AbacusSummit_base_c{117-126}_ph000 | 117-126  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
 | AbacusSummit_base_c{130-181}_ph000 | 130-181  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
 
 ### TODO: these cosmologies do not yet exist
@@ -67,8 +70,6 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 \# | AbacusSummit_base_c020_ph000       | 020  | 000     | 6912 | 2000      | 0.1     | none         | ANL wCDM |
 
 \# | AbacusSummit_base_c{050-059}_ph000 | 050-059  | 000     | 6912 | 2000      | 0.1     | none         | Blinded Cosmologies |
-
-\# | AbacusSummit_base_c{117-119}_ph000 | 117-119  | 000     | 6912 | 2000      | 0.1     | none         | Linear Derivative Grid |
 
 \# | AbacusSummit_base_c{182-199}_ph000 | 182-199  | 000     | 6912 | 2000      | 0.1     | none         | Broader Emulator Grid  |
 

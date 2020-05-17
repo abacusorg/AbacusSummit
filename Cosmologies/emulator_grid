@@ -59,6 +59,16 @@ neutrinos as a smooth component.
 | abacus_cosm114     | Baseline +0.3 nnu, +3.3% ln(omega_c), +0.01 n_s                      | 0.02237 |  0.1240   | TBD    | 2.TBD e-9 | 0.9749 | 0.0     | 2.3328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm115     | Baseline -0.3 nnu, -3.3% ln(omega_c), -0.01 n_s                      | 0.02237 |  0.1161   | TBD    | 2.TBD e-9 | 0.9549 | 0.000   | 1.7328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm116     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000  | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
+| abacus_cosm117     | Baseline +0.83% ln(omega_c)                                          | 0.02237 |  0.1210   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm118     | Baseline -0.83% ln(omega_c)                                          | 0.02237 |  0.1190   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm119     | Baseline +0.003 n_s                                                  | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9679 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm120     | Baseline -0.003 n_s                                                  | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9619 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm121     | Baseline +0.025 w0                                                   | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -0.975   | 0.0    | 
+| abacus_cosm122     | Baseline -0.025 w0                                                   | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.025   | 0.0    | 
+| abacus_cosm123     | Baseline +0.1 wa, -0.025 w0                                          | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.025   | 0.1    | 
+| abacus_cosm124     | Baseline -0.1 wa, +0.025 w0                                          | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -0.975   | -0.1   | 
+| abacus_cosm125     | Baseline +0.5% sigma8                                                | 0.02237 |  0.1200   | 0.6736 | 2.1039e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
+| abacus_cosm126     | Baseline -0.5% sigma8                                                | 0.02237 |  0.1200   | 0.6736 | 2.0622e-9 | 0.9649 | 0.0     | 2.0328 | 1      | 0.00064420 | -1.0   | 0.0    | 
 | abacus_cosm130     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9649 | 0.000  | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
 | abacus_cosm131     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1086   | TBD    | 2.TBD e-9 | 0.9649 | 0.000  | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 
 | abacus_cosm132     | Emulator grid around baseline cosmology                              | 0.02237 |  0.1200   | TBD    | 2.TBD e-9 | 0.9049 | 0.000  | 2.0328 | 1      | 0.00064420 | -1.000 | 0.000  | 

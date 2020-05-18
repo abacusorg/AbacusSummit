@@ -1,0 +1,31 @@
+SimName = "AbacusSummit_base_c124_ph000"
+#include "../AbacusSummit_base.par2"
+
+SimComment = "Linear Derivative Grid"
+
+BoxSize = 2000
+FinalRedshift = 0.1
+NP = 6912**3
+CPD = 1701
+GroupRadius = 10
+w0 = -0.975
+wa = -0.1
+H0 = 67.42
+Omega_M = 0.314631
+Omega_Smooth = 0.001417
+
+TimeSliceRedshifts = None
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 3
+
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm124/CLASS_power"
+ZD_Seed = 12321
+ZD_NumBlock = 384
+
+N_ur = 2.0328
+N_ncdm = 1.0
+n_s = 0.9649
+omega_b = 0.02237
+omega_cdm = 0.12
+omega_ncdm = 0.0006442
+

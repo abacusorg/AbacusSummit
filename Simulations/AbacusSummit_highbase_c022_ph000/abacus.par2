@@ -11,7 +11,7 @@ GroupRadius = 8
 w0 = -1.0
 wa = 0.0
 H0 = 70.0
-Omega_M = 0.302192
+Omega_M = 0.300008
 Omega_Smooth = 0.002192
 
 TimeSliceRedshifts = [2.5, 1.4, 0.8, 0.2]
@@ -26,7 +26,7 @@ N_ur = 2.0328
 N_ncdm = 1.0
 n_s = 0.97
 omega_b = 0.02254
-omega_cdm = 0.12446
+omega_cdm = 0.12339
 omega_ncdm = 0.001074
 
 mpirun_cmd = jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs

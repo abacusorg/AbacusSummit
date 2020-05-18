@@ -182,7 +182,7 @@ try:
     asdf.compression.validate('blsc')
 except:
     # Note: this is a temporary solution until blosc is integrated into ASDF, or until we package a pluggable decompressor
-    exit('Error: your ASDF installation does not support Blosc compression.  Please clone https://github.com/lgarrison/asdf and install with "cd asdf; pip install ."')
+    exit('Error: your ASDF installation does not support Blosc compression.  Please install the fork with Blosc support with the following command: "pip install git+https://github.com/lgarrison/asdf.git"')
 
 
 class AbacusHaloCatalog:

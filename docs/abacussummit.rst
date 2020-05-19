@@ -6,18 +6,38 @@ AbacusSummit is a suite of large, high-accuracy cosmological N-body simulations.
 These simulations were designed to meet (and exceed!) the Cosmological Simulation Requirements of
 the `Dark Energy Spectroscopic Instrument (DESI) survey <https://www.desi.lbl.gov/>`_.  AbacusSummit
 was run on the `Summit <https://www.olcf.ornl.gov/summit/>`_ supercomputer at the Oak Ridge Leadership
-Computing Facility under a time allocation from the DOE's ALCC program.
+Computing Facility under a time allocation from the Department of Energy's ALCC program.
 
 Most of the simulations in AbacusSummit are 6912\ :sup:`3` = 330 billion 
 particles in 2 Gpc/h volume, yielding a particle mass of about 2e9 Msun/h.  
 
-AbacusSummit consists of ~150 of these simulations, totaling about 50 trillion
+AbacusSummit consists of over 140 of these simulations, plus other smaller simulations,
+totaling about 50 trillion
 particles.  Detailed specifications of the :doc:`simulations` and :doc:`cosmologies`
 are available on other pages.
 
-25 simulations are in one LCDM cosmology (Planck2018),
-6 simulations each in 4 other cosmologies, and then 1 simulation
-in a spread of other cosmologies, suitable for emulator grids and
-blind mock challenges.  We will also likely run some simulations
-at 8x higher and 27x lower mass resolutions to support a wider range
-of applications and numerical/systematic tests.
+Key portions of the suite are:
+
+A primary Planck2018 LCDM cosmology with 25 base simulations (330
+billion particles in 2 Gpc/h).
+
+Four secondary cosmologies with 6 base simulations, phase matched
+to the first 6 of the primary boxes.
+
+A grid of 79 other cosmologies, each with 1 phase-matched base
+simulation, to support interpolation in an 8-dimensional parameter
+space, including w0, wa, Neff, and running of the spectral index.
+
+Other base simulations to match the cosmology of external flagship
+simulations and to explore the effects of our neutrino approximation.
+
+A 6x higher mass resolution simulation of the primary cosmology to
+allow study of group finding, and a large-volume 27x lower mass
+resolution simulation of the primary cosmology to provide full-sky
+light cone to z>2.
+
+Specialty simulations including those with fixed-amplitude white noise
+and scale-free simulations.
+
+Extensive data products including particle subsamples, halo catalogs, 
+merger trees, kernel density estimates, and light cones.

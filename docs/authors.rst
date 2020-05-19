@@ -24,3 +24,7 @@ the Department of Energy ALCC program.
 We would like to thank OLCF and NERSC support for their expert
 assistance with the many hurdles that come with executing an HPC
 project at this scale.
+
+Citation
+--------
+Please see the :doc:`citation` page for information on how to cite AbacusSummit.

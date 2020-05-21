@@ -20,7 +20,7 @@ The cosmologies used by these simulations are specified on the :doc:`cosmologies
 
 The available data products (halo catalogs, lightcones, etc) are given on the :doc:`data-products` page.
 
-Code to read the data products is located `here <https://github.com/abacusorg/AbacusSummit/blob/master/readers>`_; this code is still in beta!
+The abacusutils package can be used to work with AbacusSummit data: https://abacusutils.readthedocs.io.  Full examples coming soon!
 
 This documentation and code is hosted in the `abacusorg/AbacusSummit <https://github.com/abacusorg/abacussummit>`_ GitHub repository.  Please file an issue there for questions about AbacusSummit!
 

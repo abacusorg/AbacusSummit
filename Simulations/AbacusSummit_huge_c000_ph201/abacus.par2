@@ -3,7 +3,7 @@ SimName = "AbacusSummit_huge_c000_ph201"
 
 SimComment = "Low-res LCDM, box-centered lightcone"
 
-BoxSize = 7515
+BoxSize = 7500
 FinalRedshift = 0.1
 NP = 8640**3
 CPD = 1701

@@ -6,11 +6,16 @@ DESI Members
 DESI collaboration members can access the AbacusSummit data products on NERSC.
 The path to the data products can be found on the DESI Wiki: https://desi.lbl.gov/trac/wiki/CosmoSimsWG/Abacus#AbacusSummit
 
-.. note:: DESI members without NERSC access should follow the instructions here to get an account: https://desi.lbl.gov/trac/wiki/Computing/AccessNersc
-
 Public
 -------
-Public access to the data products may be arranged upon request.  Please email deisenstein@cfa.harvard.edu, lgarrison@flatironinstitute.org, and nina.maksimova@cfa.harvard.edu to discuss.
+We are putting the simulations into the public domain.  That said, the outputs are sufficiently large that arranging access
+to them is challenging and cannot be promised, and we are not able at this time to provide an on-line portal.
+Please email deisenstein@cfa.harvard.edu, lgarrison@flatironinstitute.org, and nina.maksimova@cfa.harvard.edu to discuss
+how we might be able to transfer some or all of the suite to you.  Transfers to the data centers of other large collaborations 
+who can then serve their own members will get priority.  
+
+In the near-term, we hope to provide a sample simulation through an on-line portal, in the hopes that this will
+help people assess how AbacusSummit might help them.
 
 What data are available?
 ------------------------

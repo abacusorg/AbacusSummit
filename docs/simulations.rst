@@ -8,19 +8,36 @@ SimName inside the parameter file.  Inside the subdirectory is the abacus.par2
 file, which is the user-customized instructions to the code, and some of the 
 run-time information.
 
-Run-time products: We may want to check in the final parameter file (abacus.par) as
-well as the final status.log.
+Simulations specifications are given a descriptive label:
+
+* Base: this is our standard size, 6912^3 particles in 2 Gpc/h.
+
+* High: A box with 6x better mass resolution, 6300^3 in 1 Gpc/h.
+
+* Highbase: A 1 Gpc/h box with the base mass resolution.
+
+* Huge: these are larger boxes run with 27x worse mass resolution. 
+
+* Hugebase: Re-runs of some 2 Gpc/h boxes with the same 27x worse mass resolution.
+
+* Fixedbase: Simulations with the base mass resolution but fixed-amplitude initial conditions, 4096^3 in 1.18 Gpc/h.
+
+Run-time products: 
 
 Only a few of our simulations include the full timeslice output;
 we typically output only subsamples.  The full list is z=3.0, 2.5,
 2.0, 1.7, 1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2, 0.1.  The partial
 list is z = 2.5, 1.4, 0.8, 0.2.  Partial+HiZ adds z=3.0 and 2.0 to that.
 
+Subsamples of particles, with positions, velocities, ID numbers, and kernel density
+estimates, are typically provided at the same 12 redshifts as the Full list in the
+previous paragraph.  CompaSO group finding is run at these redshifts as well as 21 others.
+The huge and hugebase sims have fewer group finding and subsample epochs.
+
+Base sims and Huge sims have light-cone outputs; others do not.
+
 A base simulation typically produces about 10 TB of subsampled output, and 
 each output slice is another 4 TB above that.
-
-At present, we're planning for 12 particle subsample redshifts, 24 groups-only redshifts,
-and 3 subsample lightcones.
 
 The cosmologies in the "Cosm" column are tabulated in :doc:`cosmologies`.
 

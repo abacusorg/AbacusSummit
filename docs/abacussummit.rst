@@ -18,26 +18,26 @@ are available on other pages.
 
 Key portions of the suite are:
 
-A primary Planck2018 LCDM cosmology with 25 base simulations (330
+* A primary Planck2018 LCDM cosmology with 25 base simulations (330
 billion particles in 2 Gpc/h).
 
-Four secondary cosmologies with 6 base simulations, phase matched
+* Four secondary cosmologies with 6 base simulations, phase matched
 to the first 6 of the primary boxes.
 
-A grid of 79 other cosmologies, each with 1 phase-matched base
+* A grid of 79 other cosmologies, each with 1 phase-matched base
 simulation, to support interpolation in an 8-dimensional parameter
 space, including w0, wa, Neff, and running of the spectral index.
 
-Other base simulations to match the cosmology of external flagship
+* Other base simulations to match the cosmology of external flagship
 simulations and to explore the effects of our neutrino approximation.
 
-A 6x higher mass resolution simulation of the primary cosmology to
+* A 6x higher mass resolution simulation of the primary cosmology to
 allow study of group finding, and a large-volume 27x lower mass
 resolution simulation of the primary cosmology to provide full-sky
 light cone to z>2.
 
-Specialty simulations including those with fixed-amplitude white noise
+* Specialty simulations including those with fixed-amplitude white noise
 and scale-free simulations.
 
-Extensive data products including particle subsamples, halo catalogs, 
+* Extensive data products including particle subsamples, halo catalogs, 
 merger trees, kernel density estimates, and light cones.

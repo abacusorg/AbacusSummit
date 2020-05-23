@@ -80,6 +80,17 @@ particles are the same.  For example, one could use the halo catalog
 to generate a HOD at a redshift, assign a given PID to be a satellite
 galaxy, then go find that PID in the light cone files.
 
+## AbacusUtils Interface
+
+We are providing a Python package `abacusutils` to read the
+AbacusSummit files and supply the contents as Astropy tables (and
+therefore NumPy arrays) to the user.  This package can parse
+the halo catalogs, but also the particle files.
+
+See https://abacusutils.readthedocs.io/en/latest/index.html
+for details and installation instructions.
+
+
 ## Data Model
 
 Here we describe the data model of the AbacusSummit data products.
@@ -95,7 +106,7 @@ via the `blosc` package, using bit/byte transposition followed by
 substantially better compression ratios (we chose bit vs byte
 empirically for each file type), and that `zstd` provides fast
 decompression, fast enough that one CPU core can keep up with most
-network disk array read speeds.  In `abacusutils`, We have provided
+network disk array read speeds.  In `abacusutils`, we have provided
 a fork of the ASDF library that includes `blosc` as a compression
 option, so that decompression should be invisible to the user.
 

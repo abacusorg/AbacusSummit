@@ -1,5 +1,7 @@
 # AbacusSummit
 
+[![Documentation Status](https://readthedocs.org/projects/abacussummit/badge/?version=latest)](https://abacussummit.readthedocs.io/en/latest/?badge=latest)
+
 This is the public repository for the specification, utilization,
 and documentation of the AbacusSummit suite of high-performance
 cosmological N-body simulations.  These simulations were designed

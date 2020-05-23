@@ -25,6 +25,20 @@ We would like to thank OLCF and NERSC support for their expert
 assistance with the many hurdles that come with executing an HPC
 project at this scale.
 
+We would also like to thank 
+Stephen Bailey,
+Chia-Hsun Chuang,
+Shaun Cole,
+Pablo Fosalba,
+Salman Habib, 
+Katrin Heitmann, 
+Core Francisco Park,
+Joachim Stadel,
+Risa Wechsler, and
+Sihan Yuan
+for useful conversations about the AbacusSummit program.
+
+
 Citation
 --------
 Please see the :doc:`citation` page for information on how to cite AbacusSummit.

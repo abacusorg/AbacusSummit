@@ -11,14 +11,17 @@ We have given the cosmologies numbers, so that the simulations will refer to c12
 There are various sets of cosmologies in this list:
 
 - The primary cosmology (c000) is a Planck2018 LCDM version, specifically the mean of base_plikHM_TTTEEE_lowl_lowE_lensing.
-  This cosmology has 25 base boxes, plus other mass resolution options.  c009 is the same cosmology, but with massless neutrinos.
+  This cosmology has 25 base boxes, plus other mass resolution options.  
+- c009 is the same cosmology, but with massless neutrinos, at fixed omega_cb, H0, and sigma_cb.
+  c019 and c020 have two and zero 60 meV neutrino species, at fixed omega_cb, theta_CMB, and sigma_cb.
 - There are 4 secondary cosmologies (c001-4), each with 6 base boxes.  There is a low-omega_c choice based on WMAP7,
   a wCDM choice, a high-Neff choice, and a low-sigma8 choice.
-- There are about ten reference cosmologies (c010-c018) that match the choices employed in flagship runs from
-  other groups, so ease comparisons between code bases.
+- There are ten reference cosmologies (c010, c012-c018, c021-022) that match the choices employed in flagship runs from
+  other groups, so as to ease comparisons between code bases.  Note that most of these have massless neutrinos.
+  c011 was not run.
 - There is a linear derivative grid (c100-c116) that provides 8 matched pairs, with small positive and negative steps
   in an 8-dimensional parameter space, plus one additional simulation that is the high-sigma8 partner to the low-sigma8
-  secondary cosmology.
+  secondary cosmology.  Another set of ten simulations (c117-c126) are pairs with smaller spacing.
 - There is a larger unstructured emulator grid (c130-c181) that provides a wider coverage of this 8-dimensional space.
 
 Further details are below the table.
@@ -142,25 +145,3 @@ This last subspace has 4 new second derivatives to measure.
 
 The randomness of the starting point was subjected to some patterns on the sign of certain coordinates
 in order to encourage a glass with better balance in 2-d projections.  This was judged simply by eye.
-
-------
-
-TODOs:
-
-We need to define the re-blindable sample.
-
-We plan to run fixed-amplitude sims, probably in 1 Gpc/h boxes, for the primary and secondary cosmologies.
-
-Could run the cosmologies of the recent ANL big runs as abacus_cosm019..021.
-
-We are considering doing one or more large scale-free runs.
-
-We could add more emulator sims, e.g., to the interior of the sphere.
-
-We would like to include a BDE model; needs mild code development.  
-
-We'd like to include one or more runs with neutrinos treated in the LRA; needs substantial code development.
-
-We'd like to consider an f_NL!=0 run; needs moderate code development.
-
-

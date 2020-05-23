@@ -28,6 +28,6 @@ cosmologies (https://lgarrison.github.io/AbacusCosmos/).
 
 `Garrison et al. (2016) <https://academic.oup.com/mnras/article/461/4/4125/2608725>`_ describes
 our initial condition methods.  Hadzhiyska et al. (in prep) will
-describe our SO group finding method.  Pinto et al. (in prep) will
+describe the CompaSO group finding method.  Pinto et al. (in prep) will
 describe the Abacus far-field method.  Joyce et al. (submitted)
 describes accuracy tests using scale-free simulations.

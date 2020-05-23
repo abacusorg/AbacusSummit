@@ -18,7 +18,7 @@ The cosmology grid is specified [here](https://github.com/abacusorg/AbacusSummit
 
 The simulations themselves are specified [here](https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/README.md).
 
-Code to read the data products is located [here](https://github.com/abacusorg/AbacusSummit/blob/master/readers); this code is still in beta!
+The [abacusutils](https://github.com/abacusorg/abacusutils) package can be used to read the halo catalogs and other data products.
 
 ## What is Abacus?
 

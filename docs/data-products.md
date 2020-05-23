@@ -68,7 +68,7 @@ halo and field files of matching slab range and get the union of
 all particles.
 
 
-For the 24 secondary redshifts, we output the halo catalogs and the 
+For the 21 secondary redshifts, we output the halo catalogs and the 
 halo subsample particle IDs (w/densities and sticky L2 tag) only, 
 so not the positions/velocities nor the field particles.  
 
@@ -80,9 +80,62 @@ particles are the same.  For example, one could use the halo catalog
 to generate a HOD at a redshift, assign a given PID to be a satellite
 galaxy, then go find that PID in the light cone files.
 
+## Data Model
+
+Here we describe the data model of the AbacusSummit data products.
+
+All files are in ASDF format.  Most of the files have only one 
+binary block.  The only exception are the `halo_info` files,
+where every column of the table is a separate block.  This allows
+the user to load only the columns needed for an analysis.
+
+Within ASDF, we apply compression to each binary block.  We do this
+via the `blosc` package, using bit/byte transposition followed by
+`zstd` compression.  We have found that transposition gives
+substantially better compression ratios (we chose bit vs byte
+empirically for each file type), and that `zstd` provides fast
+decompression, fast enough that one CPU core can keep up with most
+network disk array read speeds.  In `abacusutils`, We have provided
+a fork of the ASDF library that includes `blosc` as a compression
+option, so that decompression should be invisible to the user.
+
+The ASDF header is human-readable, meaning one can use a Linux
+command line tool like `less` to examine the simulation metadata
+stored in every ASDF file.  We include various descriptive and 
+quantitative aspects of the simulation in this header.
+
+The halo statistics are in `halo_info` files.  These columns of these 
+outputs are described below.  Most are substantially compressed,
+including using ratios (e.g., of radii) to scale variables.
+As such, the binary format of the columns will differ from that 
+revealed by the python utility.
+
+CRC32 checksums are provided for all files.  These should match the
+GNU `cksum` utility, pre-installed in most Linux environments.
+We also offer a fast implementation of `cksum` with about 10x better performance:
+https://github.com/abacusorg/fast-cksum.
+
 ## Halo Statistics
 
 Here we list the statistics computed for each halo.
+
+In most cases, these quantities are condensed to reduce the bit precision and thereby save space; this is in addition to the 
+transposition/compression performed in the ASDF file storage.
+Sometimes the condensing is simple: e.g., when we have the chance to store a quantity (often a ratio) in the range [0,1], we
+multiply by 32000 and store as an int16.  Others are more complicated, e.g., 
+the Euler angles of the eigenvectors are stored to about 4 degree precision and
+all packed into an uint16.
+
+We are providing a Python package to undo this condensation and expose
+Astropy tables (and therefore NumPy arrays) to the user.
+See https://abacusutils.readthedocs.io/en/latest/index.html
+for details and installation instructions.
+
+The table below lists the data format in the binary table, but also 
+gives the format that is revealed to the user when that differs.
+
+In the `halo_info` file, positions and radii (where not normalized in a ratio) are in units of the unit box,
+while velocities are in km/s.  Densities are in units of the cosmic mean (so the mean density is 1).
 
 * `uint64_t id`: A unique halo number.
 
@@ -106,13 +159,13 @@ Here we list the statistics computed for each halo.
 
 * `float SO_central_particle[3]`: Coordinates of the SO central particle
 
-* `float SO_central_density`: Density of the SO central particle. 
+* `float SO_central_density`: Density of the SO central particle.
 
-* `float SO_radius`: Radius of SO halo (distance to particle furthest from central particle) 
+* `float SO_radius`: Radius of SO halo (distance to particle furthest from central particle)
 
 * `float SO_L2max_central_particle[3]`: Coordinates of the SO central particle for the largest L2 subhalo. 
 
-* `float SO_L2max_central_density`: Density of the SO central particle of the largest L2 subhalo. 
+* `float SO_L2max_central_density`: Density of the SO central particle of the largest L2 subhalo.
 
 * `float SO_L2max_radius`: Radius of SO halo (distance to particle furthest from central particle) for the largest L2 subhalo
 
@@ -125,56 +178,77 @@ by the center of mass position and velocity of the full L1 halo.
 All second moments and mean speeds are computed only using
 particles in the inner 90% of the mass relative to this center.
 
-* `float x_L2com[3]`: Center of mass pos of the largest L2 subhalo
+* `float x_L2com[3]`: Center of mass pos of the largest L2 subhalo.
 
-* `float v_L2com[3]`: Center of mass vel of the largest L2 subhalo
+* `float v_L2com[3]`: Center of mass vel of the largest L2 subhalo.
 
-* `float sigmav3d_L2com`: Sum of eigenvalues
+* `float sigmav3d_L2com`: The 3-d velocity dispersion, i.e., the square root of the sum of eigenvalues of the second moment tensor of the velocities relative to the center of mass.
 
-* `float meanSpeed_L2com`: Mean speed
+* `float meanSpeed_L2com`: Mean speed of particles, relative to the center of mass.
 
-* `float sigmav3d_r50_L2com`: Velocity dispersion of the inner 50% of particles
+* `float sigmav3d_r50_L2com`: Velocity dispersion (3-d) of the inner 50% of particles.
 
-* `float meanSpeed_r50_L2com`: Mean speed of the inner 50% of particles
+* `float meanSpeed_r50_L2com`: Mean speed of the inner 50% of particles.
 
 * `float r100_L2com`: Radius of 100% of mass, relative to L2 center. 
 
-* `float vcirc_max_L2com`: max circular velocity, based on the particles in this L1 halo 
+* `float vcirc_max_L2com`: Max circular velocity, relative to the center of mass position and velocity, based on the particles in this L1 halo .
 
-* `int16_t sigmavMin_to_sigmav3d_L2com`: Min(sigmav_eigenvalue) / sigmav3d, compressed
+* `int16_t sigmavMin_to_sigmav3d_L2com`: Min(sigmav_eigenvalue) / sigmav3d, condensed to [0,30000].
 
-* `int16_t sigmavMax_to_sigmav3d_L2com`: Max(sigmav_eigenvalue) / sigmav3d, compressed
+* `int16_t sigmavMax_to_sigmav3d_L2com`: Max(sigmav_eigenvalue) / sigmav3d, condensed to [0,30000].
 
-* `uint16_t sigmav_eigenvecs_L2com`: Eigenvectors of the velocity dispersion tensor, compressed into 16 bits. 
+* `uint16_t sigmav_eigenvecs_L2com`: Eigenvectors of the velocity dispersion tensor, condensed into 16 bits. 
 
-* `int16_t sigmavrad_to_sigmav3d_L2com`: sigmav_rad / sigmav3d, compressed
+* `int16_t sigmavrad_to_sigmav3d_L2com`: sigmav_rad / sigmav3d, condensed to [0,30000].
 
-* `int16_t sigmavtan_to_sigmav3d_L2com`: sigmav_tan / sigmav3d, compressed
+* `int16_t sigmavtan_to_sigmav3d_L2com`: sigmav_tan / sigmav3d, cndensed to [0,30000].
 
-* `int16_t r10_L2com`, `r25_L2com`, `r33_L2com`, `r50_L2com`, `r67_L2com`, `r75_L2com`, `r90_L2com`, `r95_L2com`, `r98_L2com`: Radii of this percentage of mass, relative to L2 center. Expressed as ratios of r100 and compressed to int16. 
+* `int16_t r10_L2com`, `r25_L2com`, `r33_L2com`, `r50_L2com`, `r67_L2com`, `r75_L2com`, `r90_L2com`, `r95_L2com`, `r98_L2com`: Radii of this percentage of mass, relative to L2 center. Expressed as ratios of r100 and condensed to [0,30000].
 
-* `int16_t sigmar_L2com[3]`: The eigenvalues of the moment of inertia tensor
+* `int16_t sigmar_L2com[3]`: The square root of eigenvalues of the moment of inertia tensor, as ratios to r100, condensed to [0,30000].
 
-* `int16_t sigman_L2com[3]`: The eigenvalues of the weighted moment of inertia tensor, in which we have computed the mean square of the normal vector between the COM and each particle.
+* `int16_t sigman_L2com[3]`: The square root of eigenvalues of the weighted moment of inertia tensor, in which we have computed the mean square of the normal vector between the COM and each particle, condensed to [0,30000].
 
-* `uint16_t sigmar_eigenvecs_L2com`: The eigenvectors of the inertia tensor, compressed
+* `uint16_t sigmar_eigenvecs_L2com`: The eigenvectors of the inertia tensor, condensed into 16 bits
 
-* `uint16_t sigman_eigenvecs_L2com`: The eigenvectors of the weighted inertia tensor, compressed
+* `uint16_t sigman_eigenvecs_L2com`: The eigenvectors of the weighted inertia tensor, condensed into 16 bits
 
-* `int16_t rvcirc_max_L2com`: radius of max circular velocity, stored as ratio to r100, relative to L2 center
+* `int16_t rvcirc_max_L2com`: radius of max circular velocity, relative to the L2 center, stored as the ratio to r100 condensed to [0,30000].
 
-In most cases, these quantities are compressed to save space.  Sometimes this is simple: e.g., when we have the chance to store a ratio in the range [0,1], we
-multiply by 32000 and store as an int16.  Others are more complicated, e.g., 
-the Euler angles of the eigenvectors are stored to about 4 degree precision and
-all packed into an uint16.
 
-We are providing a Python package to undo this compression and expose
-Astropy tables (and therefore NumPy arrays) to the user.
+## Particle data
 
+The particle positions and velocities from subsamples are stored in `RV` files.
+The positions and velocities have been condensed into
+three 32-bit integers, for x, y, and z.  The positions map
+[-0.5,0.5] to +-500,000 and are stored in the upper 20 bits.  The
+velocites are mapped from [-6000,6000) km/s to [0,4096) and stored
+in the lower 12 bits.  The resulting Nx3 array of int32 is then 
+compressed within ASDF.
+
+The particle positions and velocities from full timeslices are
+stored in `pack9` files.  These provide mildly higher bit precision,
+albeit with some complexity.  Particles are stored in cells (a cubic
+grid internal to Abacus).  Each cell has a 9-byte header, containing
+the cell 3-d index and a velocity scaling, and then each particle
+is stored as 9 bytes, with 12 bits for each position and velocity
+component.  As the base simulations have 1701 cells per dimension, 
+this is about 23 bits of positional precision.
+
+The particle id numbers and kernel densities are stored in `PID` files
+packed into a 64-bit integer.  The id numbers are simply the (i,j,k)
+index from the initial grid, and these 3 numbers are placed as the
+lower three 16-bit integers.  The kernel density is stored as the
+square root of the density in cosmic density units in bits 1..12
+of the upper 16-bit integer.  Bit 0 is used to mark whether the
+particle has ever been inside the largest L2 halo of a L1 halo with
+more than 35 particles; this is available to aid in merger tree
+construction.
 
 ## Light Cones
 
-The light cone is structured as three periodic copies of the box,
+For the base boxes, the light cone is structured as three periodic copies of the box,
 centered at (0,0,0), (0,0,2000), and (0,2000,0) in Mpc/h units.  This is observed
 from the location (-950, -950, -950), i.e., 50 Mpc inside a corner.
 This provides an octant to a distance of 1950 Mpc/h (z=0.8), shrinking
@@ -190,49 +264,21 @@ we linearly interpolate to find the time when the light cone
 intersects this each particle, and then linearly update the position
 and velocity to this time.
 
+Each time step generates a separate file, which includes the entire
+box, for each periodic copy.
+
+We store only a subsample of particles, the union of the A and B subsets.
+Positions are in the `RV` format; id numbers and kernel density estimates
+are in the `PID` format.
+
 The HealPix pixels are computed using +z as the North Pole, i.e., 
-the usual (x,y,z) coordinate system.
+the usual (x,y,z) coordinate system.  We choose Nside=16384 and 
+store the resulting pixel numbers as int32.  We output HealPix from
+all particles.  Particle pixel numbers from each slab in the box
+are sorted prior to output; this permits better compression 
+(down to 1/3 byte per particle!).
 
-
-## Data Model
-
-Here we describe the data model of the AbacusSummit data products.
-
-The halo statistics are in `halo_info` files.  These are stored as
-ASDF files, where each column is in a contiguous binary portion.
-The ASDF header is human-readable, meaning one can use a Linux
-command line tool like `less` to examine the simulation metadata
-stored in every ASDF file.
-
-The particles position and velocities are stored in RV files in a
-bit-truncated and compressed format.  What is revealed to the user
-is three 32-bit integers, for x, y, and z.  The positions map
-[-0.5,0.5] to +-500,000 and are stored in the upper 20 bits.  The
-velocites are mapped from [-6000,6000) km/s to [0,4096) and stored
-in the lower 12 bits.
-
-The particle id numbers and kernel densities are stored in PID files
-packed into a 64-bit integer.  The id numbers are simply the (i,j,k)
-index from the initial grid, and these 3 numbers are placed as the
-lower three 16-bit integers.  The kernel density is stored as the
-square root of the density in cosmic density units in bits 1..12
-of the upper 16-bit integer.  Bit 0 is used to mark whether the
-particle has ever been inside the largest L2 halo of a L1 halo with
-more than 35 particles; this is available to aid in merger tree
-construction.
-
-The RV and PID files are then piecewise byte-transposed and zstd
-compressed.  We call this trz compression, and provide a utility
-(https://github.com/abacusorg/trz).  We have found that transposing
-by 12 and 8 bytes respective provides substantially better compression,
-as some bytes in each number have much less variation than others,
-and the x and y coordinates vary more slowly than z due to the fact
-that the particles are output in cell order.  We use [zstd](https://www.zstd.net) as the
-compression because it is much faster in decompression than gunzip;
-we expect that even a single thread can keep up with the read rate
-of a disk array.
-
-CRC32 checksums are provided for all files.  These should match the
-GNU `cksum` utility, pre-installed in most Linux environments.
-We also offer a fast implementation of `cksum` with about 10x better performance:
-https://github.com/abacusorg/fast-cksum.
+For the huge boxes, the light cone is simply one copy of the box,
+centered at (0,0,0).  This provides a full-sky light cone to the 
+the half-distance of the box (about 4 Gpc/h), and further toward 
+the eight corners.

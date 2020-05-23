@@ -22,3 +22,7 @@ What data are available?
 The :doc:`data-products` page documents the data products.  
 In some cases, extra data products may be archived on tape and can be made available upon request.
 Please email lgarrison@flatironinstitute.org for details.
+
+Note that you will almost certainly need to use the utilities at
+https://abacusutils.readthedocs.io/en/latest/index.html
+to unpack the outputs. 

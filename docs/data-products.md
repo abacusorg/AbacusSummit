@@ -169,6 +169,35 @@ while velocities are in km/s.  Densities are in units of the cosmic mean (so the
 
 * `float SO_L2max_radius`: Radius of SO halo (distance to particle furthest from central particle) for the largest L2 subhalo
 
+Once the decompression is performed using the python package `compaso_halo_catalog.py`, 
+the user can access the corresponding `numpy` arrays with data types:
+
+* `id`: `np.uint64`
+
+* `npstartA`, `npstartB`: `np.uint64` 
+
+* `npoutA`, `npoutB`: `np.uint32` 
+
+* `ntaggedA`, `ntaggedB`: `np.uint32` 
+
+* `N`: `np.uint32` 
+
+* `L2_N`: `np.uint32, 5` 
+
+* `L0_N`: `np.uint32` 
+ 
+* `SO_central_particle`: `np.float32, 3` 
+
+* `SO_central_density`: `np.float32` 
+
+* `SO_radius`: `np.float32` 
+
+* `SO_L2max_central_particle`: `np.float32, 3` 
+
+* `SO_L2max_central_density`: `np.float32` 
+
+* `SO_L2max_radius`: `np.float32` 
+ 
 
 The following quantities are computed using a center defined by 
 the center of mass position and velocity of the largest L2 subhalo.
@@ -216,7 +245,41 @@ particles in the inner 90% of the mass relative to this center.
 
 * `int16_t rvcirc_max_L2com`: radius of max circular velocity, relative to the L2 center, stored as the ratio to r100 condensed to [0,30000].
 
+After decompression using the python code `compaso_halo_catalog.py`, 
+the following data format is revealed for the halo statistics described
+above (with analogous quantities available for outputs with respect to 
+the L1 center `_com`): 
 
+* `x_L2com`: `np.float32, 3` 
+
+* `v_L2com`: `np.float32, 3` 
+
+* `meanSpeed_L2com`, `meanSpeed_r50_L2com`: `np.float32`   
+
+* `vcirc_max_L2com`: `np.float32`
+
+* `rvcirc_max_L2com`: `np.float32`
+
+* `r10_L2com`, `r25_L2com`, `r33_L2com`, `r50_L2com`, `r67_L2com`, `r75_L2com`, `r90_L2com`, `r95_L2com`, `r98_L2com`, `r100_L2com`: `np.float32`  
+
+* `sigmav3d_L2com`, `sigmav3d_r50_L2com`: `np.float32`
+ 
+* `sigmavMin_L2com`, `sigmavMid_L2com`, `sigmavMaj_L2com`: `np.float32` 
+ 
+* `sigmavrad_L2com`: `np.float32` 
+
+* `sigmavtan_L2com`: `np.float32` 
+
+* `sigmar_L2com`: `np.float32, 3` 
+
+* `sigman_L2com`: `np.float32, 3` 
+
+* `sigmav_eigenvecsMin_L2com`, `sigmav_eigenvecsMid_L2com`, `sigmav_eigenvecsMaj_L2com`: `np.float32, 3` 
+
+* `sigmar_eigenvecsMin_L2com`, `sigmar_eigenvecsMid_L2com`, `sigmar_eigenvecsMaj_L2com`: `np.float32, 3` 
+
+* `sigman_eigenvecsMin_L2com`, `sigman_eigenvecsMid_L2com`, `sigman_eigenvecsMaj_L2com`: `np.float32, 3` 
+ 
 ## Particle data
 
 The particle positions and velocities from subsamples are stored in `RV` files.

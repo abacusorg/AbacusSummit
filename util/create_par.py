@@ -86,6 +86,9 @@ mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs
                    '4096':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
                     }
 
+extra_dict = {'10000': {'OutputFullLightCones': '1'},
+               '8640': {'OutputFullLightCones': '1'}}
+
 Seed = 12321
 
 def main(table):
@@ -185,6 +188,9 @@ def read_table(paramNames,fn,namesRow):
 
             if parDict['PPD'] in mpirun_cmd_dict:
                 newparams['mpirun_cmd'] = mpirun_cmd_dict[parDict['PPD']]
+
+            if parDict['PPD'] in extra_dict:
+                newparams.update(extra_dict[parDict['PPD']])
 
             newparams.update(phase_info)
 

@@ -14,17 +14,17 @@ we are producing 2 PB of data products.
 The key data products are:
 
 1. **Halo catalogs** with various statistics computed on-the-fly from the
-full particle set.
+   full particle set.
 
 2. **10% subsamples of particles**, consistently selected across redshift,
-output with position, velocity, kernel density, and particle ID,
-organized so as to preserve halo membership.
+   output with position, velocity, kernel density, and particle ID,
+   organized so as to preserve halo membership.
 
 3. A **light cone** stretching from the corner of the box and including a
-single second periodic copy of the box. This provides an octant of sky
-to z=0.8 and about 800 sq deg to z=2.4. The outputs are the subsample
-of particles, as well as the Nside=16384 healpix pixel number for all
-particles.
+   single second periodic copy of the box. This provides an octant of sky
+   to z=0.8 and about 800 sq deg to z=2.4. The outputs are the subsample
+   of particles, as well as the Nside=16384 healpix pixel number for all
+   particles.
 
 4. **Full particle catalogs** for a few timeslices of a few boxes.
 

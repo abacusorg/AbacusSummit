@@ -47,8 +47,8 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_base_c004_ph000       | 004  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Low sigma8_matter = 0.75, otherwise Baseline LCDM |
 | AbacusSummit_base_c004_ph{001-005} | 004  | 001-005 | 6912 | 2000      | 0.1     | Partial      | Low sigma8_matter = 0.75, otherwise Baseline LCDM |
 | AbacusSummit_base_c009_ph000       | 009  | 000     | 6912 | 2000      | 0.1     | Partial      | Baseline LCDM with massless neutrinos |
-| AbacusSummit_base_c010_ph000       | 010  | 000     | 6912 | 2000      | 0.1     | 0.1          | AbacusCosmos LCDM, Prototype |
-| AbacusSummit_base_c011_ph000       | 011  | 000     | 6912 | 2000      | 0.1     | none         | High-sigma8, Prototype |
+| AbacusSummit_base_c010_ph000       | 010  | 000     | 6912 | 2000      | 0.1     | 0.1          | AbacusCosmos LCDM |
+| AbacusSummit_base_c011_ph000       | 011  | 000     | 6912 | 2000      | 0.1     | none         | High-sigma8, Prototype (not run) |
 | AbacusSummit_base_c012_ph000       | 012  | 000     | 6912 | 2000      | 0.1     | none         | Euclid Flagship1 |
 | AbacusSummit_base_c013_ph000       | 013  | 000     | 6912 | 2000      | 0.1     | none         | Euclid Flagship2 |
 | AbacusSummit_base_c014_ph000       | 014  | 000     | 6912 | 2000      | 0.1     | none         | OuterRim |

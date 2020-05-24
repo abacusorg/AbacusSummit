@@ -1,5 +1,7 @@
 # AbacusSummit
 
+[![Documentation Status](https://readthedocs.org/projects/abacussummit/badge/?version=latest)](https://abacussummit.readthedocs.io/en/latest/?badge=latest)
+
 This is the public repository for the specification, utilization,
 and documentation of the AbacusSummit suite of high-performance
 cosmological N-body simulations.  These simulations were designed
@@ -16,7 +18,7 @@ The cosmology grid is specified [here](https://github.com/abacusorg/AbacusSummit
 
 The simulations themselves are specified [here](https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/README.md).
 
-Code to read the data products is located [here](https://github.com/abacusorg/AbacusSummit/blob/master/readers); this code is still in beta!
+The [abacusutils](https://github.com/abacusorg/abacusutils) package can be used to read the halo catalogs and other data products.
 
 ## What is Abacus?
 

@@ -45,6 +45,8 @@ The cosmologies in the "Cosm" column are tabulated in :doc:`cosmologies`.
 
 Download the simulations table `here <https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/simulations.csv>`_.
 
+Simulation names in italics haven't yet been run.
+
 .. note:: The following table is wide, you may have to scroll to the right to see all the columns.
 
 .. csv-table::

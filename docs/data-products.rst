@@ -11,16 +11,18 @@ of data volume has been a high priority. Indeed, we have stored full
 particle snapshots only for a few simulations. Even with this economy,
 we are producing 2 PB of data products.
 
-| The key data products are: 1) Halo catalogs with various statistics
-computed on-the-fly from the full particle set. 2) 10% subsamples of
-particles, consistently selected across redshift, output with position,
-velocity, kernel density, and particle ID, organized so as to preserve
-halo membership. 3) A light cone stretching from the corner of the box
-and including a single second periodic copy of the box. This provides an
-octant of sky to z=0.8 and about 800 sq deg to z=2.4. The outputs are
-the subsample of particles, as well as the Nside=16384 healpix pixel
-number for all particles.
-| 4) Full particle catalogs for a few timeslices of a few boxes.
+The key data products are:
+1. Halo catalogs with various statistics computed on-the-fly from the
+full particle set.
+2. 10% subsamples of particles, consistently selected across redshift,
+output with position, velocity, kernel density, and particle ID,
+organized so as to preserve halo membership.
+3. A light cone stretching from the corner of the box and including a
+single second periodic copy of the box. This provides an octant of sky
+to z=0.8 and about 800 sq deg to z=2.4. The outputs are the subsample
+of particles, as well as the Nside=16384 healpix pixel number for all
+particles.
+4. Full particle catalogs for a few timeslices of a few boxes.
 
 We perform group finding at 12 primary redshifts and 24 secondary
 redshifts. The primary set is z=0.1, 0.2, 0.3, 0.4, 0.5, 0.8, 1.1, 1.4,

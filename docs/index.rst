@@ -36,9 +36,9 @@ This documentation and code is hosted in the `abacusorg/AbacusSummit <https://gi
    :maxdepth: 2
    :caption: Specifications
 
-   sim-details
    simulations
    cosmologies
+   nbody-details
 
 .. toctree::
    :maxdepth: 2

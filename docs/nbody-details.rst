@@ -1,5 +1,5 @@
-Simulation Details
-==================
+N-body Details
+==============
 
 Here we describe technical choices with respect to the N-body method
 (e.g. softening, time stepping, ICs).

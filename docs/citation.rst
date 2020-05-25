@@ -9,8 +9,9 @@ Use of AbacusSummit should cite Maksimova et al. (in prep) for the
 simulation suite and `Garrison et al. (2019) <https://academic.oup.com/mnras/article/485/3/3370/5371170>`_
 and `Garrison et al. (2018) <https://iopscience.iop.org/article/10.3847/1538-4365/aabfd3>`_ for the Abacus code,
 and `Metchnik (2009) <https://ui.adsabs.harvard.edu/abs/2009PhDT.......175M/abstract>`_
-for the initial method.  Other citations may be requested as we publish more of the
-numerical methods.
+for the initial method.  
+Applications using the CompaSO halos should cite Hadzhiyska et al. (in prep) for that method.
+Other citations may be requested as we publish more of the numerical methods.
 
 .. note:: We provide a BibTeX file with these references `here <https://github.com/abacusorg/AbacusSummit/blob/master/papers.bib>`_.
 

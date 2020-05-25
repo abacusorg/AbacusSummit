@@ -8,7 +8,10 @@ The path to the data products can be found on the DESI Wiki: https://desi.lbl.go
 
 Public
 -------
-We are putting the simulations into the public domain.  That said, the outputs are sufficiently large that arranging access
+The simulation suite is currently in a beta version, available only with agreement.  
+We plan to issue a first release into the public domain in summer 2020.
+
+That said, the outputs are sufficiently large that arranging access
 to them is challenging and cannot be promised, and we are not able at this time to provide an on-line portal.
 Please email deisenstein@cfa.harvard.edu, lgarrison@flatironinstitute.org, and nina.maksimova@cfa.harvard.edu to discuss
 how we might be able to transfer some or all of the suite to you.  Transfers to the data centers of other large collaborations 

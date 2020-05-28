@@ -20,9 +20,11 @@ the bounds of the L0 halo set be set by the kernel density estimate,
 which has lower variance than the nearest neighbor method of FOF
 and imposes a physical smoothing scale.
 
-.. note:: The terms "groups" and "halos" have specific meanings in Abacus.
-        "Groups" are clusters of particles at any level of group finding
-        (L0/L1/L2).  "Halos" are L1 groups.
+.. note:: The terms *groups* and *halos* have specific meanings in Abacus.
+        Groups are clusters of particles at any level of group finding
+        (L0/L1/L2).  Halos are L1 groups (although sometimes we do use
+        "halos" to refer to another level, in which case we say *L0 halos*
+        or *L2 halos*).
 
 We stress that all L1/L2 finding and all halo statistics are based
 solely on the particles in the L0 halo.  

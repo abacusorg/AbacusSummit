@@ -1,14 +1,7 @@
 Simulations
 ===========
 
-This directory contains the specification of the simulations in AbacusSummit.
-
-Each simulation has a name, which is both the name of the subdirectory and the 
-SimName inside the parameter file.  Inside the subdirectory is the abacus.par2
-file, which is the user-customized instructions to the code, and some of the 
-run-time information.
-
-Simulations specifications are given a descriptive label:
+This page contains the specification of the simulations in AbacusSummit.  Simulations specifications are given a descriptive label:
 
 * Base: this is our standard size, 6912^3 particles in 2 Gpc/h.
 

@@ -3,17 +3,17 @@ Simulations
 
 This page contains the specification of the simulations in AbacusSummit.  Simulations specifications are given a descriptive label:
 
-* Base: this is our standard size, 6912^3 particles in 2 Gpc/h.
+* **Base**: this is our standard size, 6912^3 particles in 2 Gpc/h.
 
-* High: A box with 6x better mass resolution, 6300^3 in 1 Gpc/h.
+* **High**: A box with 6x better mass resolution, 6300^3 in 1 Gpc/h.
 
-* Highbase: A 1 Gpc/h box with the base mass resolution.
+* **Highbase**: A 1 Gpc/h box with the base mass resolution.
 
-* Huge: these are larger boxes run with 27x worse mass resolution. 
+* **Huge**: these are larger boxes run with 27x worse mass resolution. 
 
-* Hugebase: Re-runs of some 2 Gpc/h boxes with the same 27x worse mass resolution.
+* **Hugebase**: Re-runs of some 2 Gpc/h boxes with the same 27x worse mass resolution.
 
-* Fixedbase: Simulations with the base mass resolution but fixed-amplitude initial conditions, 4096^3 in 1.18 Gpc/h.
+* **Fixedbase**: Simulations with the base mass resolution but fixed-amplitude initial conditions, 4096^3 in 1.18 Gpc/h.
 
 Run-time products: 
 

@@ -22,8 +22,7 @@ been supported by OLCF projects AST135 and AST145, the latter through
 the Department of Energy ALCC program.
 
 We would like to thank OLCF and NERSC support for their expert
-assistance with the many hurdles that come with executing an HPC
-project at this scale.
+assistance throughout this project.
 
 We would also like to thank 
 Stephen Bailey,

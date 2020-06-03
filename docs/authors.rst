@@ -3,7 +3,7 @@ Authors & Acknowledgements
 
 Authors
 -------
-Abacus is currently actively developed by `Lehman Garrison <https://lgarrison.github.io>`_, Nina
+Abacus is actively developed by `Lehman Garrison <https://lgarrison.github.io>`_, Nina
 Maksimova, and Daniel Eisenstein, with contributions from Boryana
 Hadzhiyska and Sownak Bose and consulting from Philip Pinto.  Abacus
 was initially developed by Marc Metchnik and Philip Pinto, with

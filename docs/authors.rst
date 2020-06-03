@@ -10,6 +10,12 @@ was initially developed by Marc Metchnik and Philip Pinto, with
 contributions from Daniel Eisenstein and later development led by
 Douglas Ferrer.
 
+Contact
+-------
+If you would like to get in touch via email, please email Lehman, Nina, and Daniel
+at lgarrison@flatironinstitute.org, nina.maksimova@cfa.harvard.edu, and deisenstein@cfa.harvard.edu.
+The `GitHub Issues <https://github.com/abacusorg/abacussummit/issues>`_ page is also a good way to get in touch.
+
 Acknowledgements & Thanks
 -------------------------
 Abacus development has been supported by NSF AST-1313285 and more

@@ -204,8 +204,10 @@ def read_table(paramNames,fn,namesRow):
                 
             if parDict['PPD'] in small_dict:
                 simName_dir = pjoin(small_dict[parDict['PPD']],simName)
+                include_str = "../../AbacusSummit_base.par2"
             else:
                 simName_dir = simName.encode().decode()
+                include_str = "../AbacusSummit_base.par2"
                 
             newparams.update(phase_info)
 
@@ -215,7 +217,7 @@ def read_table(paramNames,fn,namesRow):
             with open(pjoin(sim_dir, simName_dir, 'abacus.par2'), 'w') as f:
                 # Start the file with the SimName and the #include of the base
                 f.write(f'SimName = "{simName}"\n')
-                f.write('#include "../AbacusSummit_base.par2"\n\n')
+                f.write(f'#include "{include_str}"\n\n')
                 # Now write all the sim-specific params
                 for key,value in newparams.items():
                     f.write(f'{key} = {value}\n')

@@ -1,5 +1,5 @@
 SimName = "AbacusSummit_small_c000_ph3000"
-#include "../AbacusSummit_base.par2"
+#include "../../AbacusSummit_base.par2"
 
 SimComment = "Small box for covariance, base cosmology, no lightcone"
 

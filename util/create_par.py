@@ -62,6 +62,7 @@ CPD_dict = {'6912': '1701',
             '4096': '945',
             '10000': '1911',
             '8640': '1701',
+            '1728': '405',
             }
 ZD_NumBlock_dict = {'6912': '384',
             '3456': '72',
@@ -70,6 +71,7 @@ ZD_NumBlock_dict = {'6912': '384',
             '4096': '128',
             '10000' : '1250',
             '8640': '864',
+            '1728': '4',
             }
 GroupRadius_dict = {
             '6912': '10',
@@ -79,6 +81,7 @@ GroupRadius_dict = {
             '4096': '5',
             '10000': '3',
             '8640': '3',
+            '1728': '10',
             }
 
 mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
@@ -88,6 +91,10 @@ mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs
 
 extra_dict = {'10000': {'OutputFullLightCones': '1'},
                '8640': {'OutputFullLightCones': '1'}}
+
+parallel_dict = {'1728': '0'}
+
+small_dict = {'1728': 'SmallBox'}
 
 Seed = 12321
 
@@ -192,12 +199,20 @@ def read_table(paramNames,fn,namesRow):
             if parDict['PPD'] in extra_dict:
                 newparams.update(extra_dict[parDict['PPD']])
 
+            if parDict['PPD'] in parallel_dict:
+                newparams['Parallel'] = parallel_dict[parDict['PPD']]
+                
+            if parDict['PPD'] in small_dict:
+                simName_dir = pjoin(small_dict[parDict['PPD']],simName)
+            else:
+                simName_dir = simName.encode().decode()
+                
             newparams.update(phase_info)
 
-            os.makedirs(pjoin(sim_dir, simName), exist_ok=True)
+            os.makedirs(pjoin(sim_dir, simName_dir), exist_ok=True)
 
             # Differences - individual file for each sim
-            with open(pjoin(sim_dir, simName, 'abacus.par2'), 'w') as f:
+            with open(pjoin(sim_dir, simName_dir, 'abacus.par2'), 'w') as f:
                 # Start the file with the SimName and the #include of the base
                 f.write(f'SimName = "{simName}"\n')
                 f.write('#include "../AbacusSummit_base.par2"\n\n')

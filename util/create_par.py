@@ -90,7 +90,9 @@ mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs
                     }
 
 extra_dict = {'10000': {'OutputFullLightCones': '1'},
-               '8640': {'OutputFullLightCones': '1'}}
+               '8640': {'OutputFullLightCones': '1'},
+               '1728': {'TimeSliceRedshifts_Subsample': '[1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2]'}}
+
 
 parallel_dict = {'1728': '0'}
 

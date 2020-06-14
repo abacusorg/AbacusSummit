@@ -14,7 +14,7 @@ H0 = 67.36
 Omega_M = 0.315192
 Omega_Smooth = 0.001420
 
-TimeSliceRedshifts = [1.4, 1.1, 0.8, 0.5, 0.3, 0.2]
+TimeSliceRedshifts = None
 LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
 NLightCones = 0
 
@@ -29,4 +29,5 @@ omega_b = 0.02237
 omega_cdm = 0.12
 omega_ncdm = 0.0006442
 
+TimeSliceRedshifts_Subsample = [1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2]
 Parallel = 0

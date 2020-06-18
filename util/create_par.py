@@ -90,11 +90,19 @@ mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs
                     }
 
 extra_dict = {'10000': {'OutputFullLightCones': '1'},
-               '8640': {'OutputFullLightCones': '1'},
-               '1728': {'TimeSliceRedshifts_Subsample': '[1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2]'}}
+               '8640': {'OutputFullLightCones': '1'}}
 
-
-parallel_dict = {'1728': '0'}
+cov_dict = [{'TimeSliceRedshifts_Subsample': '[1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2]'},
+              {'MAXRAMMB': 100000},
+              {'LocalWorkingDirectory': None},
+              {'WorkingDirectory': "'$ABACUS_TMP$/' + @_SimSet@ + '/' + @SimName@"},
+              {'OMP_NUM_THREADS': 68},
+              {'OMP_PLACES': "{0}:17:4,{1}:17:4,{88}:17:4,{89}:17:4"},
+              {'IOCores': [68,156]},
+              {'IODirs': ["multipole/", "write/"]},
+              {'nIODirs': 2},
+              {'IODirThreads': [2, 2]},
+              {'Parallel': '0'}]
 
 small_dict = {'1728': 'SmallBox'}
 
@@ -200,11 +208,10 @@ def read_table(paramNames,fn,namesRow):
 
             if parDict['PPD'] in extra_dict:
                 newparams.update(extra_dict[parDict['PPD']])
-
-            if parDict['PPD'] in parallel_dict:
-                newparams['Parallel'] = parallel_dict[parDict['PPD']]
                 
             if parDict['PPD'] in small_dict:
+                for cov_d in cov_dict:
+                    newparams.update(cov_d)
                 simName_dir = pjoin(small_dict[parDict['PPD']],simName)
                 include_str = "../../AbacusSummit_base.par2"
             else:

@@ -19,7 +19,7 @@ LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., 
 NLightCones = 0
 
 ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm000/CLASS_power"
-ZD_Seed = 43721
+ZD_Seed = 43731
 ZD_NumBlock = 4
 
 N_ur = 2.0328

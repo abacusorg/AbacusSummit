@@ -106,6 +106,8 @@ cov_dict = [{'TimeSliceRedshifts_Subsample': '[1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2
 
 small_dict = {'1728': 'SmallBox'}
 
+small_str = 'small'
+
 Seed = 12321
 
 def main(table):
@@ -253,6 +255,10 @@ def extract_phase(sim):
     if 'fixed' in sim:
         ret['ZD_qPk_fix_to_mean'] = '1'
 
+    # For the small covariance boxes
+    if small_str in sim:
+        ret['add_seed'] = int((re.findall(r"ph\d{4}",sim)[0]).split('ph')[-1])*10
+        
     # Special case: phase 98 is phase 99, inverted
     if ret['add_seed'] == 98*100:
         ret['add_seed'] = 99*100

@@ -38,7 +38,7 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_huge_c000_ph200       | 000  | 200     | 10000| 8700      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
 | AbacusSummit_huge_c000_ph{201-202} | 000  | 201-202 | 8640 | 7500      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
 | AbacusSummit_hugebase_c000_ph{000-024} | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
-| AbacusSummit_small_c000_ph3000     | 000  | 3000    | 1728 | 500       | 0.2     | none         | Small box for covariance, base cosmology, no lightcone |
+| AbacusSummit_small_c000_ph{3000-5000}     | 000  | 3000-5000    | 1728 | 500       | 0.2     | none         | Small box for covariance, base cosmology, no lightcone |
 | AbacusSummit_base_c001_ph000       | 001  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | Low omega_c |
 | AbacusSummit_base_c001_ph{001-005} | 001  | 001-005 | 6912 | 2000      | 0.1     | Partial      | Low omega_c |
 | AbacusSummit_base_c002_ph000       | 002  | 000     | 6912 | 2000      | 0.1     | Partial+HiZ  | wCDM with thawing model w0 = -0.7, wa = -0.5 |

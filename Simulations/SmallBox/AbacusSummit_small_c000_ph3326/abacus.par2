@@ -1,0 +1,42 @@
+SimName = "AbacusSummit_small_c000_ph3326"
+#include "../../AbacusSummit_base.par2"
+
+SimComment = "Small box for covariance, base cosmology, no lightcone"
+
+BoxSize = 500
+FinalRedshift = 0.2
+NP = 1728**3
+CPD = 405
+GroupRadius = 10
+w0 = -1.0
+wa = 0.0
+H0 = 67.36
+Omega_M = 0.315192
+Omega_Smooth = 0.001420
+
+TimeSliceRedshifts = None
+LightConeOrigins = (-990.,-990.,-990.), (-990., -990., -2990.), (-990., -2990., -990.)
+NLightCones = 0
+
+ZD_Pk_filename = "$ABACUS$/external/AbacusSummit/Cosmologies/abacus_cosm000/CLASS_power"
+ZD_Seed = 45521
+ZD_NumBlock = 4
+
+N_ur = 2.0328
+N_ncdm = 1.0
+n_s = 0.9649
+omega_b = 0.02237
+omega_cdm = 0.12
+omega_ncdm = 0.0006442
+
+TimeSliceRedshifts_Subsample = [1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2]
+MAXRAMMB = 100000
+LocalWorkingDirectory = None
+WorkingDirectory = '$ABACUS_TMP$/' + @_SimSet@ + '/' + @SimName@
+OMP_NUM_THREADS = 68
+OMP_PLACES = {0}:17:4,{1}:17:4,{88}:17:4,{89}:17:4
+IOCores = [68, 156]
+IODirs = ['multipole/', 'write/']
+nIODirs = 2
+IODirThreads = [2, 2]
+Parallel = 0

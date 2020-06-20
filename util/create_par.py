@@ -81,7 +81,7 @@ GroupRadius_dict = {
             '4096': '5',
             '10000': '3',
             '8640': '3',
-            '1728': '10',
+            '1728': '12',
             }
 
 mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",

@@ -56,6 +56,7 @@ cosmologies table.
 .. csv-table::
     :file: ../Cosmologies/cosmologies.csv
     :header-rows: 1
+    :escape: '
 
 Further details about the cosmology choices:
 

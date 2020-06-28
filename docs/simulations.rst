@@ -1,26 +1,19 @@
 Simulations
 ===========
 
-This directory contains the specification of the simulations in AbacusSummit.
+This page contains the specification of the simulations in AbacusSummit.  Simulations specifications are given a descriptive label:
 
-Each simulation has a name, which is both the name of the subdirectory and the 
-SimName inside the parameter file.  Inside the subdirectory is the abacus.par2
-file, which is the user-customized instructions to the code, and some of the 
-run-time information.
+* **Base**: this is our standard size, 6912^3 particles in 2 Gpc/h.
 
-Simulations specifications are given a descriptive label:
+* **High**: A box with 6x better mass resolution, 6300^3 in 1 Gpc/h.
 
-* Base: this is our standard size, 6912^3 particles in 2 Gpc/h.
+* **Highbase**: A 1 Gpc/h box with the base mass resolution.
 
-* High: A box with 6x better mass resolution, 6300^3 in 1 Gpc/h.
+* **Huge**: these are larger boxes run with 27x worse mass resolution. 
 
-* Highbase: A 1 Gpc/h box with the base mass resolution.
+* **Hugebase**: Re-runs of some 2 Gpc/h boxes with the same 27x worse mass resolution.
 
-* Huge: these are larger boxes run with 27x worse mass resolution. 
-
-* Hugebase: Re-runs of some 2 Gpc/h boxes with the same 27x worse mass resolution.
-
-* Fixedbase: Simulations with the base mass resolution but fixed-amplitude initial conditions, 4096^3 in 1.18 Gpc/h.
+* **Fixedbase**: Simulations with the base mass resolution but fixed-amplitude initial conditions, 4096^3 in 1.18 Gpc/h.
 
 Run-time products: 
 

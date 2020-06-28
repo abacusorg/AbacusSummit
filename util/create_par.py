@@ -62,6 +62,7 @@ CPD_dict = {'6912': '1701',
             '4096': '945',
             '10000': '1911',
             '8640': '1701',
+            '1728': '441',
             }
 ZD_NumBlock_dict = {'6912': '384',
             '3456': '72',
@@ -70,6 +71,7 @@ ZD_NumBlock_dict = {'6912': '384',
             '4096': '128',
             '10000' : '1250',
             '8640': '864',
+            '1728': '4',
             }
 GroupRadius_dict = {
             '6912': '10',
@@ -79,6 +81,7 @@ GroupRadius_dict = {
             '4096': '5',
             '10000': '3',
             '8640': '3',
+            '1728': '15',
             }
 
 mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs",
@@ -88,6 +91,22 @@ mpirun_cmd_dict = {'3456':"jsrun -nALL_HOSTS -cALL_CPUS -a1 -r1 -gALL_GPUS -b rs
 
 extra_dict = {'10000': {'OutputFullLightCones': '1'},
                '8640': {'OutputFullLightCones': '1'}}
+
+cov_dict = [{'TimeSliceRedshifts_Subsample': '[1.4, 1.1, 0.8, 0.5, 0.4, 0.3, 0.2]'},
+              {'MAXRAMMB': 100000},
+              {'LocalWorkingDirectory': None},
+              {'WorkingDirectory': "'$ABACUS_TMP$/' + @_SimSet@ + '/' + @SimName@"},
+              {'OMP_NUM_THREADS': 68},
+              {'OMP_PLACES': "{0}:17:4,{1}:17:4,{88}:17:4,{89}:17:4"},
+              {'IOCores': [68,156]},
+              {'IODirs': ["multipole/", "write/"]},
+              {'nIODirs': 2},
+              {'IODirThreads': [2, 2]},
+              {'Parallel': '0'}]
+
+small_dict = {'1728': 'SmallBox'}
+
+small_str = 'small'
 
 Seed = 12321
 
@@ -191,16 +210,25 @@ def read_table(paramNames,fn,namesRow):
 
             if parDict['PPD'] in extra_dict:
                 newparams.update(extra_dict[parDict['PPD']])
-
+                
+            if parDict['PPD'] in small_dict:
+                for cov_d in cov_dict:
+                    newparams.update(cov_d)
+                simName_dir = pjoin(small_dict[parDict['PPD']],simName)
+                include_str = "../../AbacusSummit_base.par2"
+            else:
+                simName_dir = simName.encode().decode()
+                include_str = "../AbacusSummit_base.par2"
+                
             newparams.update(phase_info)
 
-            os.makedirs(pjoin(sim_dir, simName), exist_ok=True)
+            os.makedirs(pjoin(sim_dir, simName_dir), exist_ok=True)
 
             # Differences - individual file for each sim
-            with open(pjoin(sim_dir, simName, 'abacus.par2'), 'w') as f:
+            with open(pjoin(sim_dir, simName_dir, 'abacus.par2'), 'w') as f:
                 # Start the file with the SimName and the #include of the base
                 f.write(f'SimName = "{simName}"\n')
-                f.write('#include "../AbacusSummit_base.par2"\n\n')
+                f.write(f'#include "{include_str}"\n\n')
                 # Now write all the sim-specific params
                 for key,value in newparams.items():
                     f.write(f'{key} = {value}\n')
@@ -227,6 +255,10 @@ def extract_phase(sim):
     if 'fixed' in sim:
         ret['ZD_qPk_fix_to_mean'] = '1'
 
+    # For the small covariance boxes
+    if small_str in sim:
+        ret['add_seed'] = int((re.findall(r"ph\d{4}",sim)[0]).split('ph')[-1])*10
+        
     # Special case: phase 98 is phase 99, inverted
     if ret['add_seed'] == 98*100:
         ret['add_seed'] = 99*100

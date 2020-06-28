@@ -9,6 +9,7 @@ AbacusSummit_huge_c000_ph202       , 000  , 202     , 8640 , 7500      , 0.1    
 AbacusSummit_hugebase_c000_ph{000-024} , 000  , 000-024 , 2304 , 2000 , 0.1     , "1.4, 1.1, 0.8, 0.5, 0.2" , "Low-res match to base, no lightcone"
 AbacusSummit_fixedbase_c000_ph099  , 000  , 099     , 4096 , 1185      , 0.1     , Full         , "Base-res LCDM, fixed amplitudes"
 *AbacusSummit_fixedbase_c000_ph098*  , 000  , 098     , 4096 , 1185      , 0.1     , Full         , "Base-res LCDM, fixed amplitudes, inversion of phase 99"
+AbacusSummit_small_c000_ph{3000-4999} , 000 , 3000-4999 , 1728 , 500       , 0.2     , "1.4, 1.1, 0.8, 0.5, 0.2" , "Covariance matrix set"
 AbacusSummit_base_c001_ph000       , 001  , 000     , 6912 , 2000      , 0.1     , Partial+HiZ  , "Low omega_c"
 AbacusSummit_base_c001_ph{001-005} , 001  , 001-005 , 6912 , 2000      , 0.1     , Partial      , "Low omega_c"
 AbacusSummit_base_c002_ph000       , 002  , 000     , 6912 , 2000      , 0.1     , Partial+HiZ  , "wCDM with thawing model w0 = -0.7, wa = -0.5"

@@ -42,15 +42,14 @@ crashed due to some unresolved issue, almost certainly uncorrelated
 with any property of the large-scale structure in the simulation.
 Some of the crashed ones still produced usable outputs at higher
 redshifts.  We have chosen to present the 1883 that yielded outputs
-at z=1.1; 1671 of these reached z=0.2.
+at z=1.1; 1671 of these reached z=0.2.  The numbering between ph3000
+and ph4999 will be irregular.
 
 The cosmologies in the "Cosm" column are tabulated in :doc:`cosmologies`.
 
 -----
 
 Download the simulations table `here <https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/simulations.csv>`_.
-
-Simulation names in italics haven't yet been run.
 
 .. note:: The following table is wide, you may have to scroll to the right to see all the columns.
 

@@ -4,6 +4,7 @@ SimName = "AbacusSummit_highbase_c000_ph901"
 SimComment = "Numerics test: highbase with eps/2"
 SofteningLength = @BoxSize@/@NP@**(1/3.)/40/2
 InitialConditionsDirectory = "$ABACUS_PERSIST$/" + @_SimSet@ + "/AbacusSummit_highbase_c000_ph900/ic"
+DeleteICsAfterFirstBackup = 0
 
 BoxSize = 1000
 FinalRedshift = 0.1

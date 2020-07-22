@@ -3,6 +3,7 @@ SimName = "AbacusSummit_highbase_c000_ph900"
 
 SimComment = "Numerics test: highbase with eta=0.15"
 TimeStepAccel = 0.15
+DeleteICsAfterFirstBackup = 0
 
 BoxSize = 1000
 FinalRedshift = 0.1

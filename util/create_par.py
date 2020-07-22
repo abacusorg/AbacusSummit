@@ -234,7 +234,7 @@ def read_table(paramNames,fn,namesRow):
                     f.write(f'{key} = {value}\n')
 
 def extract_light(notes):
-    if 'no lightcone' in notes:
+    if 'no lightcone' in notes or 'Numerics' in notes:
         n_light, pos = light_dict['none']
     elif 'box-centered lightcone' in notes:
         n_light, pos = light_dict['box']
@@ -263,6 +263,10 @@ def extract_phase(sim):
     if ret['add_seed'] == 98*100:
         ret['add_seed'] = 99*100
         ret['FlipZelDisp'] = '1'
+
+    if 'highbase' in sim and '_ph9' in sim:
+        ret['add_seed'] = 100*100
+
     return ret
 
 def extract_cosm(sim):

@@ -1,14 +1,14 @@
-The CompaSO Halo Finder
-=======================
+CompaSO Halo Finder
+===================
 
 All group finding in AbacusSummit is done on the fly.  We are using
-a hybrid algorithm, summarized as follows.
+a hybrid FoF-SO algorithm, dubbed CompaSO, summarized as follows.
 
 First, we compute a kernel density estimate around all particles.
-This uses a weighting (1-r<sup>2</sup>/b<sup>2</sup>), where b is 0.4 of the interparticle
+This uses a weighting :math:`(1-r^2/b^2)`, where :math:`b` is 0.4 of the interparticle
 spacing.  We note that the effective volume of this kernel is
-equivalent to a top-hat of 0.737b, so 85 kpc/h comoving, and that
-the mean weighted counts at an overdensity delta is about delta/10
+equivalent to a top-hat of :math:`0.737b`, so 85 kpc/*h* comoving, and that
+the mean weighted counts at an overdensity :math:`\delta` is about :math:`\delta/10`
 with a variance of 4/7 of the mean.
 
 Second, we segment the particle set into what we call L0 halos.
@@ -20,14 +20,13 @@ the bounds of the L0 halo set be set by the kernel density estimate,
 which has lower variance than the nearest neighbor method of FOF
 and imposes a physical smoothing scale.
 
-.. note:: The terms *groups* and *halos* have specific meanings in Abacus.
-        Groups are clusters of particles at any level of group finding
-        (L0/L1/L2).  Halos are L1 groups (although sometimes we do use
-        "halos" to refer to another level, in which case we say *L0 halos*
-        or *L2 halos*).
+.. note:: In Abacus, L0 groups are large, "fluffy" sets of particles
+          that typically encompass several L1 groups. L1 groups correspond
+          to classical "halos".  L2 groups correspond to "halo cores"
+          or perhaps "subhalos".
 
 We stress that all L1/L2 finding and all halo statistics are based
-solely on the particles in the L0 halo.  
+solely on the particles in the L0 halo.
 
 Third, within each L0 halo, we construct L1 halos by a competitive
 spherical overdensity algorithm.  We begin by selecting the particle
@@ -47,7 +46,7 @@ we start another nucleus.
 
 With each successive nucleus, we again search for the SO(200) radius,
 using all L0 particles.  Now a particle is assigned to the new group
-if is previously unassigned OR if it is estimated to have an enclosed
+if is previously unassigned *or* if it is estimated to have an enclosed
 density with respect to the new group that is twice that of the
 enclosed density with respect to its assigned group.  In detail,
 these enclosed densities are not computed exactly, but rather scaled

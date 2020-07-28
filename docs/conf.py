@@ -57,3 +57,5 @@ html_favicon = 'images/icon_red.png'
 
 def setup(app):
     app.add_css_file('custom.css')
+
+intersphinx_mapping = {'abacusutils': ('https://abacusutils.readthedocs.io/en/latest', None)}

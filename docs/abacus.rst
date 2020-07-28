@@ -1,8 +1,6 @@
 Abacus
 =======
 
-Here we briefly describe the Abacus N-body code.
-
 What is Abacus?
 ---------------
 
@@ -12,7 +10,7 @@ clustered simulations.  It is extremely fast: we clock over 30
 million particle updates per second on commodity dual-Xeon, dual-GPU
 computers and nearly 70 million particle updates per second on each
 node of the Summit supercomputer.  But it is also extremely accurate:
-typical force accuracy is below 1e-5 and we are using global
+typical force accuracy is below :math:`10^{-5}` and we are using global
 timesteps, so the leapfrog timesteps away from the cluster cores
 are much smaller than the dynamical time.
 

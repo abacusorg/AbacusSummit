@@ -1,6 +1,9 @@
 Cosmologies
 ===========
 
+Cosmology Specifications
+------------------------
+
 This page describes the specification of the Cosmologies and the CLASS
 parameters that they define.  The CLASS parameter files and resulting
 power spectra and transfer functions are available in the `AbacusSummit/Cosmologies <https://github.com/abacusorg/AbacusSummit/tree/master/Cosmologies>`_
@@ -28,7 +31,7 @@ Further details are below the table.
 
 -------
 
-All cosmologies use tau=0.0544.  Most use 60 meV neutrinos, omega_nu = 0.00064420, scaling from z=1.
+All cosmologies use tau=0.0544.  Most use 60 meV neutrinos, omega_nu = 0.00064420, scaling from *z* = 1.
 We use HyRec, rather than RecFast.
 
 CLASS is run with the pk_ref.pre precision choices, unless the name ends with \_fast, in which case we use the defaults.
@@ -37,18 +40,19 @@ for this.
 
 Remember that Omega_m = (omega_b+omega_cdm+oemga_ncdm)/h^2.
 
-We output five redshifts from CLASS, z=0.0, 1.0, 3.0, 7.0, and 49, which are called z1,z2,z3,z4,z5.
+We output five redshifts from CLASS, *z* = 0.0, 1.0, 3.0, 7.0, and 49, which are called z1,z2,z3,z4,z5.
 
-We use the CDM+Baryon power spectrum at z=1 (z2_pk_cb) and scale back by D(z_init)/D(1) 
-to define our matter-dominated CDM-only simulation IC.  The growth function includes the
+We use the CDM+Baryon power spectrum at *z* = 1 (z2_pk_cb) and scale back by the ratio of growth
+factors :math:`D(z_\mathrm{init})/D(1)` to define our matter-dominated CDM-only simulation IC.  The growth function includes the
 neutrinos as a smooth component.
 
-.. TODO: better way to link this CSV file?
+Cosmologies Table
+-----------------
 
 Download the cosmologies table `here <https://github.com/abacusorg/AbacusSummit/blob/master/Cosmologies/cosmologies.csv>`_.
 However, in analysis applications, users are encouraged to use the cosmological parameters stored as in the ``header`` field
-of the ASDF data product files (which is loaded into the ``meta`` field of Astropy tables) rather than referencing the
-cosmologies table.
+of the ASDF data product files (which is loaded into the ``meta`` field of Astropy tables, or the ``header`` field of
+``CompaSOHaloCatalog`` objects) rather than referencing the cosmologies table.
 
 
 .. note:: The following table is wide, you may have to scroll to the right to see all the columns.
@@ -58,7 +62,9 @@ cosmologies table.
     :header-rows: 1
     :escape: '
 
-Further details about the cosmology choices:
+
+Additional Details
+------------------
 
 Beyond the Planck2018 LCDM primary cosmology, we chose 4 other secondary cosmologies.
 One was WMAP7, to have a large change in omega_m, H0, and sigma8.

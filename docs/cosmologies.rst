@@ -38,7 +38,7 @@ CLASS is run with the pk_ref.pre precision choices, unless the name ends with \_
 There was one case where CLASS underflowed an integration tolerance with the pk_ref precisions; we reverted to pk_permille.pre
 for this.
 
-Remember that Omega_m = (omega_b+omega_cdm+oemga_ncdm)/h^2.
+Remember that Omega_m = (omega_b+omega_cdm+omega_ncdm)/h^2.
 
 We output five redshifts from CLASS, *z* = 0.0, 1.0, 3.0, 7.0, and 49, which are called z1,z2,z3,z4,z5.
 

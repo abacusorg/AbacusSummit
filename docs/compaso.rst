@@ -23,7 +23,7 @@ and imposes a physical smoothing scale.
 .. note:: In Abacus, L0 groups are large, "fluffy" sets of particles
           that typically encompass several L1 groups. L1 groups correspond
           to classical "halos".  L2 groups correspond to "halo cores"
-          or perhaps "subhalos".
+          or perhaps "subhalos".  Only L1 halos are in the catalog.
 
 We stress that all L1/L2 finding and all halo statistics are based
 solely on the particles in the L0 halo.

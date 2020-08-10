@@ -43,7 +43,7 @@ redshifts.  Most users should focus on the primary redshifts.
     not the directory name.
 
 At each primary redshift, we output the properties computed for the L1
-halos in ``halo_info`` files (see `doc`:compaso). The list of properties is below.
+halos in ``halo_info`` files (see :doc:`compaso`). The list of properties is below.
 
 We also output a subsample of the particle, split into 3% and 7% sets
 (so 10% total), called "A" and "B", so that users can minimize their data
@@ -83,8 +83,8 @@ matching slab range and get the union of all particles.
 .. note ::
    Most applications will need to load at least one padding file
    on either side of the file under consideration in order to ensure
-   all halos and particles within a compact *x* range are present in
-   memory.
+   all halos and particles within a compact range of *X* coordinates
+   are present in memory.
 
 For the 21 secondary redshifts, we output the halo catalogs and the halo
 subsample particle IDs (w/densities and sticky L2 tag) only, so not the

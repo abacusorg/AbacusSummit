@@ -164,6 +164,11 @@ In the ``halo_info`` file, positions and radii (where not normalized in
 a ratio) are in units of the unit box, while velocities are in km/s.
 Densities are in units of the cosmic mean (so the mean density is 1).
 
+Keep in mind that the halo catalog consists of purely L1 halos
+(see :doc:`compaso`), and that the spherical overdensity definition
+is a function of epoch. The value is stored in the ``SODensityL1``
+header field.
+
 -  ``uint64_t id``: A unique halo number.
 
 -  ``uint64_t npstartA``: Where to start counting in the particle output

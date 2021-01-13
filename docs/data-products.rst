@@ -299,6 +299,14 @@ The primary halo mass field is ``N``, the number of particles in the halo.
 This can be converted to M\ :sub:`☉`\ /*h* units with the ``ParticleMassHMsun``
 header field.
 
+Known Bugs
+~~~~~~~~~~
+The ``SO_radius`` field has a value of 1.36 Mpc/*h* instead of its correct
+value for some halos in the "base" sims.  The bug seems to be present in
+other sims as well, but at a different value (e.g. 5.08 Mpc/*h* in the
+"hugebase" sims).  The radial percentile fields (``r10``, ``r25``, etc)
+do not seem to exhibit this bug.
+
 Particle data
 -------------
 

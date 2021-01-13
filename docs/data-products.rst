@@ -296,7 +296,7 @@ with other data products or other *N*-body codes that have run the same
 simulation.
 
 The primary halo mass field is ``N``, the number of particles in the halo.
-This can be converted to M:sub:`☉`/*H* units with the ``ParticleMassHMsun``
+This can be converted to M\ :sub:`☉`\ /*H* units with the ``ParticleMassHMsun``
 header field.
 
 Particle data

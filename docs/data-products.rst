@@ -152,17 +152,13 @@ store as an int16. Others are more complicated, e.g., the Euler angles
 of the eigenvectors are stored to about 4 degree precision and all
 packed into an uint16.
 
-We are providing a Python package to undo this condensation and expose
+We provide a Python package to undo this condensation and expose
 Astropy tables (and therefore NumPy arrays) to the user. See
-https://abacusutils.readthedocs.io/en/latest/index.html for details and
+https://abacusutils.readthedocs.io for details and
 installation instructions.
 
 The listing below gives the data format in the binary files, but also
 gives the format that is revealed to the user by the Python when that differs.
-
-In the ``halo_info`` file, positions and radii (where not normalized in
-a ratio) are in units of the unit box, while velocities are in km/s.
-Densities are in units of the cosmic mean (so the mean density is 1).
 
 Keep in mind that the halo catalog consists of purely L1 halos
 (see :doc:`compaso`), and that the spherical overdensity definition
@@ -287,16 +283,20 @@ Units
 The units of positions/radii and velocities, as unpacked by ``abacusutils``
 in Python, are comoving Mpc/*h* and proper km/s.
 
+In the raw ``halo_info`` files on disk, positions and radii (where not
+normalized in a ratio) are in units of the unit box, while velocities are
+in km/s. Densities are in units of the cosmic mean (so the mean density is 1).
+
 The Abacus convention is
 to store positions in the range [-BoxSize/2, BoxSize/2), so if your code
 expects [0, BoxSize) positions, you may need to apply periodic wrap.
-A wrap is recommended over a shift of +BoxSize/2 because the former
+A wrap is recommended instead of a shift of +BoxSize/2 because the former
 preserves the origin of the box, which is sometimes useful when comparing
 with other data products or other *N*-body codes that have run the same
 simulation.
 
 The primary halo mass field is ``N``, the number of particles in the halo.
-This can be converted to M\ :sub:`☉`\ /*H* units with the ``ParticleMassHMsun``
+This can be converted to M\ :sub:`☉`\ /*h* units with the ``ParticleMassHMsun``
 header field.
 
 Particle data

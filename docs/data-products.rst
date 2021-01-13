@@ -187,9 +187,9 @@ header field.
    subsample A. A particle is tagged if it is taggable and is in the
    largest L2 halo for a given L1 halo.
 
--  ``uint32_t ntaggedB``;
+-  ``uint32_t ntaggedB``: likewise for subsample B;
 
--  ``uint32_t N``: The number of particles in this halo
+-  ``uint32_t N``: The number of particles in this halo.  This is the primary halo mass field.
 
 -  ``uint32_t L2_N[N_LARGEST_SUBHALOS]``: The number of particles in the
    largest L2 subhalos
@@ -281,6 +281,23 @@ the inner 90% of the mass relative to this center.
 -  ``int16_t rvcirc_max_L2com``: radius of max circular velocity,
    relative to the L2 center, stored as the ratio to r100 condensed to
    [0,30000].
+   
+Units
+~~~~~
+The units of positions/radii and velocities, as unpacked by ``abacusutils``
+in Python, are comoving Mpc/*h* and proper km/s.
+
+The Abacus convention is
+to store positions in the range [-BoxSize/2, BoxSize/2), so if your code
+expects [0, BoxSize) positions, you may need to apply periodic wrap.
+A wrap is recommended over a shift of +BoxSize/2 because the former
+preserves the origin of the box, which is sometimes useful when comparing
+with other data products or other *N*-body codes that have run the same
+simulation.
+
+The primary halo mass field is ``N``, the number of particles in the halo.
+This can be converted to M:sub:`☉`/*H* units with the ``ParticleMassHMsun``
+header field.
 
 Particle data
 -------------

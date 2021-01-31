@@ -27,7 +27,10 @@ by grant 1228509 from the NSF; the AbacusSummit simulations have
 been supported by OLCF projects AST135 and AST145, the latter through
 the Department of Energy ALCC program.
 
-We would like to thank OLCF and NERSC support for their expert
+This research used resources of the Oak Ridge Leadership Computing Facility,
+which is a DOE Office of Science User Facility supported under Contract DE-AC05-00OR22725
+
+We would like to thank the OLCF and NERSC support teams for their expert
 assistance throughout this project.
 
 We would also like to thank 

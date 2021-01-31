@@ -28,7 +28,10 @@ been supported by OLCF projects AST135 and AST145, the latter through
 the Department of Energy ALCC program.
 
 This research used resources of the Oak Ridge Leadership Computing Facility,
-which is a DOE Office of Science User Facility supported under Contract DE-AC05-00OR22725
+which is a DOE Office of Science User Facility supported under Contract DE-AC05-00OR22725,
+and resources of the National Energy Research Scientific Computing Center (NERSC),
+a U.S. Department of Energy Office of Science User Facility located at Lawrence Berkeley National Laboratory,
+operated under Contract No. DE-AC02-05CH11231.
 
 We would like to thank the OLCF and NERSC support teams for their expert
 assistance throughout this project.

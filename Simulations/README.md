@@ -35,7 +35,6 @@ The cosmologies in the "Cosm" column are tabulated in [Cosmologies](../Cosmologi
 | AbacusSummit_fixedbase_c000_ph098  | 000  | 098     | 4096 | 1185      | 0.1     | Full         | Base-res LCDM, fixed amplitudes, inversion of phase 99 |
 | AbacusSummit_high_c000_ph100       | 000  | 100     | 6300 | 1000      | 0.1     | Full         | High-res LCDM, no lightcone |
 | AbacusSummit_highbase_c000_ph100   | 000  | 100     | 3456 | 1000      | 0.1     | Full         | Base-res LCDM, no lightcone |
-| AbacusSummit_huge_c000_ph200       | 000  | 200     | 10000| 8700      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
 | AbacusSummit_huge_c000_ph{201-202} | 000  | 201-202 | 8640 | 7500      | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res LCDM, box-centered lightcone |
 | AbacusSummit_hugebase_c000_ph{000-024} | 000  | 000-024 | 2304 | 2000 | 0.1     | 1.4, 1.1, 0.8, 0.5, 0.2 | Low-res match to base, no lightcone |
 | AbacusSummit_small_c000_ph{3000-5000}     | 000  | 3000-5000    | 1728 | 500       | 0.2     | none         | Small box for covariance, base cosmology, no lightcone |

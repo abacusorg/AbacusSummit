@@ -28,4 +28,5 @@ details of the code, but there is one numerical concept that enter
 into the data products.  Abacus uses a cubic grid of size CPD\ :sup:`3`,
 chosen to tune code speed.  For AbacusSummit, CPD is ususally 1701.
 Processing proceeds in y-z slabs of cells, and particle outputs are
-ordered into these cells and slabs.
+ordered into these cells and slabs.  Before being presented to users,
+these outputs are aggregated into "superslabs" of 51 or 52 slabs.

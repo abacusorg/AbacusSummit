@@ -30,5 +30,6 @@ cosmologies (https://lgarrison.github.io/AbacusCosmos/).
 `Garrison et al. (2016) <https://academic.oup.com/mnras/article/461/4/4125/2608725>`_ describes
 our initial condition methods.  Hadzhiyska et al. (in prep) will
 describe the CompaSO group finding method.  Pinto et al. (in prep) will
-describe the Abacus far-field method.  Joyce et al. (submitted)
-describes accuracy tests using scale-free simulations.
+describe the Abacus far-field method.  Using scale-free simulations, `Joyce et al. (2021) <https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.5051J/abstract>`_
+describes accuracy tests, and `Garrison et al. (2021) <https://ui.adsabs.harvard.edu/abs/2021MNRAS.tmp.1117G/abstract>`_
+validates the force softening scheme.

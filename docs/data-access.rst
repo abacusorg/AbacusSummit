@@ -9,7 +9,7 @@ The path to the data products can be found on the DESI Wiki: https://desi.lbl.go
 Public
 -------
 The simulation suite is currently in a beta version, available only with agreement.  
-We plan to issue a first release into the public domain in summer 2020.
+We plan to issue a first release into the public domain in summer 2021.
 
 That said, the outputs are sufficiently large that arranging access
 to them is challenging and cannot be promised, and we are not able at this time to provide an on-line portal.

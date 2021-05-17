@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. figure:: images/AbacusSummit_logo_bw.png
-  :width: 300
+.. image:: images/AbacusSummit_logo_bw.png
+  :width: 300px
   :align: center
   
 AbacusSummit

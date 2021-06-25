@@ -90,6 +90,6 @@ Missing Data
 ------------
 In the course of running AbacusSummit, a few rare instances of irreversible data loss occurred before the data could be archived.  These inhomogeneities in the data products presented by AbacusSummit are recorded here.
 
-- AbacusSummit_base_c103_ph000 is missing field particles, and halo RVs (but not PIDs) for redshifts 0.8 and above. Consequently, the halo cleaning is incomplete above that redshift.
+- AbacusSummit_base_c103_ph000 is missing all field particles, and all halo RVs (but not PIDs) for redshifts 0.8 and above. Consequently, the halo cleaning is incomplete above that redshift.
 
 - AbacusSummit_base_c004_ph003 is missing full (pack9) time slice outputs for redshifts 0.8 and 1.4.

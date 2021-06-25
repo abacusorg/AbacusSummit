@@ -92,4 +92,4 @@ In the course of running AbacusSummit, a few rare instances of irreversible data
 
 - AbacusSummit_base_c103_ph000, for redshifts 0.8 and above, is missing all field particles and all halo RVs (but not halo PIDs). Consequently, the halo cleaning is not present at redshift 0.8 and above.
 
-- AbacusSummit_base_c004_ph003 is missing full (pack9) time slice outputs for redshifts 0.8 and 1.4.
+- AbacusSummit_base_c004_ph003 is missing full (pack9) time slice outputs for redshifts 0.8 and 1.4.  And, as a result, no time slice power spectra exist for those redshifts (AB power spectra exist as normal).

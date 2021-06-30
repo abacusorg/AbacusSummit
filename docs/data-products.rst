@@ -299,6 +299,10 @@ The primary halo mass field is ``N``, the number of particles in the halo.
 This can be converted to M\ :sub:`☉`\ /*h* units with the ``ParticleMassHMsun``
 header field.
 
+The conversion of proper km/s to comoving redshift-space displacement may
+be achieved by dividing by ``(VelZSpace_to_kms/BoxSize)``.  The first factor
+gets to unit-box comoving RSD, and the second brings it to BoxSize-box.
+
 Known Bugs
 ~~~~~~~~~~
 The ``SO_radius`` field has a value of 1.36 Mpc/*h* instead of its correct

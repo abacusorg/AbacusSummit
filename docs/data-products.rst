@@ -339,6 +339,13 @@ integer. Bit 0 is used to mark whether the particle has ever been inside
 the largest L2 halo of a L1 halo with more than 35 particles; this is
 available to aid in merger tree construction.
 
+When using the ``npstartA'' and ``npoutA`` fields to index the halo particle
+subsamples, one might noticed that ``sum(halos['npoutA'])`` is less than
+``len(halo_subsamples)``.  In other words, there are unindexed halo particles.
+This is because the subsamples are taken from the L0 particles, but only
+the L1 particles are indexed by halos (see :doc:`compaso` for the distinction).
+
+
 Light Cones
 -----------
 

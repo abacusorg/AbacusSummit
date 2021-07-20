@@ -14,7 +14,7 @@ We have given the cosmologies numbers, so that the simulations will refer to c12
 There are various sets of cosmologies in this list:
 
 - The primary cosmology (c000) is a Planck2018 LCDM version, specifically the mean of base_plikHM_TTTEEE_lowl_lowE_lensing.
-  This cosmology has 25 base boxes, plus other mass resolution options.  
+  This cosmology has 25 base boxes, plus other mass resolution options.  Planck, and AbacusSummit, include a massive neutrino in this cosmology.
 - c009 is the same cosmology, but with massless neutrinos, at fixed omega_cb, H0, and sigma_cb.
   c019 and c020 have two and zero 60 meV neutrino species, at fixed omega_cb, theta_CMB, and sigma_cb.
 - There are 4 secondary cosmologies (c001-4), each with 6 base boxes.  There is a low-omega_c choice based on WMAP7,
@@ -31,7 +31,7 @@ Further details are below the table.
 
 -------
 
-All cosmologies use tau=0.0544.  Most use 60 meV neutrinos, omega_nu = 0.00064420, scaling from *z* = 1.
+All cosmologies use tau=0.0544.  Most use 60 meV neutrinos (also the choice of the `Planck 2018 baseline cosmology <https://wiki.cosmos.esa.int/planck-legacy-archive/index.php/Cosmological_Parameters#Production_process>`_), omega_nu = 0.00064420, scaling from *z* = 1.
 We use HyRec, rather than RecFast.
 
 CLASS is run with the pk_ref.pre precision choices, unless the name ends with \_fast, in which case we use the defaults.
@@ -64,9 +64,7 @@ of the ASDF data product files (which is loaded into the ``meta`` field of Astro
 
 Running CLASS
 -------------
-We used this fork of CLASS with N-body gauge support: https://github.com/wullm/class_public
-
-Specifically, we used `git hash 6cf8e3 <https://github.com/wullm/class_public/tree/6cf8e384da5343277692fdb67df2ee417d23482f>`_.
+We used this fork of CLASS with N-body gauge support: https://github.com/wullm/class_public.  Specifically, we used `git hash 6cf8e3 <https://github.com/wullm/class_public/tree/6cf8e384da5343277692fdb67df2ee417d23482f>`_.
 
 The CLASS outputs stored in `AbacusSummit/Cosmologies <https://github.com/abacusorg/AbacusSummit/tree/master/Cosmologies>`_ can be reproduced by running this code passing both the ``CLASS.ini`` file for a given cosmology and the ``abacus_base.pre`` or ``abacus_base_fast.pre`` file.  For example:
 

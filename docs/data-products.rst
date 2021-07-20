@@ -198,7 +198,7 @@ header field.
 -  ``float SO_central_density``: Density of the SO central particle.
 
 -  ``float SO_radius``: Radius of SO halo (distance to particle furthest
-   from central particle)
+   from central particle, or a constant if the SO crossing is not reached)
 
 -  ``float SO_L2max_central_particle[3]``: Coordinates of the SO central
    particle for the largest L2 subhalo.
@@ -305,11 +305,29 @@ gets to unit-box comoving RSD, and the second brings it to BoxSize-box.
 
 Known Bugs
 ~~~~~~~~~~
-The ``SO_radius`` field has a value of 1.36 Mpc/*h* instead of its correct
-value for some halos in the "base" sims.  The bug seems to be present in
-other sims as well, but at a different value (e.g. 5.08 Mpc/*h* in the
-"hugebase" sims).  The radial percentile fields (``r10``, ``r25``, etc)
-do not seem to exhibit this bug.
+None at present.
+
+Frequently Asked Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+SO_radius special value
+************************
+Some fraction of low-mass halos have ``SO_radius`` all equal to the same
+value, which is approximately 1.36 Mpc/*h* in the "base" sims.  This occurs
+when the halo still does not drop below the SO threshold even at its most
+distant particle.  The enclosed density is guaranteed to be below the SO
+threshold at this special value, but if the exact value is desired, one can
+trivially compute this using the halo mass and the mean background density.
+(Previously, this special value had been listed on this website as a bug,
+but this has now been clarified as intended behavior of CompaSO).
+
+The exact value of the special number is a computational detail but may
+be computed as ``X*BoxSize/CPD*sqrt(3)/3``, where ``X`` is equal to 2 in
+the overwhelming majority of cases.  It is allowed to be equal to 3 or
+greater integers, but in AbacusSummit base simulations, this is about 7 orders
+of magnitude rarer.
+
+None of the other radial fields (e.g. the radial percentiles, ``r10``, ``r25``, etc)
+should exhibit a special value in this way.
 
 Particle data
 -------------

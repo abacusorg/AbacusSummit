@@ -300,8 +300,8 @@ This can be converted to M\ :sub:`☉`\ /*h* units with the ``ParticleMassHMsun`
 header field.
 
 The conversion of proper km/s to comoving redshift-space displacement may
-be achieved by dividing by ``(VelZSpace_to_kms/BoxSize)``.  The first factor
-gets to unit-box comoving RSD, and the second brings it to BoxSize-box.
+be achieved by multiplying by ``BoxSize/VelZSpace_to_kms``.  The second factor
+gets to unit-box comoving RSD, and the first brings it to BoxSize-box.
 
 Known Bugs
 ~~~~~~~~~~

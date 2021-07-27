@@ -67,7 +67,7 @@ simulations crashed due to some unresolved issue, almost certainly uncorrelated
 with any property of the large-scale structure in the simulation.
 Some of the crashed ones still produced usable outputs at higher
 redshifts.  We have chosen to present the 1883 that yielded outputs
-at *z* = 1.1; 1671 of these reached *z* = 0.2.  The numbering between ph3000
+at *z* = 1.1; 1643 of these reached *z* = 0.2.  The numbering between ph3000
 and ph4999 will be irregular.
 
 Simulations Table

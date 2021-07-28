@@ -9,9 +9,9 @@ Summary Figures
 
     A summary slide/poster. Download here: :download:`72 dpi PNG (1 MB) <images/AbacusSummit_slide_dpi72.png>`.  A high-res PDF version of this image is available here: :download:`PDF (10 MB) <images/AbacusSummit_slide.pdf>`.  Layout and design credit: Lucy Reading-Ikkanda.
     
-.. figure:: images/abacussummit_dpi192_portrait_red.png
+.. figure:: images/abacussummit_dpi192_portrait.png
 
-    A vertical summary slide/poster. Download here: :download:`192 dpi PNG (1 MB) <images/abacussummit_dpi192_portrait_red.png>`.  An older version with a different color scheme is available here: :download:`images/abacussummit_dpi192_portrait_old.png`
+    A vertical summary slide/poster. Download here: :download:`192 dpi PNG (1.4 MB) <images/abacussummit_dpi192_portrait.png>`.  An older version with a different color scheme is available here: :download:`192 dpi PNG (2 MB) <images/abacussummit_dpi192_portrait_old.png>`
     
 Phase-sheet Evolution
 ---------------------

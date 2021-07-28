@@ -9,15 +9,15 @@ Summary Figures
 
     A summary slide/poster. Download here: :download:`72 dpi PNG (1 MB) <images/AbacusSummit_slide_dpi72.png>`.  A high-res PDF version of this image is available here: :download:`PDF (10 MB) <images/AbacusSummit_slide.pdf>`.  Layout and design credit: Lucy Reading-Ikkanda.
     
-.. figure:: images/abacussummit_dpi128_portrait.png
+.. figure:: images/abacussummit_dpi192_portrait_red.png
 
-    A vertical summary slide/poster. Download here: :download:`128 dpi PNG (1 MB) <images/abacussummit_dpi128_portrait.png>`.  A higher-res version of this image is available here: :download:`192 dpi PNG (2 MB) <images/abacussummit_dpi192_portrait.png>`.
+    A vertical summary slide/poster. Download here: :download:`192 dpi PNG (1 MB) <images/abacussummit_dpi192_portrait_red.png>`.  An older version with a different color scheme is available here: :download:`images/abacussummit_dpi192_portrait_old.png`
     
 Phase-sheet Evolution
 ---------------------
 .. figure:: images/lattice_memory_multi.png
 
-    A single cutout of a Lagrangian plane---a square from a particle plane selected in the initial conditions---at redshifts :math:`z=2.5`, :math:`z=1.1`, :math:`z=0.1` from the highbase simulation.  The "memory" of the initial lattice configuration persists to low redshift in low-density regions.  Download here: :download:`PNG (600 KB) <images/lattice_memory_multi.png>`.
+    A single cutout of a Lagrangian plane---a square from a particle plane selected in the initial conditions---at redshifts :math:`z=2.5`, :math:`z=1.1`, :math:`z=0.1` from the highbase simulation.  The "memory" of the initial lattice configuration persists to low redshift in low-density regions.  Download here: :download:`PNG (725 KB) <images/lattice_memory_multi.png>`.
 
 Phase-matching test
 -------------------

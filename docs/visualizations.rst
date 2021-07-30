@@ -7,7 +7,7 @@ Summary Figures
 ---------------
 .. figure:: images/AbacusSummit_slide_dpi72.png
 
-    A summary slide/poster. Download here: :download:`72 dpi PNG (1 MB) <images/AbacusSummit_slide_dpi72.png>`.  A high-res PDF version of this image is available here: :download:`PDF (10 MB) <images/AbacusSummit_slide.pdf>`.  Layout and design credit: Lucy Reading-Ikkanda.
+    A summary slide/poster. Download here: :download:`72 dpi PNG (1.2 MB) <images/AbacusSummit_slide_dpi72.png>`.  A high-res PDF version of this image is available here: :download:`PDF (7.7 MB) <images/AbacusSummit_slide.pdf>`.  Layout and design credit: Lucy Reading-Ikkanda.
     
 .. figure:: images/abacussummit_dpi192_portrait.png
 

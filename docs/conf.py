@@ -17,10 +17,10 @@
 
 # -- Project information -----------------------------------------------------
 
-# TODO: author ordering? LHG adopted the ordering from the ALCC proposal
+# LHG: this is the author order of the AbacusSummit paper, plus the Phil from the ALCC proposal
 project = 'AbacusSummit'
-copyright = '2020, Daniel Eisenstein, Philip Pinto, Lehman Garrison, Nina Maksimova, Sownak Bose, Boryana Hadzhiyska'
-author = 'Daniel Eisenstein, Philip Pinto, Lehman Garrison, Nina Maksimova, Sownak Bose, Boryana Hadzhiyska'
+copyright = '2021, Nina Maksimova, Lehman Garrison, Daniel Eisenstein, Boryana Hadzhiyska, Sownak Bose, Thomas Satterthwaite, and Philip Pinto'
+author = 'Nina Maksimova, Lehman Garrison, Daniel Eisenstein, Boryana Hadzhiyska, Sownak Bose, Thomas Satterthwaite, and Philip Pinto'
 
 
 # -- General configuration ---------------------------------------------------

@@ -15,7 +15,7 @@ is the largest cosmological N-body simulation suite yet produced.
 These simulations were designed
 to meet (and exceed) the Cosmological Simulation Requirements of
 the Dark Energy Spectroscopic Instrument (DESI) survey.  AbacusSummit
-is being run on the Summit supercomputer at the Oak Ridge Leadership
+was run on the Summit supercomputer at the Oak Ridge Leadership
 Computing Facility under a time allocation from the DOE's ALCC
 program.
 
@@ -59,17 +59,5 @@ by grant 1228509 from the NSF; the AbacusSummit simulations have
 been supported by OLCF projects AST135 and AST145, the latter through
 the Department of Energy ALCC program.
 
-Use of AbacusSummit should cite Maksimova et al. (in prep) for the
-simulation suite and the aforementioned Garrison et al. (2019) and Garrison et al.
-(2018) for the Abacus code, and [Metchnik (2009)](https://ui.adsabs.harvard.edu/abs/2009PhDT.......175M/abstract) for the initial
-method.  
-Applications using the CompaSO halos should cite Hadzhiyska et al. (in prep) for that method.
-Other citations may be requested as we publish more of the
-numerical methods.  
-
-[Garrison et al. (2016, MNRAS, 461, 4125)](https://academic.oup.com/mnras/article/461/4/4125/2608725) describes
-our initial condition methods.  Hadzhiyska et al. (in prep) will
-describe our SO group finding method.  Pinto et al. (in prep) will
-describe the Abacus far-field method.  Joyce et al. (submitted)
-describes accuracy tests using scale-free simulations.
-
+Use of AbacusSummit should follow the [academic citation guidelines](https://abacussummit.readthedocs.io/en/latest/citation.html)
+in the documentation.

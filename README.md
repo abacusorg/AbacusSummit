@@ -1,5 +1,9 @@
 # AbacusSummit
 
+<p align="center">
+<img src="docs/images/AbacusSummit_logo_bw.png" width="400px" alt="AbacusSummit Logo">
+</p>
+
 [![Documentation Status](https://readthedocs.org/projects/abacussummit/badge/?version=latest)](https://abacussummit.readthedocs.io/en/latest/?badge=latest)
 
 This is the public repository for the specification, utilization,

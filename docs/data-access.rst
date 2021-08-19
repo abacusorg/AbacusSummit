@@ -13,23 +13,22 @@ We are pleased to be able to offer two online portals to access AbacusSummit dat
 - the full 2 PB via OLCF's Constellation, tape-backed;
 - a 750 TB subset via NERSC, disk-backed.
 
-Constellation, as a tape-backed portal, is appropriate for bulk transfers between supercomputer centers. NERSC, as a disk-backed portal, and is appropriate for fetching narrow subsets of the data.  The Constellation portal also contains the Highz and ScaleFree simulations.
+Constellation, as a tape-backed portal, is appropriate for bulk transfers between supercomputer centers. NERSC, as a disk-backed portal, and is appropriate for fetching narrow subsets of the data.  The Constellation portal also contains the HighZ and ScaleFree simulations.
 
 Full Data on Tape
 ~~~~~~~~~~~~~~~~~
-Oak Ridge Leadership Computing Facility's `Constellation <https://www.olcf.ornl.gov/olcf-resources/rd-project/constellation-doi-framework-and-portal/>`_ portal hosts the full 2 PB AbacusSummit data set on the magnetic-tape-backed `High Performance Storage System (HPSS) <https://www.olcf.ornl.gov/olcf-resources/data-visualization-resources/hpss/>`_.  HPSS offers high throughput, but high access latency.  To ensure high performance, we aggregate the simulation files with coarse granularity, such that in most cases one must download an entire simulation's worth of halos, which is 6.6 TB for a ``base`` simulation.
+Oak Ridge Leadership Computing Facility's `Constellation <https://www.olcf.ornl.gov/olcf-resources/rd-project/constellation-doi-framework-and-portal/>`_ portal hosts the full 2 PB AbacusSummit data set on the magnetic-tape-backed `High Performance Storage System (HPSS) <https://www.olcf.ornl.gov/olcf-resources/data-visualization-resources/hpss/>`_.  HPSS offers high throughput, but high access latency.  To amortize the latency, we aggregate the simulation files with coarse granularity, such that in most cases one must download an entire simulation's worth of halos, which is 6.6 TB for a ``base`` simulation.
 
 The primary DOI of AbacusSummit is ``10.13139/OLCF/1811689``.  This is a persistent identifer to the access information at the following URL, from where the AbacusSummit data may be browsed and downloaded via Globus: https://doi.ccs.ornl.gov/ui/doi/355
 
 .. note::
   Use the "Download" button at the top-right of https://doi.ccs.ornl.gov/ui/doi/355 to access the data
-
-We are grateful to Ross Miller and the OLCF Constellation team for providing the opportunity to host this data and for their expert assistance during the creation of the DOI.
+  
+Note that it can take hours before a transfer from Constellation begins if the tape drive is busy. Once it starts, though, the typical bandwidth is several GB/s.
 
 Subset of Data on Disk
 ~~~~~~~~~~~~~~~~~~~~~~
 NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" particle subsample).  We will shortly be able to provide a Globus portal to this data.
-
 
 Using Globus
 ~~~~~~~~~~~~
@@ -44,3 +43,11 @@ The :doc:`data-products` page documents the data products.
 Note that you will almost certainly need to use the utilities at
 https://abacusutils.readthedocs.io/
 to unpack the outputs. 
+
+Acknowledgements
+----------------
+At OLCF, we are grateful to Ross Miller and the Constellation team for providing the opportunity to host this data and for their expert assistance during the creation of the DOI.
+
+The NERSC hosting was made possible with the spport of Stephen Bailey, Benjamin Weaver, Eli Dart, and Lisa Gerhardt, who we thank warmly.
+
+For additional acknowledgements related to the creation of the suite proper, please see :ref:`authors:acknowledgements-thanks`.

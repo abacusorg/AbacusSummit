@@ -28,7 +28,7 @@ author = 'Nina Maksimova, Lehman Garrison, Daniel Eisenstein, Boryana Hadzhiyska
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['readthedocs_ext.readthedocs', 'recommonmark', 'sphinx.ext.intersphinx']
+extensions = ['readthedocs_ext.readthedocs', 'recommonmark', 'sphinx.ext.intersphinx', 'sphinx.ext.autosectionlabel']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -59,3 +59,5 @@ def setup(app):
     app.add_css_file('custom.css')
 
 intersphinx_mapping = {'abacusutils': ('https://abacusutils.readthedocs.io/en/latest', None)}
+
+autosectionlabel_prefix_document = True

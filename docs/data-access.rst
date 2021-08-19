@@ -28,7 +28,7 @@ We are grateful to Ross Miller and the OLCF Constellation team for providing the
 
 Subset of Data on Disk
 ~~~~~~~~~~~~~~~~~~~~~~
-NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" subsample).  We will shortly be able to provide a Globus portal to this data.
+NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" particle subsample).  We will shortly be able to provide a Globus portal to this data.
 
 
 Using Globus

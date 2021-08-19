@@ -24,11 +24,15 @@ The primary DOI of AbacusSummit is ``10.13139/OLCF/1811689``.  This is a persist
 .. note::
   Use the "Download" button at the top-right of https://doi.ccs.ornl.gov/ui/doi/355 to access the data
   
-Note that it can take hours before a transfer from Constellation begins if the tape drive is busy. Once it starts, though, the typical bandwidth is several GB/s.
+Note that it can take many hours before a transfer from Constellation begins if the tape drive is busy. Once it starts, though, the typical bandwidth is several GB/s.
+
+The availability of Constellation depends on the status of HPSS, which undergoes regular downtime for maintenance. If the data is inaccessible, please check the status of HPSS on the following page: https://www.olcf.ornl.gov/for-users/center-status/
 
 Subset of Data on Disk
 ~~~~~~~~~~~~~~~~~~~~~~
 NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" particle subsample).  We will shortly be able to provide a Globus portal to this data.
+
+The availability of the NERSC portal depends on the availability of CFS and the DTNs (data transfer nodes). If the data is inaccessible, please check the CFS and DTN status on the following page: https://www.nersc.gov/live-status/motd/
 
 Using Globus
 ~~~~~~~~~~~~

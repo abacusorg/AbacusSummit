@@ -117,10 +117,10 @@ bit/byte transposition followed by `zstd compression <https://facebook.github.io
 We have found that transposition gives substantially better
 compression ratios (we chose bit vs byte empirically for each file
 type) and that ``zstd`` provides fast decompression, fast enough that
-one CPU core can keep up with most network disk array read speeds. In
-https://github.com/lgarrison/asdf, we have provided a fork of the ASDF library that
-includes ``blosc`` as a compression option, so that decompression should
-be invisible to the user.  One needs to use this fork of ASDF with ``abacusutils``.
+one CPU core can keep up with most network disk array read speeds.
+The abacusutils package uses the ASDF compression extension API
+to allow users to transparently load the files ones they have installed
+abacusutils and ASDF.
 
 The ASDF header is human-readable, meaning one can use a Linux command
 line tool like ``less`` to examine the simulation metadata stored in

@@ -1,10 +1,13 @@
 Data Access
 ===========
 
-DESI Members
-------------
-DESI collaboration members can access the AbacusSummit data products on NERSC.
-The path to the data products can be found on the DESI Wiki: https://desi.lbl.gov/trac/wiki/CosmoSimsWG/Abacus#AbacusSummit
+DESI Members & Other NERSC Users
+--------------------------------
+NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC:
+
+``/global/project/projectdirs/desi/public/cosmosim/AbacusSummit``
+
+**For DESI members**: more advice on getting set up to use AbacusSummit in a DESI NERSC software environment is given here: https://desi.lbl.gov/trac/wiki/CosmoSimsWG/Abacus#AbacusSummit
 
 Public
 -------
@@ -17,7 +20,7 @@ Constellation, as a tape-backed portal, is appropriate for bulk transfers betwee
 
 Full Data on Tape
 ~~~~~~~~~~~~~~~~~
-Oak Ridge Leadership Computing Facility's `Constellation <https://www.olcf.ornl.gov/olcf-resources/rd-project/constellation-doi-framework-and-portal/>`_ portal hosts the full 2 PB AbacusSummit data set on the magnetic-tape-backed `High Performance Storage System (HPSS) <https://www.olcf.ornl.gov/olcf-resources/data-visualization-resources/hpss/>`_.  HPSS offers high throughput, but high access latency.  To amortize the latency, we aggregate the simulation files with coarse granularity, such that in most cases one must download an entire simulation's worth of halos, which is 6.6 TB for a ``base`` simulation.
+Oak Ridge Leadership Computing Facility's `Constellation <https://www.olcf.ornl.gov/olcf-resources/rd-project/constellation-doi-framework-and-portal/>`_ portal hosts the full 2 PB AbacusSummit data set on the magnetic-tape-backed `High Performance Storage System (HPSS) <https://www.olcf.ornl.gov/olcf-resources/data-visualization-resources/hpss/>`_.  HPSS offers high throughput, but high access latency.  To amortize the latency, we aggregate the simulation files with coarse granularity, such that in most cases one must download many TB of data. For example, the halo catalogs for each simulation are in a single tarball (per simulation), which is 6.6 TB for a ``base`` simulation.
 
 The primary DOI of AbacusSummit is ``10.13139/OLCF/1811689``.  This is a persistent identifer to the access information at the following URL, from where the AbacusSummit data may be browsed and downloaded via Globus: https://doi.ccs.ornl.gov/ui/doi/355
 
@@ -52,6 +55,6 @@ Acknowledgements
 ----------------
 At OLCF, we are grateful to Ross Miller and the Constellation team for providing the opportunity to host this data and for their expert assistance during the creation of the DOI.
 
-The NERSC hosting was made possible with the spport of Stephen Bailey, Benjamin Weaver, Eli Dart, and Lisa Gerhardt, who we thank warmly.
+The NERSC hosting was made possible with the spport of Stephen Bailey, Benjamin Weaver, Eli Dart, Debbie Bard, and Lisa Gerhardt, who we thank warmly.
 
 For additional acknowledgements related to the creation of the suite proper, please see :ref:`authors:acknowledgements-thanks`.

@@ -33,7 +33,7 @@ The availability of Constellation depends on the status of HPSS, which undergoes
 
 Subset of Data on Disk
 ~~~~~~~~~~~~~~~~~~~~~~
-NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ (CFS) hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" particle subsample).  We will shortly be able to provide a Globus portal to this data.
+NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ (CFS) hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" particle subsample and the 100% time slice outputs).  We will shortly be able to provide a Globus portal to this data.
 
 The availability of the NERSC portal depends on the availability of CFS and the DTNs (data transfer nodes). If the data is inaccessible, please check the CFS and DTN status on the following page: https://www.nersc.gov/live-status/motd/
 

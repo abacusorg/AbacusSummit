@@ -1,6 +1,9 @@
 Data Access
 ===========
 
+.. note::
+  The primary web portal to the data is https://abacusnbody.org. More details follow below.
+
 DESI Members & Other NERSC Users
 --------------------------------
 NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC:

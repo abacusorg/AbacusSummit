@@ -41,7 +41,7 @@ NERSC: Subset of Data on Disk
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ (CFS) hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" particle subsample and the 100% time slice outputs).  The portal to this data is here: https://abacusnbody.org/
 
-Using that portal, you can select the desired subset of simulations, data products, and redshifts, and initiate the transfer via Globus.  See :ref:`Using Globus`.
+Using that portal, you can select the desired subset of simulations, data products, and redshifts, and initiate the transfer via Globus.  See :ref:`data-access:using globus`.
 
 Some data products (initial conditions, merger trees) are not yet exposed via the web interface of this portal, but they can still be manually accessed by browsing the directory tree via Globus.
 
@@ -69,4 +69,4 @@ At OLCF, we are grateful to Ross Miller and the Constellation team for providing
 
 The NERSC hosting was made possible with the support of Stephen Bailey, Benjamin Weaver, Eli Dart, Debbie Bard, and Lisa Gerhardt, who we thank warmly.
 
-For additional acknowledgements related to the creation of the suite proper, please see :ref:`authors:acknowledgements--thanks`.
+For additional acknowledgements related to the creation of the suite proper, please see :ref:`authors:acknowledgements & thanks`.

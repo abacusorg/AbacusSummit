@@ -13,7 +13,7 @@ for the initial method.
 Applications using the CompaSO halos should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab2980/6402914>`_ for that method; those using the AbacusSummit halo light cone catalogues should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_; and those using the AbacusSummit halo merger trees should cite `Bose et al. <https://arxiv.org/abs/2110.11409>`_
 Other citations may be requested as we publish more of the numerical methods.
 
-.. _note: We provide a BibTeX file with these references `here <https://github.com/abacusorg/AbacusSummit/blob/master/papers.bib>`_.
+We provide a BibTeX file with these references `here <https://github.com/abacusorg/AbacusSummit/blob/master/papers.bib>`_.
 
 .. _papers:
 

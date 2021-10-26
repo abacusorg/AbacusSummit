@@ -28,7 +28,7 @@ which released an early suite of 125 simulations from 40
 cosmologies (https://lgarrison.github.io/AbacusCosmos/).
 
 `Garrison et al. (2016, MNRAS, 461, 4125) <https://academic.oup.com/mnras/article/461/4/4125/2608725>`_ describes
-our initial condition methods. `Hadzhiyska et al. (2021, MNRAS) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_ 
+our initial condition methods. `Hadzhiyska et al. (2021, MNRAS) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab2980/6402914>`_ 
 describes the CompaSO group finding method. `Hadzhiyska et al. (2021, MNRAS) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_ documents the method for generating light cones on the fly in AbacusSummit; `Bose et al. <https://arxiv.org/abs/2110.11409>`_ describes the procedure for generating high-fidelity halo merger trees from AbacusSummit. The AbacusHOD model is presented in `Yuan  et al. <https://arxiv.org/abs/2110.11412>`_
 
 Pinto et al. (in prep) will

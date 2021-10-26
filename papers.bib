@@ -1,3 +1,83 @@
+@ARTICLE{10.1093/mnras/stab2482,
+    author = {Garrison, Lehman H and Eisenstein, Daniel J and Ferrer, Douglas and Maksimova, Nina A and Pinto, Philip A},
+    title = "{The abacus cosmological N-body code}",
+    journal = {Monthly Notices of the Royal Astronomical Society},
+    volume = {508},
+    number = {1},
+    pages = {575-596},
+    year = {2021},
+    month = {09},
+    abstract = "{We present abacus, a fast and accurate cosmological N-body code based on a new method for calculating the gravitational potential from a static multipole mesh. The method analytically separates the near- and far-field forces, reducing the former to direct 1/r2 summation and the latter to a discrete convolution over multipoles. The method achieves 70 million particle updates per second per node of the Summit supercomputer, while maintaining a median fractional force error of 10−5. We express the simulation time-step as an event-driven ‘pipeline’, incorporating asynchronous events such as completion of co-processor work, input/output, and network communication. abacus has been used to produce the largest suite of N-body simulations to date, the abacussummit suite of 60 trillion particles, incorporating on-the-fly halo finding. abacus enables the production of mock catalogues of the volume and resolution required by the coming generation of cosmological surveys.}",
+    issn = {0035-8711},
+    doi = {10.1093/mnras/stab2482},
+    url = {https://doi.org/10.1093/mnras/stab2482},
+    eprint = {https://academic.oup.com/mnras/article-pdf/508/1/575/40458823/stab2482.pdf},
+}
+
+@ARTICLE{10.1093/mnras/stab2484,
+    author = {Maksimova, Nina A and Garrison, Lehman H and Eisenstein, Daniel J and Hadzhiyska, Boryana and Bose, Sownak and Satterthwaite, Thomas P},
+    title = "{AbacusSummit: a massive set of high-accuracy, high-resolution N-body simulations}",
+    journal = {Monthly Notices of the Royal Astronomical Society},
+    volume = {508},
+    number = {3},
+    pages = {4017-4037},
+    year = {2021},
+    month = {09},
+    abstract = "{We present the public data release of the AbacusSummit cosmological N-body simulation suite, produced with the Abacus N-body code on the Summit supercomputer of the Oak Ridge Leadership Computing Facility. Abacus achieves \\$\\mathcal \\{O\\}(10^\\{-5\\})\\$ median fractional force error at superlative speeds, calculating 70M particle updates per second per node at early times, and 45M particle updates per second per node at late times. The simulation suite totals roughly 60 trillion particles, the core of which is a set of 139 simulations with particle mass \\$2\\times 10^\\{9\\}\\, h^\\{-1\\}\\, \\mathrm\\{M\\}\_\\odot\\$ in box size \\$2\\, h^\\{-1\\}\\, \\mathrm\\{Gpc\\}\\$. The suite spans 97 cosmological models, including Planck 2018, previous flagship simulation cosmologies, and a linear derivative and cosmic emulator grid. A subsuite of 1883 boxes of size \\$500\\, h^\\{-1\\}\\, \\mathrm\\{Mpc\\}\\$ is available for covariance estimation. AbacusSummit data products span 33 epochs from z = 8 to 0.1 and include light cones, full particle snapshots, halo catalogues, and particle subsets sampled consistently across redshift. AbacusSummit is the largest high-accuracy cosmological N-body data set produced to date.}",
+    issn = {0035-8711},
+    doi = {10.1093/mnras/stab2484},
+    url = {https://doi.org/10.1093/mnras/stab2484},
+    eprint = {https://academic.oup.com/mnras/article-pdf/508/3/4017/40811763/stab2484.pdf},
+}
+
+@ARTICLE{10.1093/mnras/stab2980,
+    author = {Hadzhiyska, Boryana and Eisenstein, Daniel and Bose, Sownak and Garrison, Lehman H and Maksimova, Nina},
+    title = "{CompaSO: A new halo finder for competitive assignment to spherical overdensities}",
+    journal = {Monthly Notices of the Royal Astronomical Society},
+    year = {2021},
+    month = {10},
+    abstract = "{We describe a new method (CompaSO) for identifying groups of particles in cosmological N-body simulations. CompaSO builds upon existing spherical overdensity (SO) algorithms by taking into consideration the tidal radius around a smaller halo before competitively assigning halo membership to the particles. In this way, the CompaSO finder allows for more effective deblending of haloes in close proximity as well as the formation of new haloes on the outskirts of larger ones. This halo-finding algorithm is used in the AbacusSummit suite of N-body simulations, designed to meet the cosmological simulation requirements of the Dark Energy Spectroscopic Instrument (DESI) survey. CompaSO is developed as a highly efficient on-the-fly group finder, which is crucial for enabling good load-balancing between the GPU and CPU and the creation of high-resolution merger trees. In this paper, we describe the halo-finding procedure and its particular implementation in Abacus, accompanying it with a qualitative analysis of the finder. We test the robustness of the CompaSO catalogues before and after applying the cleaning method described in an accompanying paper and demonstrate its effectiveness by comparing it with other validation techniques. We then visualise the haloes and their density profiles, finding that they are well fit by the NFW formalism. Finally, we compare other properties such as radius-mass relationships and two-point correlation functions with that of another widely used halo finder, rockstar.}",
+    issn = {0035-8711},
+    doi = {10.1093/mnras/stab2980},
+    url = {https://doi.org/10.1093/mnras/stab2980},
+    note = {stab2980},
+    eprint = {https://academic.oup.com/mnras/advance-article-pdf/doi/10.1093/mnras/stab2980/40751402/stab2980.pdf},
+}
+
+
+@ARTICLE{10.1093/mnras/stab3066,
+    author = {Hadzhiyska, Boryana and Garrison, Lehman H and Eisenstein, Daniel and Bose, Sownak},
+    title = "{The halo light cone catalogues of AbacusSummit}",
+    journal = {Monthly Notices of the Royal Astronomical Society},
+    year = {2021},
+    month = {10},
+    abstract = "{We describe a method for generating halo catalogues on the light cone using the AbacusSummit suite of N-body simulations. The main application of these catalogues is the construction of realistic mock galaxy catalogues and weak lensing maps on the sky. Our algorithm associates the haloes from a set of coarsely-spaced snapshots with their positions at the time of light-cone crossing by matching halo particles to on-the-fly light cone particles. It then records the halo and particle information into an easily accessible product, which we call the AbacusSummit halo light cone catalogues. Our recommended use of this product is in the halo mass regime of Mhalo \\&gt; 2.1 × 1011 M⊙/h for the base resolution simulations, i.e. haloes containing at least 100 particles, where the interpolated halo properties are most reliable. To test the validity of the obtained catalogues, we perform various visual inspections and consistency checks. In particular, we construct galaxy mock catalogues of emission-line galaxies (ELGs) at z ∼ 1 by adopting a modified version of the AbacusHOD script, which builds on the standard halo occupation distribution (HOD) method by including various extensions. We find that the multipoles of the auto-correlation function are consistent with the predictions from the full-box snapshot, implicitly validating our algorithm. In addition, we compute and output CMB convergence maps and find that the auto- and cross-power spectrum agrees with the theoretical prediction at the subpercent level. Halo light cone catalogues for 25 base and 2 huge simulations at the fiducial cosmology is available at DOI:10.13139/OLCF/1825069}",
+    issn = {0035-8711},
+    doi = {10.1093/mnras/stab3066},
+    url = {https://doi.org/10.1093/mnras/stab3066},
+    note = {stab3066},
+    eprint = {https://academic.oup.com/mnras/advance-article-pdf/doi/10.1093/mnras/stab3066/40820763/stab3066.pdf},
+}
+
+
+@ARTICLE{bose2021constructing,
+      title={Constructing high-fidelity halo merger trees in AbacusSummit}, 
+      author={Sownak Bose and Daniel J. Eisenstein and Boryana Hadzhiyska and Lehman H. Garrison and Sihan Yuan},
+      year={2021},
+      eprint={2110.11409},
+      archivePrefix={arXiv},
+      primaryClass={astro-ph.CO}
+      }
+
+@ARTICLE{yuan2021abacushod,
+      title={AbacusHOD: A highly efficient extended multi-tracer HOD framework and its application to BOSS and eBOSS data}, 
+      author={Sihan Yuan and Lehman H. Garrison and Boryana Hadzhiyska and Sownak Bose and Daniel J. Eisenstein},
+      year={2021},
+      eprint={2110.11412},
+      archivePrefix={arXiv},
+      primaryClass={astro-ph.CO}
+}
+
 @ARTICLE{2019MNRAS.485.3370G,
        author = {{Garrison}, Lehman H. and {Eisenstein}, Daniel J. and {Pinto}, Philip A.},
         title = "{A high-fidelity realization of the Euclid code comparison N-body simulation with ABACUS}",

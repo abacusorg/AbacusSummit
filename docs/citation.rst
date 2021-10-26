@@ -10,7 +10,9 @@ simulation suite; `Garrison et al. (2021) <https://academic.oup.com/mnras/articl
 and `Garrison et al. (2018) <https://iopscience.iop.org/article/10.3847/1538-4365/aabfd3>`_ for the Abacus code;
 and `Metchnik (2009) <https://ui.adsabs.harvard.edu/abs/2009PhDT.......175M/abstract>`_
 for the initial method.  
-Applications using the CompaSO halos should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab2980/6402914>`_ for that method; those using the AbacusSummit halo light cone catalogues should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_; and those using the AbacusSummit halo merger trees should cite `Bose et al. <https://arxiv.org/abs/2110.11409>`_. 
+Applications using the CompaSO halos should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab2980/6402914>`_ for that method; those using the AbacusSummit halo light cone catalogues should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_; and those using the AbacusSummit halo merger trees should cite `Bose et al. <https://arxiv.org/abs/2110.11409>`_
+
+
 Other citations may be requested as we publish more of the numerical methods.
 
 .. note:: We provide a BibTeX file with these references `here <https://github.com/abacusorg/AbacusSummit/blob/master/papers.bib>`_.

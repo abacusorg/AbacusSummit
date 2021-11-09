@@ -4,13 +4,15 @@ Data Access
 .. note::
   The primary web portal to the data is https://abacusnbody.org. More details follow below.
 
-DESI Members & Other NERSC Users
---------------------------------
-NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC:
+All NERSC Users (including DESI Members)
+----------------------------------------
+All NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC:
 
 ``/global/project/projectdirs/desi/public/cosmosim/AbacusSummit``
 
-**For DESI members**: more advice on getting set up to use AbacusSummit in a DESI NERSC software environment is given here: https://desi.lbl.gov/trac/wiki/CosmoSimsWG/Abacus#AbacusSummit
+Note that despite ``desi`` being in the path, this is a public directory that anyone at NERSC can access. Users who want to work on the data at NERSC should access the data at this path, rather than making a copy or downloading the data via the web portal.
+
+**Addtional information for DESI members**: more advice on getting set up to use AbacusSummit in a DESI NERSC software environment is given here: https://desi.lbl.gov/trac/wiki/CosmoSimsWG/Abacus#AbacusSummit
 
 Public
 -------

@@ -27,10 +27,16 @@ OLCF Constellation: Full Data on Tape
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Oak Ridge Leadership Computing Facility's `Constellation <https://www.olcf.ornl.gov/olcf-resources/rd-project/constellation-doi-framework-and-portal/>`_ portal hosts the full 2 PB AbacusSummit data set on the magnetic-tape-backed `High Performance Storage System (HPSS) <https://www.olcf.ornl.gov/olcf-resources/data-visualization-resources/hpss/>`_.  HPSS offers high throughput, but high access latency.  To amortize the latency, we aggregate the simulation files with coarse granularity, such that in most cases one must download many TB of data. For example, the halo catalogs for each simulation are in a single tarball (per simulation), which is 6.6 TB for a ``base`` simulation.
 
-There are multiple DOIs describing various AbacusSummit data products. They are all hosted on Constellation and are listed here:
+There are three DOIs describing various AbacusSummit data products. They are all hosted on Constellation and are listed here:
 
-- The primary DOI of AbacusSummit is ``10.13139/OLCF/1811689``.  This is a persistent identifer to the access information at the following URL, from where the AbacusSummit data may be browsed and downloaded via Globus: https://doi.ccs.ornl.gov/ui/doi/355
-- The DOI of the halo light cone catalogs is ``10.13139/OLCF/1825069``, which directs to https://doi.ccs.ornl.gov/ui/doi/362
+First Release of Data Products
+  The first DOI of AbacusSummit is ``10.13139/OLCF/1811689``.  This is the primary 2 PB dataset containing all data products as they came "off the machine" (notably, no cleaning): halo catalogs, particle subsamples, etc.  The DOI itself is a persistent identifer to the following URL, from where the AbacusSummit data may be browsed and downloaded via Globus: https://doi.ccs.ornl.gov/ui/doi/355.
+  
+Cleaned Halo Catalogs
+  The next DOI is ``10.13139/OLCF/1828535``. This contains *cleaned halo catalogs* and particle subsamples.  Additionally, the halo catalogs are aggregated by redshift and simulation type (e.g. ``z0.100_base.tar`` contains all ``base`` simulations at redshift 0.1). Note that even though the cleaning information comes as a set of auxiliary files that annotate the primary catalogs, both the primary and auxiliary files are included in this DOI, thus forming a self-contained dataset. Many users will want to use AbacusSummit through this DOI.  The URL is https://doi.ccs.ornl.gov/ui/doi/363.
+  
+Halo Light Cone Catalogs
+  The DOI of the halo light cone catalogs is ``10.13139/OLCF/1825069``, which directs to https://doi.ccs.ornl.gov/ui/doi/362.
 
 .. note::
   Use the "Download" button at the top-right of ``doi.ccs.ornl.gov`` URLs to access the data on Globus

@@ -8,7 +8,7 @@ All NERSC Users (including DESI Members)
 ----------------------------------------
 All NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC:
 
-``/global/project/projectdirs/desi/public/cosmosim/AbacusSummit``
+``/global/cfs/cdirs/desi/public/cosmosim/AbacusSummit``
 
 Note that despite ``desi`` being in the path, this is a public directory that anyone at NERSC can access. Users who want to work on the data at NERSC should access the data at this path, rather than making a copy or downloading the data via the web portal.
 

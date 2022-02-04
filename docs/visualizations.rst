@@ -13,6 +13,20 @@ Summary Figures
 
     A vertical summary slide/poster. Download here: :download:`192 dpi PNG (1.4 MB) <images/abacussummit_dpi192_portrait.png>`.  An older version with a different color scheme is available here: :download:`192 dpi PNG (2 MB) <images/abacussummit_dpi192_portrait_old.png>`
     
+Video: "Many Universes"
+-----------------------
+.. raw:: html
+    
+    <video width="480" height="480" controls>
+    <source src="https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1080p.webm" type="video/webm">
+    Your browser does not support the video tag.
+    </video>
+
+With AbacusSummit, we simulate many possible universes that are slight variations of each other. This video shows nearly 100 of those universes, transitioning smoothly between them by interpolating the positions of individual particles.
+
+Two resolutions are available for download: :download:`1080p (300 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1080p.webm>` and :download:`1440p (700 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1440p.webm>`.  The videos are VP9-encoded, so you may need a relatively modern video player or web browser to play them. The bitrate is also fairly high, so you probably need GPU-accelerated video decoding for the video to play smoothly.
+
+    
 Phase-sheet Evolution
 ---------------------
 .. figure:: images/lattice_memory_multi.png

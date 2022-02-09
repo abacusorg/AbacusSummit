@@ -369,10 +369,10 @@ Light Cones
 
 For the base boxes, the light cone is structured as three periodic
 copies of the box, centered at (0,0,0), (0,0,2000), and (0,2000,0) in
-Mpc/*h* units. This is observed from the location (-950, -950, -950),
-i.e., 50 Mpc/*h* inside a corner. This provides an octant to a distance of
-1950 Mpc/*h* (*z*\=0.8), shrinking to two patches each about 800 square
-degrees at a distance of 3950 Mpc/*h* (*z*\=2.4).
+Mpc/*h* units. This is observed from the location (-990, -990, -990),
+i.e., 10 Mpc/*h* inside a corner. This provides an octant to a distance of
+1990 Mpc/*h* (*z*\=0.8), shrinking to two patches each about 800 square
+degrees at a distance of 3990 Mpc/*h* (*z*\=2.4).
 
 The three boxes are output separately and the positions are referred to
 the center of each periodic copy, so the particles from the higher

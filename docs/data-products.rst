@@ -277,7 +277,22 @@ the inner 90% of the mass relative to this center.
 -  ``int16_t rvcirc_max_L2com``: radius of max circular velocity,
    relative to the L2 center, stored as the ratio to r100 condensed to
    [0,30000].
-   
+
+Halo light cone catalogs
+~~~~~
+The halo light cone catalogs contain several additional fields listed below.
+
+- ``int64_t index_halo``: index of the halo into the full redshift catalogue
+- ``uint32_t N_interp``: interpolated number of particles in the halo.
+- ``float pos_interp[3]``: interpolated centre of mass position of the largest L2 subhalo.
+- ``float vel_interp[3]``: interpolated centre of mass velocity of the largest L2 subhalo.
+- ``float pos_avg[3]``: average position of the subsample A and B particles in the halo.
+- ``float vel_avg[3]``: average velocity of the subsample A and B particles in the halo.
+- ``float redshift_interp``: interpolated redshift at which the light cone crosses the halo path.
+- ``int8_t origin``: index of the box from which the halo is taken (``0`` signifies the original box, ``1`` and ``2`` - copies of the original box), stored as integer between 0 and 5 (if the raw field ``origin >= 3``, then no merger history is available for this halo, so ``(pos|vel)_interp`` coincides with ``(x|v)_L2com``; when loading with the Python package, the ``origin`` field is modified ``origin %= 3``, and the fields ``(pos|vel)_interp`` of the halos without merger history are substituted with ``(pos|vel)_avg``).
+
+For more details on how these quantities are computed, see `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_.
+  
 Units
 ~~~~~
 The units of positions/radii and velocities, as unpacked by ``abacusutils``

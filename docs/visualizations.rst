@@ -17,7 +17,7 @@ Video: "Many Universes"
 -----------------------
 .. raw:: html
     
-    <video width="960" height="540" controls>
+    <video width="800" height="450" controls>
     <source src="https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1080p.webm" type="video/webm">
     Your browser does not support the video tag.
     </video>

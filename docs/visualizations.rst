@@ -36,7 +36,7 @@ A few different resolutions and aspect ratios are available for download:
     Full-width QHD, this is the best version to use on a high-resolution computer monitor: :download:`Download (740 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1440p.webm>`
     
 1920p (45:32 aspect)
-    Very high resolution, narrow aspect, with the plot elements slightly rearranged to allow space at the bottom for a caption (displayed on the visualization wall in the Flatiron Institute lobby).  :download:`Download (1.2 GB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1920p_flatiron_viswall.webm>`
+    Very high resolution, narrow aspect, with the plot elements slightly rearranged to allow space at the bottom for a caption (displayed on the visualization wall in the Flatiron Institute lobby): :download:`Download (1.2 GB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1920p_flatiron_viswall.webm>`
 
 The videos are VP9-encoded, so you may need a relatively modern video player or web browser to play them. The bitrate is also fairly high, so you probably need GPU-accelerated video decoding for the video to play smoothly.  They probably won't look good over Zoom or most screen-sharing software because there's so much motion and fine detail, but they should look good when directly displayed on a screen or projector.
 

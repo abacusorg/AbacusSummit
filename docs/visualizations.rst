@@ -17,14 +17,28 @@ Video: "Many Universes"
 -----------------------
 .. raw:: html
     
-    <video width="480" height="480" controls>
+    <video width="640" height="480" controls>
     <source src="https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1080p.webm" type="video/webm">
     Your browser does not support the video tag.
     </video>
 
 With AbacusSummit, we simulate many possible universes that are slight variations of each other. This video shows nearly 100 of those universes, transitioning smoothly between them by interpolating the positions of individual particles.
 
-Two resolutions are available for download: :download:`1080p (300 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1080p.webm>` and :download:`1440p (700 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1440p.webm>`.  The videos are VP9-encoded, so you may need a relatively modern video player or web browser to play them. The bitrate is also fairly high, so you probably need GPU-accelerated video decoding for the video to play smoothly.
+A few different resolutions and aspect ratios are available for download:
+
+1080p (16:9 aspect)
+    Full-width HD, good for a full (widescreen) slide: :download:`Download (340 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1080p.webm>`
+    
+1080p (7:6 aspect)
+    Narrow HD, good for half a slide (or a 4:3 slide): :download:`Download (270 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1080p_narrow.webm>`.
+    
+1440p (16:9 aspect)
+    Full-width QHD, this is the best version to use on a high-resolution computer monitor: :download:`Download (740 MB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1440p.webm>`
+    
+1920p (45:32 aspect)
+    Very high resolution, narrow aspect, with the plot elements slightly rearranged to allow space at the bottom for a caption (displayed on the visualization wall in the Flatiron Institute lobby).  :download:`Download (1.2 GB) <https://d1qdmld16vdglj.cloudfront.net/abacussummit_universes_scatter_fps48_1920p_flatiron_viswall.webm>`
+
+The videos are VP9-encoded, so you may need a relatively modern video player or web browser to play them. The bitrate is also fairly high, so you probably need GPU-accelerated video decoding for the video to play smoothly.  They probably won't look good over Zoom or most screen-sharing software because there's so much motion and fine detail, but they should look good when directly displayed on a screen or projector.
 
     
 Phase-sheet Evolution

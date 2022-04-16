@@ -417,3 +417,21 @@ For the huge boxes, the light cone is simply one copy of the box,
 centered at (0,0,0). This provides a full-sky light cone to the the
 half-distance of the box (about 4 Gpc/*h*), and further toward the eight
 corners.
+
+
+Initial Conditions
+------------------
+The initial density fields are saved at two resolutions, 576<sup>3</sup>
+and 1152<sup>3</sup>.  The resulting particle displacements under the
+Zel'dovich approximation are also saved (Abacus applies 2LPT on-the-fly,
+so the files only contain ZA).  For the covariance suite of 500 Mpc/*h* boxes,
+only the lower resolution is available.
+
+The ICs are saved in ASDF files and should have a discoverable data structure.
+In addition to the usual parameter set, a set of growth factors D(*z*)/D(*z*<sub>init</sub>)
+are saved as the parameter name ``GrowthTable``.  The input linear power spectrum
+is also saved in the file.
+
+Late-time particle samples (e.g. from halo catalogs) can be connected to their
+location in the ICs via the PID.  Pass ``lagr_pos`` or ``lagr_idx`` to the ``unpack_bits``
+parameter of ``CompaSOHaloCatalog``, or to the ``load`` parameter of ``abacusnbody.data.read_abacus.read_asdf``.

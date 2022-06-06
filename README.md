@@ -10,7 +10,7 @@ This is the public repository for the specification, utilization,
 and documentation of the AbacusSummit suite of high-performance
 cosmological N-body simulations.  
 
-With nearly 50 trillion particles evolved at high accuracy, AbacusSummit 
+With 60 trillion particles evolved at high accuracy, AbacusSummit 
 is the largest cosmological N-body simulation suite yet produced.
 These simulations were designed
 to meet (and exceed) the Cosmological Simulation Requirements of

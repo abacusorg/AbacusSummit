@@ -163,7 +163,7 @@ gives the format that is revealed to the user by the Python when that differs.
 Keep in mind that the halo catalog consists of purely L1 halos
 (see :doc:`compaso`), and that the spherical overdensity definition
 is a function of epoch. The value is stored in the ``SODensityL1``
-header field.
+header field (relative to the mean cosmic density).
 
 -  ``uint64_t id``: A unique halo number.
 

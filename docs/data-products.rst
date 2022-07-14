@@ -421,8 +421,8 @@ corners.
 
 Initial Conditions
 ------------------
-The initial density fields are saved at two resolutions, 576\ :sup:`3`
-and 1152\ :sup:`3`.  The resulting particle displacements under the
+The initial density fields are saved in configuration space at two resolutions,
+576\ :sup:`3` and 1152\ :sup:`3`.  The resulting particle displacements under the
 Zel'dovich approximation are also saved (Abacus applies 2LPT on-the-fly,
 so the files only contain ZA).  For the covariance suite of 500 Mpc/*h* boxes,
 only the lower resolution is available.

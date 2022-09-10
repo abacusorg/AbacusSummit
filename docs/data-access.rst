@@ -2,10 +2,13 @@ Data Access
 ===========
 
 .. note::
-  The primary web portal to the data is https://abacusnbody.org. More details follow below.
+  The public web portal to the data is https://abacusnbody.org. NERSC users should instead use the :ref:`CFS directory<CFS Directory on NERSC>` below. Both expose the same data.
 
 All NERSC Users (including DESI Members)
 ----------------------------------------
+
+CFS Directory on NERSC
+~~~~~~~~~~~~~~~~~~~~~~
 All NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC:
 
 ``/global/cfs/cdirs/desi/public/cosmosim/AbacusSummit``
@@ -13,6 +16,18 @@ All NERSC users, including DESI collaboration members, can access AbacusSummit d
 Note that despite ``desi`` being in the path, this is a public directory that anyone at NERSC can access. Users who want to work on the data at NERSC should access the data at this path, rather than making a copy or downloading the data via the web portal.
 
 **Addtional information for DESI members**: more advice on getting set up to use AbacusSummit in a DESI NERSC software environment is given here: https://desi.lbl.gov/trac/wiki/CosmoSimsWG/Abacus#AbacusSummit
+
+Some data products were removed from disk to save space. They are listed in :ref:`NERSC: Subset of Data on Disk`. NERSC users can retrieve any such products from tape as described :ref:`here<Accessing Extra Data on Tape (HPSS)>`. Other users can access the full data on tape at :ref:`OLCF Constellation<OLCF Constellation: Full Data on Tape>`.
+
+Accessing Extra Data on Tape (HPSS)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The full 2 PB AbacusSummit data set is stored on `NERSC HPSS <https://docs.nersc.gov/filesystems/archive/>`_ (tape). The HPSS directory is ``/nersc/projects/desi/cosmosim/Abacus/``. The directory structure mirrors that on disk.
+
+One can list HPSS directory contents with ``hsi`` commands like ``hsi ls /nersc/projects/desi/cosmosim/Abacus/``.  Data products are stored in HPSS tarballs, whose file contents can be listed with ``htar`` commands like ``htar -t -f /nersc/projects/desi/cosmosim/Abacus/AbacusSummit_base_c000_ph000/Abacus_AbacusSummit_base_c000_ph000_halos.tar``.  To extract files to disk from an htar archive, one can use the same command but substitute the ``-t`` flag for ``-x``. Be sure to examine the output of the ``-t`` command first to make sure you have enough disk space for the extracted files!
+
+One can also access just a subset of files in an htar archive. For example, to see the subsample A & B rv (pos/vel) files at redshift 0.1 in AbacusSummit_base_c000_ph000, use: ``htar -t -f /nersc/projects/desi/cosmosim/Abacus/AbacusSummit_base_c000_ph000/Abacus_AbacusSummit_base_c000_ph000_halos.tar './halos/z0.100/{halo,field}_rv_{A,B}'``
+
+See the `NERSC HPSS docs <https://docs.nersc.gov/filesystems/archive/>`_ for more on ``hsi`` and ``htar``.
 
 Public
 -------
@@ -47,11 +62,21 @@ The availability of Constellation depends on the status of HPSS, which undergoes
 
 NERSC: Subset of Data on Disk
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ (CFS) hosts a 750 TB subset of the most important AbacusSummit data products (includes most products except for the 7% "B" particle subsample and the 100% time slice outputs).  The portal to this data is here: https://abacusnbody.org/
+NERSC's `Community File System <https://docs.nersc.gov/filesystems/community/>`_ (CFS) hosts a 750 TB subset of the most important AbacusSummit data products.  The portal to this data is here: https://abacusnbody.org/
 
 Using that portal, you can select the desired subset of simulations, data products, and redshifts, and initiate the transfer via Globus.  See :ref:`data-access:using globus`.
 
+This 750 TB subset includes most products except for:
+
+- the 7% "B" particle subsample (halo and field);
+- the 3% "A" field particle subsample at redshifts 0.1, 0.3, 0.4, 1.7, 3.0;
+- the 100% time slice outputs.
+
+Some simulations, like ``AbacusSummit_highbase_c000_ph100`` have all of their products on disk.  Which simulations have all their data on disk may vary with time depending on user demand.  Browsing the file tree (Globus or NERSC) is the best way to see if a particular simulation happens data products that are normally only on tape.
+
 Some data products (initial conditions, merger trees) are not yet exposed via the web interface of this portal, but they can still be manually accessed by browsing the directory tree via Globus.
+
+Note that the web portal is a view to the same directory on NERSC as described in :ref:`All NERSC Users (including DESI Members)`; the same files are available via both access methods (and thus users analyzing data at NERSC should not download an additional copy via the web portal).
 
 The availability of the NERSC portal depends on the availability of CFS and the DTNs (data transfer nodes). If the data is inaccessible, please check the CFS and DTN status on the following page: https://www.nersc.gov/live-status/motd/
 

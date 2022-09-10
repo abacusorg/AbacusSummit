@@ -2,7 +2,7 @@ Data Access
 ===========
 
 .. note::
-  The public web portal to the data is https://abacusnbody.org. NERSC users should instead use the :ref:`CFS directory<CFS Directory on NERSC>` below. Both expose the same data.
+  The public web portal to the data is https://abacusnbody.org. NERSC users should instead use the :ref:`CFS directory<data-access:CFS Directory on NERSC>` below. Both expose the same data.
 
 All NERSC Users (including DESI Members)
 ----------------------------------------
@@ -17,7 +17,7 @@ Note that despite ``desi`` being in the path, this is a public directory that an
 
 **Addtional information for DESI members**: more advice on getting set up to use AbacusSummit in a DESI NERSC software environment is given here: https://desi.lbl.gov/trac/wiki/CosmoSimsWG/Abacus#AbacusSummit
 
-Some data products were removed from disk to save space. They are listed in :ref:`NERSC: Subset of Data on Disk`. NERSC users can retrieve any such products from tape as described :ref:`here<Accessing Extra Data on Tape (HPSS)>`. Other users can access the full data on tape at :ref:`OLCF Constellation<OLCF Constellation: Full Data on Tape>`.
+Some data products were removed from disk to save space. They are listed in :ref:`data-access:NERSC: Subset of Data on Disk`. NERSC users can retrieve any such products from tape as described :ref:`here<data-access:Accessing Extra Data on Tape (HPSS)>`. Other users can access the full data on tape at :ref:`OLCF Constellation<data-access:OLCF Constellation: Full Data on Tape>`.
 
 Accessing Extra Data on Tape (HPSS)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,7 +76,7 @@ Some simulations, like ``AbacusSummit_highbase_c000_ph100`` have all of their pr
 
 Some data products (initial conditions, merger trees) are not yet exposed via the web interface of this portal, but they can still be manually accessed by browsing the directory tree via Globus.
 
-Note that the web portal is a view to the same directory on NERSC as described in :ref:`All NERSC Users (including DESI Members)`; the same files are available via both access methods (and thus users analyzing data at NERSC should not download an additional copy via the web portal).
+Note that the web portal is a view to the same directory on NERSC as described in :ref:`data-access:All NERSC Users (including DESI Members)`; the same files are available via both access methods (and thus users analyzing data at NERSC should not download an additional copy via the web portal).
 
 The availability of the NERSC portal depends on the availability of CFS and the DTNs (data transfer nodes). If the data is inaccessible, please check the CFS and DTN status on the following page: https://www.nersc.gov/live-status/motd/
 

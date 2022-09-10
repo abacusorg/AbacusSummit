@@ -1,3 +1,5 @@
+.. highlight:: console
+
 Data Access
 ===========
 

@@ -9,9 +9,9 @@ All NERSC Users (including DESI Members)
 
 CFS Directory on NERSC
 ~~~~~~~~~~~~~~~~~~~~~~
-All NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC:
+All NERSC users, including DESI collaboration members, can access AbacusSummit data products at the following public path on NERSC::
 
-``/global/cfs/cdirs/desi/public/cosmosim/AbacusSummit``
+  /global/cfs/cdirs/desi/public/cosmosim/AbacusSummit
 
 Note that despite ``desi`` being in the path, this is a public directory that anyone at NERSC can access. Users who want to work on the data at NERSC should access the data at this path, rather than making a copy or downloading the data via the web portal.
 
@@ -21,11 +21,25 @@ Some data products were removed from disk to save space. They are listed in :ref
 
 Accessing Extra Data on Tape (HPSS)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The full 2 PB AbacusSummit data set is stored on `NERSC HPSS <https://docs.nersc.gov/filesystems/archive/>`_ (tape). The HPSS directory is ``/nersc/projects/desi/cosmosim/Abacus/``. The directory structure mirrors that on disk.
+The full 2 PB AbacusSummit data set is stored on `NERSC HPSS <https://docs.nersc.gov/filesystems/archive/>`_ (tape). The HPSS directory is::
 
-One can list HPSS directory contents with ``hsi`` commands like ``hsi ls /nersc/projects/desi/cosmosim/Abacus/``.  Data products are stored in HPSS tarballs, whose file contents can be listed with ``htar`` commands like ``htar -t -f /nersc/projects/desi/cosmosim/Abacus/AbacusSummit_base_c000_ph000/Abacus_AbacusSummit_base_c000_ph000_halos.tar``.  To extract files to disk from an htar archive, one can use the same command but substitute the ``-t`` flag for ``-x``. Be sure to examine the output of the ``-t`` command first to make sure you have enough disk space for the extracted files!
+  /nersc/projects/desi/cosmosim/Abacus/
+  
+The directory structure mirrors that on disk.
 
-One can also access just a subset of files in an htar archive. For example, to see the subsample A & B rv (pos/vel) files at redshift 0.1 in AbacusSummit_base_c000_ph000, use: ``htar -t -f /nersc/projects/desi/cosmosim/Abacus/AbacusSummit_base_c000_ph000/Abacus_AbacusSummit_base_c000_ph000_halos.tar './halos/z0.100/{halo,field}_rv_{A,B}'``
+One can list HPSS directory contents with ``hsi`` commands like::
+
+  hsi ls /nersc/projects/desi/cosmosim/Abacus/
+
+Data products are stored in HPSS tarballs, whose file contents can be listed with ``htar`` commands like::
+
+  htar -t -f /nersc/projects/desi/cosmosim/Abacus/AbacusSummit_base_c000_ph000/Abacus_AbacusSummit_base_c000_ph000_halos.tar
+
+To extract files to disk from an htar archive, one can use the same command but substitute the ``-t`` flag for ``-x``. Be sure to examine the output of the ``-t`` command first to make sure you have enough disk space for the extracted files!
+
+One can also access just a subset of files in an htar archive. For example, to see the subsample A & B rv (pos/vel) files at redshift 0.1 in AbacusSummit_base_c000_ph000, use::
+
+  htar -t -f /nersc/projects/desi/cosmosim/Abacus/AbacusSummit_base_c000_ph000/Abacus_AbacusSummit_base_c000_ph000_halos.tar './halos/z0.100/{halo,field}_rv_{A,B}'
 
 See the `NERSC HPSS docs <https://docs.nersc.gov/filesystems/archive/>`_ for more on ``hsi`` and ``htar``.
 
@@ -72,7 +86,7 @@ This 750 TB subset includes most products except for:
 - the 3% "A" field particle subsample at redshifts 0.1, 0.3, 0.4, 1.7, 3.0;
 - the 100% time slice outputs.
 
-Some simulations, like ``AbacusSummit_highbase_c000_ph100`` have all of their products on disk.  Which simulations have all their data on disk may vary with time depending on user demand.  Browsing the file tree (Globus or NERSC) is the best way to see if a particular simulation happens data products that are normally only on tape.
+Some simulations, like ``AbacusSummit_highbase_c000_ph100``, have all of their products on disk.  The list of such simulations may change over time depending on user demand.  Browsing the file tree (Globus or NERSC) is the best way to see if a particular simulation happens to have data products that are normally only on tape.
 
 Some data products (initial conditions, merger trees) are not yet exposed via the web interface of this portal, but they can still be manually accessed by browsing the directory tree via Globus.
 
@@ -88,11 +102,11 @@ Note that most university and large computing centers have Globus endpoints alre
 
 What data are available?
 ------------------------
-The :doc:`data-products` page documents the data products.  All products are available at the Constellation portal (including ScaleFree and HighZ), and most products except for the 7% "B" particle subsample and the 100% time slice outputs are available at the NERSC portal.
+The :doc:`data-products` page documents the data products.  All products are available at the Constellation portal (including ScaleFree and HighZ) and on NERSC HPSS, and most products are available at the NERSC disk portal.
 
 Some data products (initial conditions, merger trees) are not yet exposed via the web interface of the NERSC portal, but they can still be manually accessed by browsing the directory tree via Globus.
 
-Note that you will almost certainly need to use the utilities at
+Note that you will want to use the utilities at
 https://abacusutils.readthedocs.io/
 to unpack the outputs. 
 

@@ -54,6 +54,14 @@ However, in analysis applications, users are encouraged to use the cosmological 
 of the ASDF data product files (which is loaded into the ``meta`` field of Astropy tables, or the ``header`` field of
 ``CompaSOHaloCatalog`` objects) rather than referencing the cosmologies table.
 
+Column Names
+  The names of the parameter columns in the following table correspond to CLASS parameters.  A good place to look
+  for CLASS parameter definitions is this well-commented file:
+  `abacus_base.pre <https://github.com/abacusorg/AbacusSummit/blob/master/Cosmologies/abacus_base.pre>`_.
+  It is derived from the example CLASS input file, so most of the comments are CLASS's.
+  Note that this file is also the base AbacusSummit parameter file used to :ref:`run CLASS<cosmologies:Running CLASS>`.
+  For the full CLASS documentation, see `here <https://lesgourg.github.io/class_public/class.html#documentation>`_.
+
 
 .. note:: The following table is wide, you may have to scroll to the right to see all the columns.
 

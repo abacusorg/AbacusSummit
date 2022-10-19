@@ -433,8 +433,9 @@ are saved as the parameter name ``GrowthTable``.  The input linear power spectru
 is also saved in the file.
 
 Late-time particle samples (e.g. from halo catalogs) can be connected to their
-location in the ICs via the PID.  Pass ``lagr_pos`` or ``lagr_idx`` to the ``unpack_bits``
-parameter of ``CompaSOHaloCatalog``, or to the ``load`` parameter of ``abacusnbody.data.read_abacus.read_asdf``.
+location in the ICs via the PID.  Pass ``unpack_bits="lagr_pos"`` or ``unpack_bits="lagr_idx"``
+to the :doc:`CompaSOHaloCatalog constructor <abacusutils:compaso>`, or to the ``load`` parameter
+of  :doc:`read_asdf <abacusutils:abacusnbody.data>`.
 
 The initial density field is in units of fractional overdensity at *z*\ :sub:`init`.
 The ``[0,0,0]`` element of the field is at location ``(x,y,z)=(-0.5,-0.5,-0.5)``, in units

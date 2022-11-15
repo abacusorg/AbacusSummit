@@ -80,6 +80,7 @@ inverse cube root of that change.  The kernel density scale is not
 changed.
 
 .. note:: Use the ``SODensityL1`` field in the header to get the
-          exact density threshold at any epoch.
+          exact density at any epoch relative to the mean cosmic
+          density at that epoch
 
 We output properties for all L1 halos with more than 35 particles.

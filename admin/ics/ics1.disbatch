@@ -1,0 +1,5 @@
+#DISBATCH PREFIX ./wrapper.sh 
+##DISBATCH SUFFIX  576
+#DISBATCH SUFFIX  1152
+
+AbacusSummit_base_c000_ph000

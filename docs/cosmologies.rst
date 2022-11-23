@@ -171,3 +171,20 @@ This last subspace has 4 new second derivatives to measure.
 
 The randomness of the starting point was subjected to some patterns on the sign of certain coordinates
 in order to encourage a glass with better balance in 2-d projections.  This was judged simply by eye.
+
+Matching sigma_8
+~~~~~~~~~~~~~~~~
+For deviations from the c000 cosmology where we want to hold sigma8 fixed instead of A_s, we employed the
+following procedure.
+
+1) Run CLASS with the ``abacus_base_fast.pre`` parameters, modifying some parameters but holding A_s fixed;
+2) look at the CLASS-reported sigma8 value;
+3) compute a new A_s = A_s_c000 * (sigma8_c104 / sigma8_c000)^2;
+4) record that new A_s in the cosmologies table;
+5) run CLASS again with the new A_s, using the full-precision ``abacus_base.pre`` parameters;
+6) look at the new sigma8 and record it in the cosmologies table (in theory, it will be the same as c000).
+
+The final sigma8 in step (6) may not match that of c000 exactly because the initial calibration run was
+done using the faster, less accurate ``abacus_base_fast.pre`` settings, while the final run used full
+precisoin.  However, the sigma8 match is still generally very good, as can be verified by inspection
+of the cosmologies table.

@@ -186,5 +186,5 @@ following procedure.
 
 The final sigma8 in step (6) may not match that of c000 exactly because the initial calibration run was
 done using the faster, less accurate ``abacus_base_fast.pre`` settings, while the final run used full
-precisoin.  However, the sigma8 match is still generally very good, as can be verified by inspection
+precision.  However, the sigma8 match is still generally very good, as can be verified by inspection
 of the cosmologies table.

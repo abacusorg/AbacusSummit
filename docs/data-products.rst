@@ -453,3 +453,13 @@ Late-time particle samples (e.g. from halo catalogs) can be connected to their
 location in the ICs via the PID.  Pass ``unpack_bits="lagr_pos"`` or ``unpack_bits="lagr_idx"``
 to the :doc:`CompaSOHaloCatalog constructor <abacusutils:compaso>`, or to the ``load`` parameter
 of  :doc:`read_asdf <abacusutils:abacusnbody.data>`.
+
+Fixed-and-paired ICs
+~~~~~~~~~~~~~~~~~~~~
+The ``fixedbase`` simulations use fixed-amplitude initial conditions, with ``ph098`` the
+inverse of ``ph099``.  This inversion was implemented with a flag to Abacus that flipped
+the Zel'dovich displacements as they were ingested; the actual IC files were the same for
+``ph098`` and ``ph099``. As a consequence, the IC data products are identical for ``ph098``
+and ``ph099``, even though one might expect them to be inverted.  We recommend users of
+``ph098`` invert the density field and displacements themselves, which in both cases is
+as simple as multiplying the fields by :math:`-1`.

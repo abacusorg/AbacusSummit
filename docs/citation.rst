@@ -1,37 +1,45 @@
 Papers & Citation
 =================
 
-Citation
---------
-.. TODO: are we asking users to cite all of these papers? Let's be clear.
+.. sidebar:: BibTeX References
 
-Use of AbacusSummit should cite `Maksimova et al. (2021) <https://academic.oup.com/mnras/article/508/3/4017/6366248>`_ for the
-simulation suite; `Garrison et al. (2021) <https://academic.oup.com/mnras/article/508/1/575/6366254>`_, `Garrison et al. (2019) <https://academic.oup.com/mnras/article/485/3/3370/5371170>`_,
-and `Garrison et al. (2018) <https://iopscience.iop.org/article/10.3847/1538-4365/aabfd3>`_ for the Abacus code;
-and `Metchnik (2009) <https://ui.adsabs.harvard.edu/abs/2009PhDT.......175M/abstract>`_
-for the initial method.  
-Applications using the CompaSO halos should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab2980/6402914>`_ for that method; those using the AbacusSummit halo light cone catalogues should cite `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_; and those using the AbacusSummit halo merger trees should cite `Bose et al. <https://arxiv.org/abs/2110.11409>`_
-Other citations may be requested as we publish more of the numerical methods.
+    .. tip::
+        We provide a BibTeX file with the references on this page `here <https://github.com/abacusorg/AbacusSummit/blob/master/papers.bib>`__.
 
-We provide a BibTeX file with these references `here <https://github.com/abacusorg/AbacusSummit/blob/master/papers.bib>`_.
+Use of AbacusSummit should cite at least the following two papers:
 
-.. _papers:
+* *AbacusSummit: a massive set of high-accuracy, high-resolution N-body simulations*, `Maksimova et al. (2021) <https://academic.oup.com/mnras/article/508/3/4017/6366248>`__ (describes the simulation suite), and
+* *The abacus cosmological N-body code*, `Garrison et al. (2021) <https://academic.oup.com/mnras/article/508/1/575/6366254>`__ (describes the code).
 
-Papers
--------
-AbacusSummit is described in `Maksimova et al. (2021, MNRAS, 508, 4017) <https://academic.oup.com/mnras/article/508/3/4017/6366248>`_. 
-The Abacus N-body code is described in  `Garrison et al. (2021, MNRAS, 508, 575) <https://academic.oup.com/mnras/article/508/1/575/6366254>`_ and `Garrison et al. (2019, MNRAS, 485, 3370) <https://academic.oup.com/mnras/article/485/3/3370/5371170>`_,
-where we detail its performance on the `Schneider et al. (2016, JCAP) <https://iopscience.iop.org/article/10.1088/1475-7516/2016/04/047>`_ code
-comparison simulation, and in `Garrison et al. (2018, ApJS, 236,
-43) <https://iopscience.iop.org/article/10.3847/1538-4365/aabfd3>`_,
-which released an early suite of 125 simulations from 40
-cosmologies (https://lgarrison.github.io/AbacusCosmos/).
+Users of the AbacusSummit CompaSO halo catalogs (which will be most AbacusSummit users) should additionally cite:
 
-`Garrison et al. (2016, MNRAS, 461, 4125) <https://academic.oup.com/mnras/article/461/4/4125/2608725>`_ describes
-our initial condition methods. `Hadzhiyska et al. (2021, MNRAS) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab2980/6402914>`_ 
-describes the CompaSO group finding method. `Hadzhiyska et al. (2021, MNRAS) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`_ documents the method for generating light cones on the fly in AbacusSummit; `Bose et al. <https://arxiv.org/abs/2110.11409>`_ describes the procedure for generating high-fidelity halo merger trees from AbacusSummit. The AbacusHOD model is presented in `Yuan  et al. <https://arxiv.org/abs/2110.11412>`_
+* *CompaSO: A new halo finder for competitive assignment to spherical overdensities*, `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab2980/6402914>`__ (the CompaSO group finding method)
 
-Pinto et al. (in prep) will
-describe the Abacus far-field method.  Using scale-free simulations, `Joyce et al. (2021, MNRAS, 501, 5051) <https://academic.oup.com/mnras/article/501/4/5051/5979795>`_
-describes accuracy tests, and `Garrison et al. (2021, MNRAS, 504, 3550) <https://academic.oup.com/mnras/article/504/3/3550/6246417>`_
-validates the force softening scheme.
+Users of the AbacusSummit halo light cone catalogs should cite:
+
+* *The halo light cone catalogues of AbacusSummit*, `Hadzhiyska et al. (2021) <https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stab3066/6408495>`__ (the generation of halo catalogs on the light cone)
+
+Users of the AbacusSummit merger trees should cite:
+
+* *Constructing high-fidelity halo merger trees in abacussummit*, `Bose et al. (2022) <https://academic.oup.com/mnras/article/512/1/837/6541858>`__ (the merger tree method)
+
+Users of the AbacusHOD module (:doc:`abacusutils:hod`) should cite:
+
+* *AbacusHOD: a highly efficient extended multitracer HOD framework and its application to BOSS and eBOSS data*, `Yuan  et al. (2021) <https://academic.oup.com/mnras/article/510/3/3301/6446006>`__
+
+
+Additional citations of Abacus (which might be used when a work goes beyond just using AbacusSummit data products and is discussing the Abacus code itself) are:
+
+* *A high-fidelity realization of the Euclid code comparison N-body simulation with ABACUS*, `Garrison et al. (2019) <https://academic.oup.com/mnras/article/485/3/3370/5371170>`__ (performance and accuracy of Abacus on the Euclid code comparison simulation, `Schneider et al. (2016) <https://iopscience.iop.org/article/10.1088/1475-7516/2016/04/047>`__)
+* *The Abacus Cosmos: A suite of cosmological N-body simulations*, `Garrison et al. (2018) <https://iopscience.iop.org/article/10.3847/1538-4365/aabfd3>`__ (an early suite of 125 simulations from 40 cosmologies, https://lgarrison.github.io/AbacusCosmos/),
+* *Improving initial conditions for cosmological N-body simulations*, `Garrison et al. (2016) <https://academic.oup.com/mnras/article/461/4/4125/2608725>`__ (detailing the initial conditions method)
+* *A fast N-body scheme for computational cosmology*, `Metchnik (2009) <https://ui.adsabs.harvard.edu/abs/2009PhDT.......175M/abstract>`__ (the inception of the mathematical method for the force solver).
+
+Other Abacus citations may be requested as we publish more of the numerical methods.
+
+A related series of papers investigating the accuracy of Abacus and N-body simulations in general using scale-free simulations may be of interest as well:
+
+* *Accuracy of power spectra in dissipationless cosmological simulations*, `Maleubre et al. (2022) <https://academic.oup.com/mnras/article/512/2/1829/6544652>`__ (likewise assesses the accuracy of power spectra)
+* *Self-similarity of k-nearest neighbour distributions in scale-free simulations*, `Garrison, Abel, and Eisenstein (2021) <https://academic.oup.com/mnras/article/509/2/2281/6414535>`__
+* *Good and proper: self-similarity of N-body simulations with proper force softening*, `Garrison et al. (2021) <https://academic.oup.com/mnras/article/504/3/3550/6246417>`__ (validates the force softening scheme using scale-free simulations)
+* *Quantifying resolution in cosmological N-body simulations using self-similarity*, `Joyce et al. (2021) <https://academic.oup.com/mnras/article/501/4/5051/5979795>`__ (describes accuracy tests using scale-free simulations)

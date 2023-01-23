@@ -279,7 +279,7 @@ the inner 90% of the mass relative to this center.
    [0,30000].
 
 Halo light cone catalogs
-~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 The halo light cone catalogs contain several additional fields listed below.
 
 - ``int64_t index_halo``: Index of the halo into the full redshift catalogue

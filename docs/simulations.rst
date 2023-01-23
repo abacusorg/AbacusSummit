@@ -73,13 +73,12 @@ and ph4999 will be irregular.
 Simulations Table
 -----------------
 
-Download the simulations table `here <https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/simulations.csv>`_.
+The following is a complete listing of the AbacusSummit simulations.
+You can also download this table as a CSV file `here <https://github.com/abacusorg/AbacusSummit/blob/master/Simulations/simulations.csv>`_.
 
-The cosmologies in the "Cosm" column are tabulated in :doc:`cosmologies`.
+The numbers in the "Cosm" column correspond to cosmologies in the :ref:`cosmologies:Cosmologies Table`.
 
 The "PPD" column is the number of particles-per-dimension.
-
-.. note:: The following table is wide, you may have to scroll to the right to see all the columns.
 
 .. csv-table::
     :file: ../Simulations/simulations.csv

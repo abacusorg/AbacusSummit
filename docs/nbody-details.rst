@@ -7,7 +7,7 @@ that affect the accuracy of the outputs (e.g. softening, time stepping, ICs).
 All of the simulations start at *z* = 99 utilizing second-order Lagrangian
 Perturbation Theory initial conditions following corrections of
 first-order particle linear theory; these are described in Garrison
-et al. (2016, see :ref:`papers`) and have a target correction redshift of 12.  The 
+et al. (2016, see :doc:`citation`) and have a target correction redshift of 12.  The 
 particles are displaced from a cubic grid.
 
 The simulations use spline force softening, described in Garrison
@@ -24,7 +24,7 @@ by a parameter eta, which is 0.25 in these simulations.  Simulations
 require about 1100 time steps to reach *z* = 0.1.
 
 Users of the outputs probably don't need to know much of the numerical
-details of the code, but there is one numerical concept that enter
+details of the code, but there is one numerical concept that enters
 into the data products.  Abacus uses a cubic grid of size CPD\ :sup:`3`,
 chosen to tune code speed.  For AbacusSummit, CPD is ususally 1701.
 Processing proceeds in y-z slabs of cells, and particle outputs are

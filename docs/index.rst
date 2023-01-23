@@ -2,10 +2,6 @@
    sphinx-quickstart on Wed Apr 29 14:38:47 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-
-.. image:: images/AbacusSummit_logo_bw.png
-  :width: 300px
-  :align: center
   
 AbacusSummit
 ============
@@ -18,7 +14,7 @@ Computing Facility under a time allocation from the DOE's ALCC program.
 
 AbacusSummit was run using the Abacus N-body code.  For more information about the code, see :doc:`abacus`.
 
-The specifications of the ~150 simulations that comprise AbacusSumit are given on the :doc:`simulations` page.
+The specifications of the 160+ simulations that comprise AbacusSumit are given on the :doc:`simulations` page.
 
 The cosmologies used by these simulations are specified on the :doc:`cosmologies` page.
 

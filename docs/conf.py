@@ -19,8 +19,7 @@
 
 # LHG: this is the author order of the AbacusSummit paper, plus the Phil from the ALCC proposal
 project = 'AbacusSummit'
-copyright = '2021, Nina Maksimova, Lehman Garrison, Daniel Eisenstein, Boryana Hadzhiyska, Sownak Bose, Thomas Satterthwaite, and Philip Pinto'
-author = 'Nina Maksimova, Lehman Garrison, Daniel Eisenstein, Boryana Hadzhiyska, Sownak Bose, Thomas Satterthwaite, and Philip Pinto'
+copyright = '2023, Nina Maksimova, Lehman Garrison, Daniel Eisenstein, Boryana Hadzhiyska, Sownak Bose, Thomas Satterthwaite, and Philip Pinto'
 
 
 # -- General configuration ---------------------------------------------------
@@ -28,7 +27,8 @@ author = 'Nina Maksimova, Lehman Garrison, Daniel Eisenstein, Boryana Hadzhiyska
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['readthedocs_ext.readthedocs', 'recommonmark', 'sphinx.ext.intersphinx', 'sphinx.ext.autosectionlabel']
+extensions = ['sphinx.ext.intersphinx',
+              'sphinx.ext.autosectionlabel']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -36,8 +36,8 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
+exclude_patterns = ['_build']
+root_doc = "index"
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -46,17 +46,34 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 #html_theme = 'alabaster'
 #html_theme = 'default'
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_book_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = ['custom.css']
 
+html_title = "AbacusSummit"
+html_logo = "images/AbacusSummit_logo_bw.png"
 html_favicon = 'images/icon_red.png'
 
-def setup(app):
-    app.add_css_file('custom.css')
+html_show_sourcelink = False
+html_theme_options = {
+    "repository_url": "https://github.com/abacusorg/AbacusSummit",
+    "repository_branch": "master",
+    # "launch_buttons": {
+    #     "binderhub_url": "https://mybinder.org",
+    #     "notebook_interface": "jupyterlab",
+    #     "colab_url": "https://colab.research.google.com/",
+    # },
+    "use_edit_page_button": True,
+    "use_issues_button": True,
+    "use_repository_button": True,
+    "use_download_button": True,
+    "use_fullscreen_button": False,
+    "logo_only": True,
+}
 
 intersphinx_mapping = {'abacusutils': ('https://abacusutils.readthedocs.io/en/latest', None)}
 

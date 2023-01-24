@@ -90,5 +90,14 @@ Missing Data
 In the course of running AbacusSummit, a few rare instances of irreversible data loss occurred before the data could be archived.  The resulting inhomogeneities in the data products presented by AbacusSummit are recorded here.
 
 - AbacusSummit_base_c103_ph000, for redshifts 0.8 and above, is missing all field particles and all halo RVs (but not halo PIDs). Consequently, the halo cleaning is not present at redshift 0.8 and above.
-
 - AbacusSummit_base_c004_ph003 is missing full (pack9) time slice outputs for redshifts 0.8 and 1.4.  And, as a result, no time slice power spectra exist for those redshifts (AB power spectra exist as normal).
+- AbacusSummit_base_c163_ph000 is missing some light cone files; some step
+  files are missing, and within step files, some ranks' outputs may be
+  missing.  The light cone should probably be treated as corrupt and unusable,
+  although a manifest of all the files that survived to be merged into the
+  ASDF data products is available under
+  ``AbacusSummit_base_c163_ph000/lightcones/lcfiles.txt``.
+- AbacusSummit_base_c102_ph000 is missing all light cone step files except
+  ``LightCone0`` for steps 991 and later. Within those step files, it is
+  unknown if outputs from particular ranks are missing. The light cone
+  should probably be treated as corrupt and unusable.

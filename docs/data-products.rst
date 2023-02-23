@@ -456,9 +456,9 @@ of  :doc:`read_asdf <abacusutils:abacusnbody.data>`.
 
 Fixed-and-paired ICs
 ~~~~~~~~~~~~~~~~~~~~
-The ``fixedbase`` simulations use fixed-amplitude initial conditions, with ``ph098`` the
+The ``fixedbase`` simulations use fixed-amplitude initial conditions (``ZD_qPk_fix_to_mean = 1``), with ``ph098`` the
 inverse of ``ph099``.  This inversion was implemented with a flag to Abacus that flipped
-the Zel'dovich displacements as they were ingested; the actual IC files were the same for
+the Zel'dovich displacements as they were ingested (``FlipZelDisp = 1``); the actual IC files were the same for
 ``ph098`` and ``ph099``. As a consequence, the IC data products are identical for ``ph098``
 and ``ph099``, even though one might expect them to be inverted.  We recommend users of
 ``ph098`` invert the density field and displacements themselves, which in both cases is

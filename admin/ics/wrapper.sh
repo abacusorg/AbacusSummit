@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 sim=$1
 res=$2
 

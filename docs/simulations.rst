@@ -22,6 +22,8 @@ Simulation specifications are given a descriptive label, which is included in th
 
 * **Small**: Simulations with base mass resolution but 1728\ :sup:`3` particles in 0.5 Gpc/*h*.
 
+* **Pngbase**: Simulations of primordial non-Gaussianity (currently local-type/f_NL only) in the base volume at lower mass resolution. 4096\ :sup:`3` particles in 2 Gpc/*h*.
+
 Run-Time Products
 -----------------
 

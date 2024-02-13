@@ -36,3 +36,7 @@ AbacusSummit_base_c{100-115}_ph000 , 100-115  , 000     , 6912 , 2000      , 0.1
 AbacusSummit_base_c116_ph000       , 116  , 000     , 6912 , 2000      , 0.1     , none         , "Linear Derivative Grid"
 AbacusSummit_base_c{117-126}_ph000 , 117-126  , 000     , 6912 , 2000      , 0.1     , none         , "Linear Derivative Grid"
 AbacusSummit_base_c{130-181}_ph000 , 130-181  , 000     , 6912 , 2000      , 0.1     , none         , "Broader Emulator Grid"
+Abacus_pngbase_c000_ph000 , 000 , 000 , 4096 , 2000 , 0.3 , Full , "Vanilla LCDM at pngbase mass resolution"
+Abacus_pngbase_c{300-303}_ph000 , 300-303 , 000 , 4096 , 2000 , 0.3 , Full , "f_NL variations, otherwise c000 cosmology"
+Abacus_pngbase_c000_ph001 , 000 , 001 , 4096 , 2000 , 0.3 , Partial , "Second realization, fewer full particle outputs"
+Abacus_pngbase_c{300-303}_ph000 , 300-303 , 001 , 4096 , 2000 , 0.3 , Partial , "Second realization, fewer full particle outputs"

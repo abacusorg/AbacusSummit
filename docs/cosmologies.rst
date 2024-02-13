@@ -46,6 +46,10 @@ We use the CDM+Baryon power spectrum at *z* = 1 (z2_pk_cb) and scale back by the
 factors :math:`D(z_\mathrm{init})/D(1)` to define our matter-dominated CDM-only simulation IC.  The growth function includes the
 neutrinos as a smooth component.
 
+Primordial Non-Gaussianity
+--------------------------
+The cosmologies numbered 300-303 contain local-type primordial non-Gaussianity variations (f_NL).
+
 Cosmologies Table
 -----------------
 

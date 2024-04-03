@@ -61,7 +61,7 @@ html_favicon = 'images/icon_red.png'
 html_show_sourcelink = False
 html_theme_options = {
     "repository_url": "https://github.com/abacusorg/AbacusSummit",
-    "repository_branch": "master",
+    "repository_branch": "main",
     # "launch_buttons": {
     #     "binderhub_url": "https://mybinder.org",
     #     "notebook_interface": "jupyterlab",
@@ -73,6 +73,7 @@ html_theme_options = {
     "use_download_button": True,
     "use_fullscreen_button": False,
     "logo_only": True,
+    "path_to_docs": "docs/",
 }
 
 intersphinx_mapping = {'abacusutils': ('https://abacusutils.readthedocs.io/en/latest', None)}

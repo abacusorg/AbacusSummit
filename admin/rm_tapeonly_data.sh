@@ -4,7 +4,8 @@
 # Deletes:
 # - All B particles
 # - Field A particles from redshifts 0.1, 0.3, 0.4, 1.7, 3.0
-# For now, we will leave base_c000_ph{000..025}, and highbase_c000_ph100 
+# For now, we will leave base_c000_ph{000..025}, and highbase_c000_ph100
+# For pngbase, we'll also leave the final z of 0.3
 
 set -e
 
@@ -21,4 +22,3 @@ for sim in "$@"; do
 
     popd
 done
-

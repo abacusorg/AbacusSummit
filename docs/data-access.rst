@@ -7,7 +7,7 @@ Data Access
   The public web portal to the data is https://abacusnbody.org. NERSC users should instead use the :ref:`CFS directory<data-access:CFS Directory on NERSC>` below. Both expose the same data.
 
 .. tip::
-  A new :ref:`BinderHub<data-access:Flatiron Institute BinderHub>`_ access option has recently been added (July 2024).
+  A new :ref:`BinderHub<data-access:Flatiron Institute BinderHub>` access option has recently been added (July 2024).
 
 All NERSC Users (including DESI Members)
 ----------------------------------------

@@ -7,7 +7,7 @@ Data Access
   The public web portal to the data is https://abacusnbody.org. NERSC users should instead use the :ref:`CFS directory<data-access:CFS Directory on NERSC>` below. Both expose the same data.
 
 .. tip::
-  A new :ref:`BinderHub<data-access:Flatiron Institute BinderHub> access option has recently been added (July 2024).
+  A new :ref:`BinderHub<data-access:Flatiron Institute BinderHub>`_ access option has recently been added (July 2024).
 
 All NERSC Users (including DESI Members)
 ----------------------------------------
@@ -99,7 +99,7 @@ The availability of the NERSC portal depends on the availability of CFS and the 
 
 Flatiron Institute BinderHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Flatiron Institute's Scientific Computing Core runs a BinderHub service that allows users to run a JupyterLab session on a Flatiron server that has access to some AbacusSummit data.  Access to the AbacusSummit Binder projects requires sign-up: https://forms.gle/cj9U89irsEVcM7X66. Please also familiarize yourself with the documentation: https://wiki.flatironinstitute.org/Public/UsingFiBinder
+Flatiron Institute's Scientific Computing Core runs a BinderHub service that allows users to run a JupyterLab session on a Flatiron server that has access to some AbacusSummit data.  Access to the AbacusSummit Binder projects requires sign-up: https://forms.gle/cj9U89irsEVcM7X66. A Google email address is required, but are free to create. Please also familiarize yourself with the documentation: https://wiki.flatironinstitute.org/Public/UsingFiBinder
 
 .. warning::
     User data storage on BinderHub is ephemeral. **Your data will be deleted after a few days of inactivity!** Be sure to download any important data.
@@ -113,7 +113,7 @@ Binder project                       Link
 
 Only a modest amount of compute resources are available to each Binder server, usually around 4 cores and 128 GB RAM. The GPU-enabled environment also has access to a small GPU slice.  Network and IO bandwidth to the AbacusSummit data is also limited, so users should be careful to only load the data they need.
 
-The exact set of simulations and data products that is available via BinderHub may change over time. Data may be added on request, subject to available storage capacity; please open an `issue <https://github.com/abacusorg/AbacusSummit/issues`_ if you have such a request, and please include specific simulations, data products, and redshifts.
+The exact set of simulations and data products that is available via BinderHub may change over time. Data may be added on request, subject to available storage capacity; please open an `issue <https://github.com/abacusorg/AbacusSummit/issues>`_ if you have such a request, and please include specific simulations, data products, and redshifts.
 
 Using Globus
 ~~~~~~~~~~~~

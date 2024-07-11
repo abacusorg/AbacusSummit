@@ -6,6 +6,9 @@ Data Access
 .. note::
   The public web portal to the data is https://abacusnbody.org. NERSC users should instead use the :ref:`CFS directory<data-access:CFS Directory on NERSC>` below. Both expose the same data.
 
+.. tip::
+  A new :ref:`BinderHub<data-access:Flatiron Institute BinderHub> access option has recently been added (July 2024).
+
 All NERSC Users (including DESI Members)
 ----------------------------------------
 
@@ -47,12 +50,13 @@ See the `NERSC HPSS docs <https://docs.nersc.gov/filesystems/archive/>`_ for mor
 
 Public
 -------
-We are pleased to be able to offer two online portals to access AbacusSummit data:
+We are pleased to be able to offer three online portals to access AbacusSummit data:
 
 - the full 2 PB via OLCF's Constellation, tape-backed;
-- a 750 TB subset via NERSC, disk-backed.
+- a 750 TB subset via NERSC, disk-backed;
+- a smaller, ad-hoc collection of data and minimal compute resources via Flatiron Institute's BinderHub.
 
-Constellation, as a tape-backed portal, is appropriate for bulk transfers between supercomputer centers. NERSC, as a disk-backed portal, and is appropriate for fetching narrow subsets of the data.  The Constellation portal also contains the HighZ and ScaleFree simulations.
+Constellation, as a tape-backed portal, is appropriate for bulk transfers between supercomputer centers. Constellation also contains the HighZ and ScaleFree simulations.  NERSC, as a disk-backed portal, and is appropriate for fetching narrow subsets of the data. Flatiron's BinderHub is suitable for exploratory data analysis without having to download any data.
 
 OLCF Constellation: Full Data on Tape
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -93,9 +97,27 @@ Note that the web portal is a view to the same directory on NERSC as described i
 
 The availability of the NERSC portal depends on the availability of CFS and the DTNs (data transfer nodes). If the data is inaccessible, please check the CFS and DTN status on the following page: https://www.nersc.gov/live-status/motd/
 
+Flatiron Institute BinderHub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Flatiron Institute's Scientific Computing Core runs a BinderHub service that allows users to run a JupyterLab session on a Flatiron server that has access to some AbacusSummit data.  Access to the AbacusSummit Binder projects requires sign-up: https://forms.gle/cj9U89irsEVcM7X66. Please also familiarize yourself with the documentation: https://wiki.flatironinstitute.org/Public/UsingFiBinder
+
+.. warning::
+    User data storage on BinderHub is ephemeral. **Your data will be deleted after a few days of inactivity!** Be sure to download any important data.
+
+===================================  ==========================
+Binder project                       Link
+===================================  ==========================
+``AbacusSummit`` (CPU-only)          |Binder AbacusSummit|
+``AbacusSummit-cuda`` (GPU-enabled)  |Binder AbacusSummit-cuda|
+===================================  ==========================
+
+Only a modest amount of compute resources are available to each Binder server, usually around 4 cores and 128 GB RAM. The GPU-enabled environment also has access to a small GPU slice.  Network and IO bandwidth to the AbacusSummit data is also limited, so users should be careful to only load the data they need.
+
+The exact set of simulations and data products that is available via BinderHub may change over time. Data may be added on request, subject to available storage capacity; please open an `issue <https://github.com/abacusorg/AbacusSummit/issues`_ if you have such a request, and please include specific simulations, data products, and redshifts.
+
 Using Globus
 ~~~~~~~~~~~~
-Both the disk-backed and tape-backed portals use the Globus interface.  See here for instructions on using Globus: https://docs.globus.org/how-to/get-started/
+Both the NERSC disk-backed and Constellation tape-backed portals use the Globus interface.  See here for instructions on using Globus: https://docs.globus.org/how-to/get-started/
 
 Note that most university and large computing centers have Globus endpoints already configured.  But for transfers to other sites without pre-configured endpoints, such as a personal computer, one can use `Globus Connect Personal <https://www.globus.org/globus-connect-personal>`_.
 
@@ -116,3 +138,10 @@ At OLCF, we are grateful to Ross Miller and the Constellation team for providing
 The NERSC hosting was made possible with the support of Stephen Bailey, Benjamin Weaver, Eli Dart, Debbie Bard, and Lisa Gerhardt, who we thank warmly.
 
 For additional acknowledgements related to the creation of the suite proper, please see :ref:`authors:acknowledgements & thanks`.
+
+
+.. |Binder AbacusSummit| image:: https://mybinder.org/badge_logo.svg
+   :target: https://binder.flatironinstitute.org/~lgarrison/AbacusSummit
+
+.. |Binder AbacusSummit-cuda| image:: https://mybinder.org/badge_logo.svg
+   :target: https://binder.flatironinstitute.org/~lgarrison/AbacusSummit-cuda

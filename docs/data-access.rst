@@ -99,7 +99,7 @@ The availability of the NERSC portal depends on the availability of CFS and the 
 
 Flatiron Institute BinderHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Flatiron Institute's Scientific Computing Core runs a BinderHub service that allows users to run a JupyterLab session on a Flatiron server that has access to some AbacusSummit data.  Access to the AbacusSummit Binder projects requires sign-up: https://forms.gle/cj9U89irsEVcM7X66. A Google email address is required, but are free to create. Please also familiarize yourself with the documentation: https://wiki.flatironinstitute.org/Public/UsingFiBinder
+Flatiron Institute's Scientific Computing Core runs a BinderHub service that allows users to run a JupyterLab session on a Flatiron server that has access to some AbacusSummit data.  Access to the AbacusSummit Binder projects requires sign-up: https://forms.gle/cj9U89irsEVcM7X66. A Google email address is required, but those are free to create. Please also familiarize yourself with the documentation: https://wiki.flatironinstitute.org/Public/UsingFiBinder
 
 .. warning::
     User data storage on BinderHub is ephemeral. **Your data will be deleted after a few days of inactivity!** Be sure to download any important data.

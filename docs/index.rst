@@ -6,6 +6,9 @@
 AbacusSummit
 ============
 
+.. tip::
+  A new :ref:`BinderHub<data-access:Flatiron Institute BinderHub>` data access option has recently been added (July 2024).
+
 AbacusSummit is a suite of large, high-accuracy cosmological N-body simulations.
 These simulations were designed to meet (and exceed!) the Cosmological Simulation Requirements of
 the `Dark Energy Spectroscopic Instrument (DESI) survey <https://www.desi.lbl.gov/>`_.  AbacusSummit

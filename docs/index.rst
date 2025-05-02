@@ -34,6 +34,7 @@ This documentation and code is hosted in the `abacusorg/AbacusSummit <https://gi
    abacus
    abacussummit
    citation
+   changelog
 
 .. toctree::
    :maxdepth: 2

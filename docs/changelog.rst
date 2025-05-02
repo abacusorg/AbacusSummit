@@ -13,6 +13,10 @@ Granular changes to the documentation are always available in the `repo history 
   * AbacusSummit_base_c003_ph005
   * AbacusSummit_base_c004_ph004
 
+2024 Dec. 14
+------------
+- Description of cosmology c116 fixed. Thanks to David Weinberg for pointing this out.
+
 2024 July
 ---------
 * New BinderHub data access option added

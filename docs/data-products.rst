@@ -449,6 +449,10 @@ this mesh.  The result is equivalent to a sharp k-space filter on the high-resol
 Likewise, the proper procedure for users to produce even lower resolution density fields
 is to Fourier transform the field and band-limit to the desired resolution.
 
+For higher resolution ICs, one can run the Abacus IC code, publically available at https://github.com/abacusorg/zeldovich-PLT.
+The simulation parameter file (``abacus.par``) can be passed to this code, with adjustments for
+the desired resolution and file paths appropriate for your system.
+
 Note that the IC density fields (``ic_dens_*.asdf``) are a direct output of the Gaussian random
 field in the IC code, \*before\* any particles are created. Therefore, there is no mass assignment
 window function to deconvolve when taking the Fourier transform.

@@ -78,7 +78,7 @@ Column Names
 
 Running CLASS
 -------------
-We used `Willem Elber's <https://github.com/wullm>`_ fork of CLASS with N-body gauge support.  Specifically, we used `git hash 6cf8e3 <https://github.com/abacusorg/class_public/tree/6cf8e384da5343277692fdb67df2ee417d23482f>`_.
+We used `Willem Elber's <https://github.com/wullm>`_ fork of CLASS.  Specifically, we used `git hash 6cf8e3 <https://github.com/abacusorg/class_public/tree/6cf8e384da5343277692fdb67df2ee417d23482f>`_. While we chose this version of the code for its ability to support N-body gauge, attempting to reproduce the AbacusSummit CLASS results has shown that N-body gauge was likely not enabled originally (see `abacusorg/AbacusSummit#4 <https://github.com/abacusorg/AbacusSummit/issues/4>`_).
 
 The CLASS outputs stored in `AbacusSummit/Cosmologies <https://github.com/abacusorg/AbacusSummit/tree/master/Cosmologies>`_ can be reproduced by running this code passing both the ``CLASS.ini`` file for a given cosmology and the ``abacus_base.pre`` or ``abacus_base_fast.pre`` file.  For example:
 

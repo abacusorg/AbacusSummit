@@ -95,7 +95,7 @@ Some data products (initial conditions, merger trees) are not yet exposed via th
 
 Note that the web portal is a view to the same directory on NERSC as described in :ref:`data-access:All NERSC Users (including DESI Members)`; the same files are available via both access methods (and thus users analyzing data at NERSC should not download an additional copy via the web portal).
 
-The availability of the NERSC portal depends on the availability of CFS and the DTNs (data transfer nodes). If the data is inaccessible, please check the CFS and DTN status on the following page: https://www.nersc.gov/live-status/motd/
+The availability of the NERSC portal depends on the availability of CFS, the Globus service, and the DTNs (data transfer nodes). If the data is inaccessible, please check the CFS, Globus, and DTN status on the following page: https://www.nersc.gov/users/status
 
 Flatiron Institute BinderHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

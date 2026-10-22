@@ -318,10 +318,6 @@ The conversion of proper km/s to comoving redshift-space displacement may
 be achieved by multiplying by ``BoxSize/VelZSpace_to_kms``.  The numerator
 brings it from unit-box to BoxSize-box, and the denominator brings it to comoving RSD.
 
-Known Bugs
-~~~~~~~~~~
-None at present.
-
 Frequently Asked Questions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 SO_radius special value
@@ -474,3 +470,32 @@ the Zel'dovich displacements as they were ingested (``FlipZelDisp = 1``); the ac
 and ``ph099``, even though one might expect them to be inverted.  We recommend users of
 ``ph098`` invert the density field and displacements themselves, which in both cases is
 as simple as multiplying the fields by :math:`-1`.
+
+Power Spectra
+-------------
+Power spectra in real space, and redshift space for multipoles :math:`\ell=0,2,4`, are available for
+most simulations as ECSV files in the top-level ``power/`` directory. The power spectra were
+measured in post-processing with a custom code using TSC mass assignment to a mesh and window-alias
+deconvolution (`Jing 2005 <https://doi.org/10.1086/427087>`__). No shot noise was subtracted.
+
+ECSV files are plain CSV files with extra metadata that can be read by
+`Astropy <https://docs.astropy.org/en/stable/io/ascii/ecsv.html>`_.
+
+``AB`` subdirectories contain power spectra computed from the subsample of that name—i.e. a uniform
+random 10% subsample (consistent across snapshots). The ``pack9`` subdirectories use 100% of particles.
+
+Known Issues
+------------
+**Power spectra**. The redshift-space power spectrum multipoles were measured with respect to the
+z-axis, but the particles were displaced for redshift-space distortion along the x-axis for most
+simulations.
+
+The following simulations were *not* affected:
+
+* All Abacus_DESI2 and Abacus_pngbase simulations
+* AbacusSummit_base_c003_ph002, c003_ph005, c004_ph004, c004_ph005, c141_ph000, c154_ph000, and c169_ph000
+* AbacusSummit_fixedbase_c000_ph099
+
+All other simulations were affected, meaning:
+
+* AbacusSummit base, fixedbase, high, highbase, huge, hugebase, and small, plus HighZ
